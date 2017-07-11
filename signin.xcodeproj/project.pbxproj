@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB2F5E1A1F157AE200194673 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F5E191F157AE200194673 /* ProfileViewController.swift */; };
 		FB6664401F0E9A5D005CD110 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66643F1F0E9A5D005CD110 /* AppDelegate.swift */; };
 		FB6664421F0E9A5D005CD110 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6664411F0E9A5D005CD110 /* ViewController.swift */; };
 		FB6664451F0E9A5D005CD110 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6664431F0E9A5D005CD110 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB2F5E191F157AE200194673 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FB66643C1F0E9A5D005CD110 /* signin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = signin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB66643F1F0E9A5D005CD110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB6664411F0E9A5D005CD110 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB2F5E1B1F157AE600194673 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FB2F5E191F157AE200194673 /* ProfileViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		FB6664331F0E9A5D005CD110 = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +67,7 @@
 				FB66643F1F0E9A5D005CD110 /* AppDelegate.swift */,
 				FB6664411F0E9A5D005CD110 /* ViewController.swift */,
 				FB6664431F0E9A5D005CD110 /* Main.storyboard */,
+				FB2F5E1B1F157AE600194673 /* View Controllers */,
 				FB6664461F0E9A5D005CD110 /* Assets.xcassets */,
 				FB6664481F0E9A5D005CD110 /* LaunchScreen.storyboard */,
 				FB66644B1F0E9A5D005CD110 /* Info.plist */,
@@ -96,6 +107,7 @@
 				TargetAttributes = {
 					FB66643B1F0E9A5D005CD110 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 28B3WTLL8A;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -136,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB2F5E1A1F157AE200194673 /* ProfileViewController.swift in Sources */,
 				FB6664421F0E9A5D005CD110 /* ViewController.swift in Sources */,
 				FB6664401F0E9A5D005CD110 /* AppDelegate.swift in Sources */,
 			);
@@ -260,6 +273,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 28B3WTLL8A;
 				INFOPLIST_FILE = signin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.signin;
@@ -272,6 +286,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 28B3WTLL8A;
 				INFOPLIST_FILE = signin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.signin;
@@ -299,6 +314,7 @@
 				FB6664501F0E9A5D005CD110 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
