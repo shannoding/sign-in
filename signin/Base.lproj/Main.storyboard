@@ -232,6 +232,9 @@
                                 <state key="normal" title="Save Profile">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveProfileButtonPressed:" destination="f9o-vT-grh" eventType="touchUpInside" id="9x0-NI-EgU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -247,28 +250,15 @@
                     <navigationItem key="navigationItem" title="Profile" id="B82-Fc-Xey">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="2SM-iF-5kq"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="T44-Xr-Cjt" id="S3z-mk-QLG"/>
+                        <outlet property="nameTextField" destination="Se1-sp-U5e" id="5aW-pu-3Tq"/>
+                        <outlet property="saveProfileButton" destination="Yo7-Is-DLc" id="6M4-Rm-grF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UVM-v9-iBU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2593" y="882"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="E3B-9P-B96">
-            <objects>
-                <viewController id="1dN-zO-fxd" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="k50-s3-jbC"/>
-                        <viewControllerLayoutGuide type="bottom" id="Eip-Fe-Q4a"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="95I-GE-X19">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ORp-P3-sC0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="934" y="1000"/>
         </scene>
     </scenes>
 </document>
