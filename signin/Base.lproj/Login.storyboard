@@ -48,7 +48,8 @@
                                     <color key="titleShadowColor" red="0.0" green="0.47934520244598389" blue="0.99908632040023804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="C8W-Ic-36n" kind="show" identifier="segueToHome" id="SEz-vA-z8F"/>
+                                    <action selector="enterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d3M-Ap-RaN"/>
+                                    <segue destination="onK-hq-qe0" kind="show" identifier="showHomeSegue" id="F69-rW-KDn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -63,16 +64,19 @@
                             <constraint firstItem="fm0-Sk-slB" firstAttribute="top" secondItem="hNR-R8-191" secondAttribute="bottom" constant="70" id="loO-dN-bz9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="enterButton" destination="fm0-Sk-slB" id="GBT-Ag-cIp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
-        <!--Home-->
-        <scene sceneID="K5I-Ys-KlB">
+        <!--Main-->
+        <scene sceneID="JwI-Mw-IQX">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="C8W-Ic-36n" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IAw-f0-MMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Main" id="onK-hq-qe0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jUK-3L-302" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="934" y="139"/>
         </scene>
