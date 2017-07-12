@@ -8,6 +8,11 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
+import FirebaseAuthUI
+import FirebaseDatabase
+
+typealias FIRUser = FirebaseAuth.User
 
 class ProfileViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
