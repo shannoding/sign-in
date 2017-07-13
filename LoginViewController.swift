@@ -27,29 +27,32 @@ class LoginViewController: UIViewController {
     
     @IBAction func enterButtonPressed(_ sender: UIButton) {
 
-        
-//        if Auth.auth().currentUser != nil {
-//            let storyboard = UIStoryboard(name: "Main", bundle: .main)
-//            
-//            if let initialViewController = storyboard.instantiateInitialViewController() {
-//                self.view.window?.rootViewController = initialViewController
-//                self.view.window?.makeKeyAndVisible()
-//                self.performSegue(withIdentifier: "showHomeSegue", sender: self)
-//        } else {
+        let user = Auth.auth().currentUser
+        if let user = user {
+            print("\(user)")
+            let storyboard = UIStoryboard(name: "Main", bundle: .main)
+            
+            //if let initialViewController = storyboard.instantiateInitialViewController() {
+              //  self.view.window?.rootViewController = initialViewController
+                //self.view.window?.makeKeyAndVisible()
+                
+                
+                self.performSegue(withIdentifier: "showHomeSegue", sender: self)
+            //}
+        }
+            else {
                 guard let authUI = FUIAuth.defaultAuthUI()
                     else { return }
                 
                 // 2
                 authUI.delegate = self
-                
                 // 3
                 let authViewController = authUI.authViewController()
                 present(authViewController, animated: true)
-            //}
-      //  }
+            }
+        
 
     }
-    
 }
 extension LoginViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
