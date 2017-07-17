@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func enterButtonPressed(_ sender: UIButton) {
-
+        print("enter button pressed")
         let user = Auth.auth().currentUser
         if let user = user {
             print("\(user)")
@@ -40,6 +40,7 @@ class LoginViewController: UIViewController {
                 self.performSegue(withIdentifier: "showHomeSegue", sender: self)
             //}
         }
+            
             else {
                 guard let authUI = FUIAuth.defaultAuthUI()
                     else { return }
@@ -49,13 +50,14 @@ class LoginViewController: UIViewController {
                 // 3
                 let authViewController = authUI.authViewController()
                 present(authViewController, animated: true)
-            }
+        }
         
 
     }
 }
 extension LoginViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
+        print("into authui")
         if let error = error {
             assertionFailure("Error signing in: \(error.localizedDescription)")
             return
@@ -70,23 +72,27 @@ extension LoginViewController: FUIAuthDelegate {
         
         // 3
         
+        print("HI FRIEND")
+        
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let user = User(snapshot: snapshot) {
                 print("Welcome back, \(user.username).")
-                 User.setCurrent(user)
+                User.setCurrent(user)
             } else {
                 print("New user!")
                 
                 guard let firUser = Auth.auth().currentUser,
                     let username = firUser.displayName,
-                    !username.isEmpty else { return }
+                    let email = firUser.email,
+                    !username.isEmpty || !email.isEmpty else { return }
+                    
                 
                 
                 // 4
-                UserService.createUser(firUser, username: username) { (user) in
+                UserService.createUser(firUser, username: username, email: email) { (user) in
                     guard let user = user else { return }
-                print("Created new user, \(user.username)")
-                     User.setCurrent(user)
+                    print("Created new user, \(user.username)")
+                    User.setCurrent(user)
                 }
             }
         })
