@@ -43,7 +43,7 @@ class ProfileViewController: UIViewController {
                 
                     let alertController = UIAlertController(title: "Incomplete Fields", message:
                     "Please fill in the name and email fields.", preferredStyle: UIAlertControllerStyle.alert)
-                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                    alertController.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default,handler: nil))
                 
                     self.present(alertController, animated: true, completion: nil)
                     return
