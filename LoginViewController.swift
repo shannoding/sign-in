@@ -72,12 +72,12 @@ extension LoginViewController: FUIAuthDelegate {
         
         // 3
         
-        print("HI FRIEND")
         
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let user = User(snapshot: snapshot) {
                 print("Welcome back, \(user.username).")
                 User.setCurrent(user)
+                print("Welcome back pt. 2, \(User.current.username)")
             } else {
                 print("New user!")
                 
@@ -93,6 +93,7 @@ extension LoginViewController: FUIAuthDelegate {
                     guard let user = user else { return }
                     print("Created new user, \(user.username)")
                     User.setCurrent(user)
+                    print("Created new user pt. 2, \(User.current.username)")
                 }
             }
         })

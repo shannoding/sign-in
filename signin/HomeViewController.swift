@@ -51,6 +51,7 @@ class HomeViewController: UIViewController {
         let signOutAction = UIAlertAction(title: "Sign Out", style: .default) { _ in
             do {
                 try Auth.auth().signOut()
+                print("The user class should be nil and is \(User.current)")
             } catch let error as NSError {
                 assertionFailure("Error signing out: \(error.localizedDescription)")
             }
