@@ -22,11 +22,15 @@ class HomeViewController: UIViewController {
     
         authHandle = Auth.auth().addStateDidChangeListener() { [unowned self] (auth, user) in
             guard user == nil else { return }
-            print("Actually logged out")
+            
 //            let loginViewController = UIStoryboard.initialViewController(for: .login)
 //            self.view.window?.rootViewController = loginViewController
 //            self.view.window?.makeKeyAndVisible()
-       }
+            
+            let storyboard = UIStoryboard(name: "Login", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+            self.present(controller, animated: true, completion: nil)
+        }
     }
     deinit {
         if let authHandle = authHandle {
@@ -45,21 +49,20 @@ class HomeViewController: UIViewController {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let signOutAction = UIAlertAction(title: "Sign Out", style: .default) { _ in
-            print("log out user")
-            
-                do {
-                    try Auth.auth().signOut()
-                } catch let error as NSError {
-                    assertionFailure("Error signing out: \(error.localizedDescription)")
-                }
-            
+            do {
+                try Auth.auth().signOut()
+            } catch let error as NSError {
+                assertionFailure("Error signing out: \(error.localizedDescription)")
+            }
         }
+        
         alertController.addAction(signOutAction)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true)
+        
+        
     }
-
 }

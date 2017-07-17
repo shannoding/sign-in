@@ -13,7 +13,7 @@
         <!--Home-->
         <scene sceneID="cLx-IA-dAS">
             <objects>
-                <viewController id="qr0-rF-yj1" customClass="HomeViewController" customModule="signin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="qr0-rF-yj1" customClass="HomeViewController" customModule="signin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Oy6-Z6-96e"/>
                         <viewControllerLayoutGuide type="bottom" id="mLv-nS-dRz"/>
@@ -227,7 +227,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fyv-P7-NXc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4XQ-VO-LfO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4XQ-VO-LfO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
