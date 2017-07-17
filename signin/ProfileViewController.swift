@@ -52,7 +52,7 @@ class ProfileViewController: UIViewController {
             guard let user = user else { return }
             User.current.username = inputUsername
             User.current.email = inputEmail
-            print("Updated username to \(user.username) and email to \(user.email)")
+            print("Updated username to \(User.current.username) and email to \(User.current.email)")
             //User.setCurrent(user)
         })
     }

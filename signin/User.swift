@@ -39,7 +39,7 @@ class User {
     }
     
     init?(snapshot: DataSnapshot) {
-        guard let dict = snapshot.value as? [String : Any],
+        guard let dict = snapshot.childSnapshot(forPath: "profile").value as? [String : Any],
             let username = dict["username"] as? String,
             let email = dict["email"] as? String
             else { return nil }
