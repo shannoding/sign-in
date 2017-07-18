@@ -15,6 +15,8 @@ import FirebaseDatabase
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var signOutButton: UIButton!
+    @IBOutlet weak var groupCollectionView: UICollectionView!
+    
     var authHandle: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
@@ -51,7 +53,7 @@ class HomeViewController: UIViewController {
         let signOutAction = UIAlertAction(title: "Sign Out", style: .default) { _ in
             do {
                 try Auth.auth().signOut()
-                print("The user class should be nil and is \(User.current)")
+                print("The user class should not be an actual user and is \(User.current)")
             } catch let error as NSError {
                 assertionFailure("Error signing out: \(error.localizedDescription)")
             }
@@ -65,5 +67,18 @@ class HomeViewController: UIViewController {
         present(alertController, animated: true)
         
         
+    }
+}
+
+extension HomeViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = groupCollectionView.dequeueReusableCell(withReuseIdentifier: "GroupImageCell", for: indexPath) as! GroupImageCell
+        //cell.backgroundColor = .red
+        
+        return cell
     }
 }
