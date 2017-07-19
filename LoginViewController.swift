@@ -75,6 +75,7 @@ extension LoginViewController: FUIAuthDelegate {
         
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let user = User(snapshot: snapshot) {
+                print(user)
                 print("Welcome back, \(user.username).")
                 User.setCurrent(user)
                 print("Welcome back pt. 2, \(User.current.username)")

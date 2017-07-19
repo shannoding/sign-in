@@ -17,17 +17,33 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var groupCollectionView: UICollectionView!
     
+    var user: User!
+    //var groups = [Group]()
+    
+    var groupHandle: DatabaseHandle = 0
+    var groupRef: DatabaseReference?
+    
     var authHandle: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+    /*
+        
+        user = user ?? User.current
+        
+        groupHandle = UserService.observeProfile(for: user) { [unowned self] (ref, user, groups) in
+            self.groupRef = ref
+            self.user = user
+            self.groups = groups
+            
+            DispatchQueue.main.async {
+                self.groupCollectionView.reloadData()
+            }
+        }*/
+        
+        //logout and go to login screen
         authHandle = Auth.auth().addStateDidChangeListener() { [unowned self] (auth, user) in
             guard user == nil else { return }
-            
-//            let loginViewController = UIStoryboard.initialViewController(for: .login)
-//            self.view.window?.rootViewController = loginViewController
-//            self.view.window?.makeKeyAndVisible()
             
             let storyboard = UIStoryboard(name: "Login", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
@@ -80,5 +96,26 @@ extension HomeViewController: UICollectionViewDataSource {
         //cell.backgroundColor = .red
         
         return cell
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let columns: CGFloat = 2
+        let spacing: CGFloat = 3
+        let totalHorizontalSpacing = (columns - 1) * spacing
+        
+        let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
+        let itemSize = CGSize(width: itemWidth, height: itemWidth)
+        
+        return itemSize
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 3
     }
 }
