@@ -13,7 +13,7 @@ import FirebaseDatabase
 
 struct GroupService {
 
-    var groups: [Group]
+    static var groups: [Group] = []
     var groupKey: String?
     
     static func create(groupName: String) {
@@ -26,7 +26,7 @@ struct GroupService {
         
         let ref = Database.database().reference().child("groups_about").childByAutoId()
         
-        let key = ref.key
+        let key = ref.key //Database.database().reference().child("groups_about").childByAutoId()
         let group = Group(key: key, name: groupName)
         // 3
         let dict = group.dictValue
@@ -37,5 +37,8 @@ struct GroupService {
         baseRef.child("groups_joined").child(currentUser.uid).child(key).updateChildValues(dict)
         //baseRef.child("group_members").child(key).child( //user array)
         
+        self.groups.append(group)
+        
     }
+    
 }

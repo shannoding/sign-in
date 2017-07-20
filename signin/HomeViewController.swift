@@ -17,6 +17,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var groupCollectionView: UICollectionView!
     
+    @IBOutlet weak var groupLabel: UILabel!
+    
     var user: User!
     //var groups = [Group]()
     
@@ -27,11 +29,11 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    /*
+    
         
         user = user ?? User.current
         
-        groupHandle = UserService.observeProfile(for: user) { [unowned self] (ref, user, groups) in
+        /*groupHandle = GroupService.observeProfile(for: user) { [unowned self] (ref, user, groups) in
             self.groupRef = ref
             self.user = user
             self.groups = groups
@@ -84,17 +86,25 @@ class HomeViewController: UIViewController {
         
         
     }
+    @IBAction func profileButtonPressed(_ sender: UIButton) {
+//        GroupService.create(groupName: "group1")
+//        GroupService.create(groupName: "group2")
+    }
+    
+    
+    
 }
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 2//GroupService.groups.count - 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = groupCollectionView.dequeueReusableCell(withReuseIdentifier: "GroupImageCell", for: indexPath) as! GroupImageCell
-        //cell.backgroundColor = .red
-        
+        //cell.groupLabel.text = Database.database().reference().child("groups_joined").child(User.current.uid).child(GroupService.groups[0].key).child("group_name").value
+        cell.groupLabel.text = GroupService.groups[0].dictValue["group_name"]
+        cell.backgroundColor = .red
         return cell
     }
 }

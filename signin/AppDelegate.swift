@@ -28,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // 4
             window?.makeKeyAndVisible()
         }
+        
+
         return true
     }
 

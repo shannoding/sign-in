@@ -12,7 +12,7 @@ import FirebaseDatabase.FIRDataSnapshot
 class Group {
     var key: String
     var name: String
-    var dictValue: [String : Any] {
+    var dictValue: [String : String] {
         
         return ["group_name" : name]
     }
