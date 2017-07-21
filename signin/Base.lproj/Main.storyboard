@@ -39,29 +39,26 @@
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKz-QI-IXu">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAd-18-1vO">
                                                     <rect key="frame" x="23" y="23" width="104" height="104"/>
-                                                    <state key="normal" title="Button">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="groupButtonTapped:" destination="lBw-nx-uu1" eventType="touchUpInside" id="E5V-Dj-KZe"/>
-                                                    </connections>
-                                                </button>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="1" green="0.1764705882352941" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottomMargin" secondItem="mKz-QI-IXu" secondAttribute="bottom" constant="15" id="M5F-yS-OR1"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="mKz-QI-IXu" secondAttribute="trailing" constant="15" id="PyT-Aw-07d"/>
-                                            <constraint firstItem="mKz-QI-IXu" firstAttribute="leading" secondItem="lBw-nx-uu1" secondAttribute="leadingMargin" constant="15" id="baL-BS-vj3"/>
-                                            <constraint firstItem="mKz-QI-IXu" firstAttribute="top" secondItem="lBw-nx-uu1" secondAttribute="topMargin" constant="15" id="jES-my-M0U"/>
-                                            <constraint firstItem="mKz-QI-IXu" firstAttribute="centerY" secondItem="lBw-nx-uu1" secondAttribute="centerY" id="oRE-Gg-S0V"/>
-                                            <constraint firstItem="mKz-QI-IXu" firstAttribute="centerX" secondItem="lBw-nx-uu1" secondAttribute="centerX" id="uQW-dp-8Dp"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="bAd-18-1vO" secondAttribute="trailing" constant="15" id="G8p-X0-HfU"/>
+                                            <constraint firstItem="bAd-18-1vO" firstAttribute="centerX" secondItem="lBw-nx-uu1" secondAttribute="centerX" id="JAc-YG-KIx"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="bAd-18-1vO" secondAttribute="bottom" constant="15" id="eVO-ch-4XM"/>
+                                            <constraint firstItem="bAd-18-1vO" firstAttribute="top" secondItem="lBw-nx-uu1" secondAttribute="topMargin" constant="15" id="nFs-98-LPW"/>
+                                            <constraint firstItem="bAd-18-1vO" firstAttribute="centerY" secondItem="lBw-nx-uu1" secondAttribute="centerY" id="p8I-Ww-X9H"/>
+                                            <constraint firstItem="bAd-18-1vO" firstAttribute="leading" secondItem="lBw-nx-uu1" secondAttribute="leadingMargin" constant="15" id="t0j-X8-Rjp"/>
                                         </constraints>
                                         <size key="customSize" width="150" height="150"/>
                                         <connections>
-                                            <outlet property="groupButton" destination="mKz-QI-IXu" id="ULT-RR-weg"/>
+                                            <outlet property="groupLabel" destination="bAd-18-1vO" id="PdY-Ii-4zg"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

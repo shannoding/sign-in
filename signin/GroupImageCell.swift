@@ -10,8 +10,6 @@ import UIKit
 
 class GroupImageCell: UICollectionViewCell {
     
-    @IBOutlet weak var groupButton: UIButton!
+    @IBOutlet weak var groupLabel: UILabel!
     
-    @IBAction func groupButtonTapped(_ sender: UIButton) {
-    }
 }

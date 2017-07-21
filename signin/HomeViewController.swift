@@ -95,25 +95,25 @@ extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = groupCollectionView.dequeueReusableCell(withReuseIdentifier: "GroupImageCell", for: indexPath) as! GroupImageCell
-        //cell.groupButton.text = Database.database().reference().child("groups_joined").child(User.current.uid).child(GroupService.groups[0].key).child("group_name").value
+        //cell.groupLabel.text = Database.database().reference().child("groups_joined").child(User.current.uid).child(GroupService.groups[0].key).child("group_name").value
         
         cell.layer.cornerRadius = 7
         cell.layer.masksToBounds = true
         
         if indexPath.item < GroupService.groups.count {
             let groupName = GroupService.groups[indexPath.item].dictValue["group_name"]
-            cell.groupButton.setTitle(groupName,for: .normal)
+            cell.groupLabel.text = groupName
             cell.backgroundColor = UIColor(red:1.00, green:0.18, blue:0.33, alpha:1.0)
             
             return cell
         }
         let cellCount = indexPath.item
         if cellCount == GroupService.groups.count + 1 {
-            cell.groupButton.setTitle("Join Group",for: .normal)
+            cell.groupLabel.text = "Join Group"
             return cell
         }
         else {
-            cell.groupButton.setTitle("Create Group",for: .normal)
+            cell.groupLabel.text = "Create Group"
             return cell
         }
     }
@@ -142,19 +142,22 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension HomeViewController: UICollectionViewDelegate {
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("LOOKS LIKE YOU TOUCHED GROUP NUMBER \(indexPath.item) MY FRIEND")
         if indexPath.item < GroupService.groups.count {
-            
+            let groupNumber = indexPath.item
+            groupSelected = GroupService.groups[groupNumber]
         }
         else {
-            print("LOOKS LIKE YOU TOUCHED CREATE GROUP MY FRIEND")
-            if indexPath.item == GroupService.groups.count + 1 {
+            if indexPath.item == GroupService.groups.count {
                 GroupService.create(groupName: "ANOTHERGROUP", uid: User.current.uid)
             }
+            DispatchQueue.main.async {
+                self.groupCollectionView.reloadData()
+            }
+            print("RELOADED PEW PEW")
         }
-        DispatchQueue.main.async {
-            self.groupCollectionView.reloadData()
-        }
-        print("RELOADED PEW PEW")
+        
     }
 }

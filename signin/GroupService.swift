@@ -18,12 +18,6 @@ struct GroupService {
     
     
     static func create(groupName: String, uid: String) {
-        // create new group in database
-        
-        
-        // list of uids inside a group key (group_members and group_admins)
-        // list of other attributes under group key
-        //let currentUser = User.current
         
         let ref = Database.database().reference().child("groups_about").childByAutoId()
         
