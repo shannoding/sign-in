@@ -20,28 +20,21 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var groupLabel: UILabel!
     
     var user: User!
-    //var groups = [Group]()
+    
     
     var groupHandle: DatabaseHandle = 0
     var groupRef: DatabaseReference?
     
     var authHandle: AuthStateDidChangeListenerHandle?
     
+    static var groupSelected: Group? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
         
         user = user ?? User.current
         
-        /*groupHandle = GroupService.observeProfile(for: user) { [unowned self] (ref, user, groups) in
-            self.groupRef = ref
-            self.user = user
-            self.groups = groups
-            
-            DispatchQueue.main.async {
-                self.groupCollectionView.reloadData()
-            }
-        }*/
         
         //logout and go to login screen
         authHandle = Auth.auth().addStateDidChangeListener() { [unowned self] (auth, user) in
@@ -97,15 +90,34 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return GroupService.groups.count
+        print("There are \(GroupService.groups.count) groups")
+        return GroupService.groups.count + 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = groupCollectionView.dequeueReusableCell(withReuseIdentifier: "GroupImageCell", for: indexPath) as! GroupImageCell
         //cell.groupLabel.text = Database.database().reference().child("groups_joined").child(User.current.uid).child(GroupService.groups[0].key).child("group_name").value
-        cell.groupLabel.text = GroupService.groups[indexPath.item].dictValue["group_name"]
-        cell.backgroundColor = .red
-        return cell
+        
+        cell.layer.cornerRadius = 7
+        cell.layer.masksToBounds = true
+        
+        if indexPath.item < GroupService.groups.count {
+            cell.groupLabel.text = GroupService.groups[indexPath.item].dictValue["group_name"]
+            //let randomColor = Int(arc4random_uniform(255)+1)
+            //cell.backgroundColor = UIColor(colorLiteralRed: Float(arc4random_uniform(255)+1.0), green: Float(arc4random_uniform(255)+1), blue: Float(arc4random_uniform(255)+1), alpha: Float(arc4random_uniform(255)+1))
+            cell.backgroundColor = UIColor(red:1.00, green:0.18, blue:0.33, alpha:1.0)
+            
+            return cell
+        }
+        let cellCount = indexPath.item
+        if cellCount == GroupService.groups.count + 1 {
+            cell.groupLabel.text = "Join Group"
+            return cell
+        }
+        else {
+            cell.groupLabel.text = "Create Group"
+            return cell
+        }
     }
 }
 
@@ -118,6 +130,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
         let itemSize = CGSize(width: itemWidth, height: itemWidth)
         
+        
         return itemSize
     }
     
@@ -127,5 +140,21 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 3
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.item < GroupService.groups.count {
+            
+        }
+        else {
+            if indexPath.item == GroupService.groups.count + 1 {
+                
+            }
+        }
+        DispatchQueue.main.async {
+            self.groupCollectionView.reloadData()
+        }
     }
 }

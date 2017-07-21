@@ -13,16 +13,17 @@ import FirebaseDatabase
 
 struct GroupService {
 
-    static var groups: [Group] = []
-    var groupKey: String?
+    static var groups: [Group] = [Group(key: "GROUPKEY1", name: "GROUPNAME1"), Group(key: "GROUPKEY2", name: "GROUPNAME2"), Group(key: "GROUPKEY3", name: "GROUPNAME3"),Group(key: "GROUPKEY4", name: "GROUPNAME4"), Group(key: "GROUPKEY5", name: "GROUPNAME5"), Group(key: "GROUPKEY6", name: "GROUPNAME6")]
+    //var groupKey: String?
     
-    static func create(groupName: String) {
+    
+    static func create(groupName: String, uid: String) {
         // create new group in database
         
         
         // list of uids inside a group key (group_members and group_admins)
         // list of other attributes under group key
-        let currentUser = User.current
+        //let currentUser = User.current
         
         let ref = Database.database().reference().child("groups_about").childByAutoId()
         
@@ -34,11 +35,15 @@ struct GroupService {
         ref.updateChildValues(dict)
         
         let baseRef = Database.database().reference()
-        baseRef.child("groups_joined").child(currentUser.uid).child(key).updateChildValues(dict)
+        baseRef.child("groups_joined").child(uid).child(key).updateChildValues(dict)
         //baseRef.child("group_members").child(key).child( //user array)
         
         self.groups.append(group)
         
+    }
+    
+    static func checkUserGroups(uid: String) {
+        //let ref = Database.database().reference().child("groups_joined").child(uid)
     }
     
 }
