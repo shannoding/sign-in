@@ -77,7 +77,7 @@ extension LoginViewController: FUIAuthDelegate {
             if let user = User(snapshot: snapshot) {
                 print(user)
                 print("Welcome back, \(user.username).")
-                User.setCurrent(user)
+                User.setCurrent(user, writeToUserDefaults: true)
                 print("Welcome back pt. 2, \(User.current.username)")
                 self.enterButton.setTitle("ENTER", for: .normal)
             } else {
@@ -93,7 +93,7 @@ extension LoginViewController: FUIAuthDelegate {
                 UserService.createUser(firUser, username: username, email: email) { (user) in
                     guard let user = user else { return }
                     print("Created new user, \(user.username)")
-                    User.setCurrent(user)
+                    User.setCurrent(user, writeToUserDefaults: true)
                     print("Created new user pt. 2, \(User.current.username)")
                 }
             }

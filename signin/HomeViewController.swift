@@ -97,13 +97,13 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2//GroupService.groups.count - 1
+        return GroupService.groups.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = groupCollectionView.dequeueReusableCell(withReuseIdentifier: "GroupImageCell", for: indexPath) as! GroupImageCell
         //cell.groupLabel.text = Database.database().reference().child("groups_joined").child(User.current.uid).child(GroupService.groups[0].key).child("group_name").value
-        cell.groupLabel.text = GroupService.groups[0].dictValue["group_name"]
+        cell.groupLabel.text = GroupService.groups[indexPath.item].dictValue["group_name"]
         cell.backgroundColor = .red
         return cell
     }
