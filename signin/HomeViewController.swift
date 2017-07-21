@@ -17,7 +17,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var groupCollectionView: UICollectionView!
     
-    @IBOutlet weak var groupLabel: UILabel!
     
     var user: User!
     
@@ -96,26 +95,25 @@ extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = groupCollectionView.dequeueReusableCell(withReuseIdentifier: "GroupImageCell", for: indexPath) as! GroupImageCell
-        //cell.groupLabel.text = Database.database().reference().child("groups_joined").child(User.current.uid).child(GroupService.groups[0].key).child("group_name").value
+        //cell.groupButton.text = Database.database().reference().child("groups_joined").child(User.current.uid).child(GroupService.groups[0].key).child("group_name").value
         
         cell.layer.cornerRadius = 7
         cell.layer.masksToBounds = true
         
         if indexPath.item < GroupService.groups.count {
-            cell.groupLabel.text = GroupService.groups[indexPath.item].dictValue["group_name"]
-            //let randomColor = Int(arc4random_uniform(255)+1)
-            //cell.backgroundColor = UIColor(colorLiteralRed: Float(arc4random_uniform(255)+1.0), green: Float(arc4random_uniform(255)+1), blue: Float(arc4random_uniform(255)+1), alpha: Float(arc4random_uniform(255)+1))
+            let groupName = GroupService.groups[indexPath.item].dictValue["group_name"]
+            cell.groupButton.setTitle(groupName,for: .normal)
             cell.backgroundColor = UIColor(red:1.00, green:0.18, blue:0.33, alpha:1.0)
             
             return cell
         }
         let cellCount = indexPath.item
         if cellCount == GroupService.groups.count + 1 {
-            cell.groupLabel.text = "Join Group"
+            cell.groupButton.setTitle("Join Group",for: .normal)
             return cell
         }
         else {
-            cell.groupLabel.text = "Create Group"
+            cell.groupButton.setTitle("Create Group",for: .normal)
             return cell
         }
     }
@@ -149,12 +147,14 @@ extension HomeViewController: UICollectionViewDelegate {
             
         }
         else {
+            print("LOOKS LIKE YOU TOUCHED CREATE GROUP MY FRIEND")
             if indexPath.item == GroupService.groups.count + 1 {
-                
+                GroupService.create(groupName: "ANOTHERGROUP", uid: User.current.uid)
             }
         }
         DispatchQueue.main.async {
             self.groupCollectionView.reloadData()
         }
+        print("RELOADED PEW PEW")
     }
 }

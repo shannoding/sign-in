@@ -9,6 +9,9 @@
 import UIKit
 
 class GroupImageCell: UICollectionViewCell {
-    @IBOutlet weak var groupLabel: UILabel!
     
+    @IBOutlet weak var groupButton: UIButton!
+    
+    @IBAction func groupButtonTapped(_ sender: UIButton) {
+    }
 }

@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="prQ-8s-0Cx">
-                                <rect key="frame" x="31" y="0.0" width="313" height="397"/>
+                                <rect key="frame" x="31" y="89" width="313" height="308"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jzB-JK-zZj">
                                     <size key="itemSize" width="50" height="50"/>
@@ -39,26 +39,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqZ-FF-zTp">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKz-QI-IXu">
                                                     <rect key="frame" x="23" y="23" width="104" height="104"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="groupButtonTapped:" destination="lBw-nx-uu1" eventType="touchUpInside" id="E5V-Dj-KZe"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="1" green="0.1764705882352941" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottomMargin" secondItem="dqZ-FF-zTp" secondAttribute="bottom" constant="15" id="AOv-mE-BRP"/>
-                                            <constraint firstItem="dqZ-FF-zTp" firstAttribute="centerX" secondItem="lBw-nx-uu1" secondAttribute="centerX" id="DBR-1d-oYS"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="dqZ-FF-zTp" secondAttribute="trailing" constant="15" id="LKw-21-Kde"/>
-                                            <constraint firstItem="dqZ-FF-zTp" firstAttribute="leading" secondItem="lBw-nx-uu1" secondAttribute="leadingMargin" constant="15" id="ckX-EP-Giu"/>
-                                            <constraint firstItem="dqZ-FF-zTp" firstAttribute="top" secondItem="lBw-nx-uu1" secondAttribute="topMargin" constant="15" id="rHd-0V-DI4"/>
-                                            <constraint firstItem="dqZ-FF-zTp" firstAttribute="centerY" secondItem="lBw-nx-uu1" secondAttribute="centerY" id="yqI-eI-L73"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="mKz-QI-IXu" secondAttribute="bottom" constant="15" id="M5F-yS-OR1"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="mKz-QI-IXu" secondAttribute="trailing" constant="15" id="PyT-Aw-07d"/>
+                                            <constraint firstItem="mKz-QI-IXu" firstAttribute="leading" secondItem="lBw-nx-uu1" secondAttribute="leadingMargin" constant="15" id="baL-BS-vj3"/>
+                                            <constraint firstItem="mKz-QI-IXu" firstAttribute="top" secondItem="lBw-nx-uu1" secondAttribute="topMargin" constant="15" id="jES-my-M0U"/>
+                                            <constraint firstItem="mKz-QI-IXu" firstAttribute="centerY" secondItem="lBw-nx-uu1" secondAttribute="centerY" id="oRE-Gg-S0V"/>
+                                            <constraint firstItem="mKz-QI-IXu" firstAttribute="centerX" secondItem="lBw-nx-uu1" secondAttribute="centerX" id="uQW-dp-8Dp"/>
                                         </constraints>
                                         <size key="customSize" width="150" height="150"/>
                                         <connections>
-                                            <outlet property="groupLabel" destination="dqZ-FF-zTp" id="np0-wf-1fh"/>
+                                            <outlet property="groupButton" destination="mKz-QI-IXu" id="ULT-RR-weg"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -262,7 +265,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fyv-P7-NXc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4XQ-VO-LfO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4XQ-VO-LfO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
