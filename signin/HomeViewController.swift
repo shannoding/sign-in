@@ -147,7 +147,7 @@ extension HomeViewController: UICollectionViewDelegate {
         print("LOOKS LIKE YOU TOUCHED GROUP NUMBER \(indexPath.item) MY FRIEND")
         if indexPath.item < GroupService.groups.count {
             let groupNumber = indexPath.item
-            groupSelected = GroupService.groups[groupNumber]
+            //groupSelected = GroupService.groups[groupNumber]
         }
         else {
             if indexPath.item == GroupService.groups.count {

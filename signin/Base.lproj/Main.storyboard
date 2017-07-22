@@ -59,6 +59,7 @@
                                         <size key="customSize" width="150" height="150"/>
                                         <connections>
                                             <outlet property="groupLabel" destination="bAd-18-1vO" id="PdY-Ii-4zg"/>
+                                            <segue destination="aHG-El-ar3" kind="show" identifier="showGroupSegue" id="IZr-9w-V61"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -135,6 +136,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDn-Nt-S7G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2624.8000000000002" y="130.88455772113943"/>
+        </scene>
+        <!--Group-->
+        <scene sceneID="g82-xQ-fsM">
+            <objects>
+                <viewController id="aHG-El-ar3" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DP8-Jc-SMd"/>
+                        <viewControllerLayoutGuide type="bottom" id="kYu-CK-5sy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lua-Qw-UqQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Group" id="EeP-Ch-1xh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D1U-8E-iKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3641" y="139"/>
         </scene>
         <!--Profile-->
         <scene sceneID="KDb-Cg-foj">
