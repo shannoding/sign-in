@@ -28,9 +28,15 @@ class HomeViewController: UIViewController {
     
     static var groupSelected: Group? = nil
     
+    var groups: [Group] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
+        GroupService.fillGroups(uid: User.current.uid) { (groupList) in
+            self.groups = groupList
+            self.groupCollectionView.reloadData()
+        }
         
         user = user ?? User.current
         
@@ -50,12 +56,15 @@ class HomeViewController: UIViewController {
         }
     }
 
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func unwindToProfileHome(segue:UIStoryboardSegue) { }
+    @IBAction func unwindToCreateGroupHome(segue:UIStoryboardSegue) { self.groupCollectionView.reloadData()
+    self.groups = GroupService.groups }
     
     @IBAction func signOutButtonPressed(_ sender: UIButton) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -89,26 +98,26 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("There are \(GroupService.groups.count) groups")
-        return GroupService.groups.count + 2
+        //print("There are \(GroupService.groups.count) groups")
+        return groups.count + 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = groupCollectionView.dequeueReusableCell(withReuseIdentifier: "GroupImageCell", for: indexPath) as! GroupImageCell
-        //cell.groupLabel.text = Database.database().reference().child("groups_joined").child(User.current.uid).child(GroupService.groups[0].key).child("group_name").value
+        
         
         cell.layer.cornerRadius = 7
         cell.layer.masksToBounds = true
         
-        if indexPath.item < GroupService.groups.count {
-            let groupName = GroupService.groups[indexPath.item].dictValue["group_name"]
+        if indexPath.item < groups.count {
+            let groupName = groups[indexPath.item].dictValue["group_name"]
             cell.groupLabel.text = groupName
             cell.backgroundColor = UIColor(red:1.00, green:0.18, blue:0.33, alpha:1.0)
             
             return cell
         }
         let cellCount = indexPath.item
-        if cellCount == GroupService.groups.count + 1 {
+        if cellCount == groups.count + 1 {
             cell.groupLabel.text = "Join Group"
             return cell
         }
@@ -145,18 +154,19 @@ extension HomeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("LOOKS LIKE YOU TOUCHED GROUP NUMBER \(indexPath.item) MY FRIEND")
-        if indexPath.item < GroupService.groups.count {
+        if indexPath.item < groups.count {
             let groupNumber = indexPath.item
             //groupSelected = GroupService.groups[groupNumber]
         }
         else {
-            if indexPath.item == GroupService.groups.count {
-                GroupService.create(groupName: "ANOTHERGROUP", uid: User.current.uid)
+            if indexPath.item == groups.count {
+                //performSegue(withIdentifier: "createGroupSegue", sender: self)
             }
             DispatchQueue.main.async {
                 self.groupCollectionView.reloadData()
             }
-            print("RELOADED PEW PEW")
+            print("HERE ARE ALL THE GROUPS \(groups)")
+            print("RELOADED")
         }
         
     }

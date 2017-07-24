@@ -21,5 +21,12 @@ class Group {
         self.name = name
         self.key = key
     }
-    
+    init?(snapshot: DataSnapshot) {
+        guard let dict = snapshot.value as? [String : Any],
+            let name = dict["group_name"] as? String
+            else { return nil }
+        
+        self.key = snapshot.key
+        self.name = name
+    }
 }

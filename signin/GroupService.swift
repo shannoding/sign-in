@@ -11,13 +11,16 @@ import FirebaseAuth.FIRUser
 import FirebaseDatabase
 
 
-struct GroupService {
 
-    static var groups: [Group] = [Group(key: "GROUPKEY1", name: "GROUPNAME1"), Group(key: "GROUPKEY2", name: "GROUPNAME2"), Group(key: "GROUPKEY3", name: "GROUPNAME3"),Group(key: "GROUPKEY4", name: "GROUPNAME4"), Group(key: "GROUPKEY5", name: "GROUPNAME5"), Group(key: "GROUPKEY6", name: "GROUPNAME6")]
+struct GroupService {
+    
+    static var groups: [Group] = []
+        //Group(key: "GROUPKEY1", name: "GROUPNAME1"), Group(key: "GROUPKEY2", name: "GROUPNAME2"), Group(key: "GROUPKEY3", name: "GROUPNAME3"),Group(key: "GROUPKEY4", name: "GROUPNAME4"), Group(key: "GROUPKEY5", name: "GROUPNAME5"), Group(key: "GROUPKEY6", name: "GROUPNAME6")]
     //var groupKey: String?
     
     
     static func create(groupName: String, uid: String) {
+        print("creating a group now!")
         
         let ref = Database.database().reference().child("groups_about").childByAutoId()
         
@@ -36,8 +39,49 @@ struct GroupService {
         
     }
     
-    static func checkUserGroups(uid: String) {
-        //let ref = Database.database().reference().child("groups_joined").child(uid)
+    static func fillGroups(uid: String, completion: @escaping ([Group]) -> ()) {
+        let ref = Database.database().reference().child("groups_joined").child(uid)
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+                return
+            }
+            print(snapshot)
+            for snip in snapshot {
+                guard let dict = snip.value as? [String : Any],
+                    let name = dict["group_name"] as? String
+                    else { return }
+                
+                let group = Group(key: snip.key, name: name)
+                print(group)
+                groups.append(group)
+                completion(groups)
+            }
+            print(groups)
+            //HomeViewController.refresh()
+            
+        })
+        
+        
+        
     }
+   /*
+    static func observeUserGroups(for user: User, completion: @escaping (DatabaseReference, User?, [Group]) -> Void) -> DatabaseHandle {
+        // 1
+        let userRef = Database.database().reference().child("groups_joined").child(user.uid)
+        
+        // 2
+        return userRef.observe(.value, with: { snapshot in
+            // 3
+            guard let user = User(snapshot: snapshot) else {
+                return completion(userRef, nil, [])
+            }
+            
+            // 4
+            UserService.groups(for: user, completion: { groups in
+                // 5
+                completion(userRef, user, groups)
+            })
+        })
+    }*/
     
 }

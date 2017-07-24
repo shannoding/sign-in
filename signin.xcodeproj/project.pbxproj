@@ -21,6 +21,9 @@
 		FB1B52341F1FC83300E35D4A /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1B52331F1FC83300E35D4A /* GroupService.swift */; };
 		FB1B52361F1FC84000E35D4A /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1B52351F1FC84000E35D4A /* EventService.swift */; };
 		FB2F5E1A1F157AE200194673 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2F5E191F157AE200194673 /* ProfileViewController.swift */; };
+		FB4BEE5F1F22D260006B09A1 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BEE5E1F22D260006B09A1 /* GroupViewController.swift */; };
+		FB4BEE611F22D3A5006B09A1 /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BEE601F22D3A5006B09A1 /* EventCollectionViewCell.swift */; };
+		FB4BEE631F265E37006B09A1 /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BEE621F265E37006B09A1 /* CreateGroupViewController.swift */; };
 		FB6664401F0E9A5D005CD110 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66643F1F0E9A5D005CD110 /* AppDelegate.swift */; };
 		FB6664421F0E9A5D005CD110 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6664411F0E9A5D005CD110 /* ViewController.swift */; };
 		FB6664451F0E9A5D005CD110 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6664431F0E9A5D005CD110 /* Login.storyboard */; };
@@ -44,6 +47,9 @@
 		FB1B52331F1FC83300E35D4A /* GroupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
 		FB1B52351F1FC84000E35D4A /* EventService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
 		FB2F5E191F157AE200194673 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FB4BEE5E1F22D260006B09A1 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
+		FB4BEE601F22D3A5006B09A1 /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
+		FB4BEE621F265E37006B09A1 /* CreateGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
 		FB66643C1F0E9A5D005CD110 /* signin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = signin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB66643F1F0E9A5D005CD110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB6664411F0E9A5D005CD110 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				FB1B522B1F1E864800E35D4A /* GroupImageCell.swift */,
+				FB4BEE601F22D3A5006B09A1 /* EventCollectionViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -136,6 +143,8 @@
 				FB1B51FC1F168F9000E35D4A /* LoginViewController.swift */,
 				FB1B52271F182D8700E35D4A /* HomeViewController.swift */,
 				FB2F5E191F157AE200194673 /* ProfileViewController.swift */,
+				FB4BEE5E1F22D260006B09A1 /* GroupViewController.swift */,
+				FB4BEE621F265E37006B09A1 /* CreateGroupViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -302,13 +311,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB1B52251F17F42500E35D4A /* UserService.swift in Sources */,
+				FB4BEE611F22D3A5006B09A1 /* EventCollectionViewCell.swift in Sources */,
 				FB1B52311F1FC77200E35D4A /* Event.swift in Sources */,
 				FB2F5E1A1F157AE200194673 /* ProfileViewController.swift in Sources */,
 				FB6664421F0E9A5D005CD110 /* ViewController.swift in Sources */,
 				FB1B522F1F1FC75A00E35D4A /* Group.swift in Sources */,
 				FB1B52281F182D8700E35D4A /* HomeViewController.swift in Sources */,
+				FB4BEE5F1F22D260006B09A1 /* GroupViewController.swift in Sources */,
 				FB1B52051F16CFED00E35D4A /* User.swift in Sources */,
 				FB1B52341F1FC83300E35D4A /* GroupService.swift in Sources */,
+				FB4BEE631F265E37006B09A1 /* CreateGroupViewController.swift in Sources */,
 				FB6664401F0E9A5D005CD110 /* AppDelegate.swift in Sources */,
 				FB1B522C1F1E864800E35D4A /* GroupImageCell.swift in Sources */,
 				FB1B51FD1F168F9000E35D4A /* LoginViewController.swift in Sources */,

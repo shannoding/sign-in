@@ -46,22 +46,31 @@ struct UserService {
             })
         }
     }
-//    static func observeGroups(for user: User, completion: @escaping (DatabaseReference, User?, [Group]) -> Void) -> DatabaseHandle {
-//        // 1
-//        let userRef = Database.database().reference().child("users").child(user.uid)
-//        
-//        // 2
-//        return userRef.observe(.value, with: { snapshot in
-//            // 3
-//            guard let user = User(snapshot: snapshot) else {
-//                return completion(userRef, nil, [])
-//            }
-//            
-//            // 4
-//            posts(for: user, completion: { posts in
-//                // 5
-//                completion(userRef, user, posts)
-//            })
-//        })
-//    }
+    
+    static func groups(for user: User, completion: @escaping ([Group]) -> Void) {
+        let ref = Database.database().reference().child("groups_joined").child(user.uid)
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+                return completion([])
+            }
+            
+            let dispatchGroup = DispatchGroup()
+            
+            let groups: [Group] =
+                snapshot
+                    .reversed()
+                    .flatMap {
+                        guard let group = Group(snapshot: $0)
+                            else { return nil }
+                        
+                        
+                        return group
+            }
+            
+            dispatchGroup.notify(queue: .main, execute: {
+                completion(groups)
+            })
+        })
+    }
+
 }
