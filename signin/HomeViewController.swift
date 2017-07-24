@@ -160,7 +160,7 @@ extension HomeViewController: UICollectionViewDelegate {
         }
         else {
             if indexPath.item == groups.count {
-                //performSegue(withIdentifier: "createGroupSegue", sender: self)
+                performSegue(withIdentifier: "createGroupSegue", sender: self)
             }
             DispatchQueue.main.async {
                 self.groupCollectionView.reloadData()
