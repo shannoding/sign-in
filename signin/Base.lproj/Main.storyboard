@@ -47,7 +47,7 @@
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="1" green="0.1764705882352941" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.3529411764705882" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="bAd-18-1vO" firstAttribute="top" secondItem="lBw-nx-uu1" secondAttribute="topMargin" constant="15" id="ISR-lK-1X5"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="bAd-18-1vO" secondAttribute="trailing" constant="15" id="LJe-lw-m5F"/>
@@ -59,7 +59,6 @@
                                         <size key="customSize" width="150" height="150"/>
                                         <connections>
                                             <outlet property="groupLabel" destination="bAd-18-1vO" id="PdY-Ii-4zg"/>
-                                            <segue destination="7hr-QP-Cgl" kind="show" identifier="createGroupSegue" id="JpI-cd-Mxi"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -131,6 +130,8 @@
                     <connections>
                         <outlet property="groupCollectionView" destination="prQ-8s-0Cx" id="MLH-dT-yC1"/>
                         <outlet property="signOutButton" destination="qHu-f3-Qd8" id="bfT-sO-7PP"/>
+                        <segue destination="7hr-QP-Cgl" kind="show" identifier="showCreateGroupSegue" id="rVf-cQ-HvK"/>
+                        <segue destination="aHG-El-ar3" kind="show" identifier="showGroupSegue" id="fSV-Kg-QXr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDn-Nt-S7G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -323,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D1U-8E-iKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3775" y="918"/>
+            <point key="canvasLocation" x="4319" y="999"/>
         </scene>
         <!--Profile-->
         <scene sceneID="KDb-Cg-foj">
@@ -452,7 +453,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fyv-P7-NXc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4XQ-VO-LfO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4XQ-VO-LfO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

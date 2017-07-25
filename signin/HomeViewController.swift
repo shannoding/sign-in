@@ -72,6 +72,7 @@ class HomeViewController: UIViewController {
         let signOutAction = UIAlertAction(title: "Sign Out", style: .default) { _ in
             do {
                 try Auth.auth().signOut()
+                GroupService.groups = []
                 print("The user class should not be an actual user and is \(User.current)")
             } catch let error as NSError {
                 assertionFailure("Error signing out: \(error.localizedDescription)")
@@ -106,23 +107,25 @@ extension HomeViewController: UICollectionViewDataSource {
         let cell = groupCollectionView.dequeueReusableCell(withReuseIdentifier: "GroupImageCell", for: indexPath) as! GroupImageCell
         
         
-        cell.layer.cornerRadius = 7
+        cell.layer.cornerRadius = 15
         cell.layer.masksToBounds = true
         
         if indexPath.item < groups.count {
             let groupName = groups[indexPath.item].dictValue["group_name"]
             cell.groupLabel.text = groupName
-            cell.backgroundColor = UIColor(red:1.00, green:0.18, blue:0.33, alpha:1.0)
+            cell.backgroundColor = RandomColor.chooseColor()
             
             return cell
         }
         let cellCount = indexPath.item
         if cellCount == groups.count + 1 {
             cell.groupLabel.text = "Join Group"
+            cell.backgroundColor = UIColor(red:0.56, green:0.56, blue:0.58, alpha:1.0)
             return cell
         }
         else {
             cell.groupLabel.text = "Create Group"
+            cell.backgroundColor = UIColor(red:0.56, green:0.56, blue:0.58, alpha:1.0)
             return cell
         }
     }
@@ -136,7 +139,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         
         let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
         let itemSize = CGSize(width: itemWidth, height: itemWidth)
-        
         
         return itemSize
     }
@@ -156,11 +158,15 @@ extension HomeViewController: UICollectionViewDelegate {
         print("LOOKS LIKE YOU TOUCHED GROUP NUMBER \(indexPath.item) MY FRIEND")
         if indexPath.item < groups.count {
             let groupNumber = indexPath.item
-            //groupSelected = GroupService.groups[groupNumber]
+            HomeViewController.groupSelected = GroupService.groups[groupNumber]
+            //performSegue(withIdentifier: "showGroupSegue", sender: self)
         }
         else {
             if indexPath.item == groups.count {
-                performSegue(withIdentifier: "createGroupSegue", sender: self)
+                performSegue(withIdentifier: "showCreateGroupSegue", sender: self)
+            }
+            else {
+                print("Join Group Tapped")
             }
             DispatchQueue.main.async {
                 self.groupCollectionView.reloadData()

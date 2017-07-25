@@ -24,6 +24,7 @@
 		FB4BEE5F1F22D260006B09A1 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BEE5E1F22D260006B09A1 /* GroupViewController.swift */; };
 		FB4BEE611F22D3A5006B09A1 /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BEE601F22D3A5006B09A1 /* EventCollectionViewCell.swift */; };
 		FB4BEE631F265E37006B09A1 /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BEE621F265E37006B09A1 /* CreateGroupViewController.swift */; };
+		FB4BEE651F26B882006B09A1 /* RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BEE641F26B882006B09A1 /* RandomColor.swift */; };
 		FB6664401F0E9A5D005CD110 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66643F1F0E9A5D005CD110 /* AppDelegate.swift */; };
 		FB6664421F0E9A5D005CD110 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6664411F0E9A5D005CD110 /* ViewController.swift */; };
 		FB6664451F0E9A5D005CD110 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6664431F0E9A5D005CD110 /* Login.storyboard */; };
@@ -50,6 +51,7 @@
 		FB4BEE5E1F22D260006B09A1 /* GroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		FB4BEE601F22D3A5006B09A1 /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
 		FB4BEE621F265E37006B09A1 /* CreateGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
+		FB4BEE641F26B882006B09A1 /* RandomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomColor.swift; sourceTree = "<group>"; };
 		FB66643C1F0E9A5D005CD110 /* signin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = signin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB66643F1F0E9A5D005CD110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB6664411F0E9A5D005CD110 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				FB1B51F51F15910800E35D4A /* DatabaseReference+Location.swift */,
+				FB4BEE641F26B882006B09A1 /* RandomColor.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				FB1B522F1F1FC75A00E35D4A /* Group.swift in Sources */,
 				FB1B52281F182D8700E35D4A /* HomeViewController.swift in Sources */,
 				FB4BEE5F1F22D260006B09A1 /* GroupViewController.swift in Sources */,
+				FB4BEE651F26B882006B09A1 /* RandomColor.swift in Sources */,
 				FB1B52051F16CFED00E35D4A /* User.swift in Sources */,
 				FB1B52341F1FC83300E35D4A /* GroupService.swift in Sources */,
 				FB4BEE631F265E37006B09A1 /* CreateGroupViewController.swift in Sources */,
