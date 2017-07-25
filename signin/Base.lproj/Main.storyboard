@@ -68,10 +68,10 @@
                                     <outlet property="delegate" destination="qr0-rF-yj1" id="7Iw-aj-9Js"/>
                                 </connections>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="coF-Ns-FgS">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="coF-Ns-FgS">
                                 <rect key="frame" x="31" y="527" width="313" height="115"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1y-sZ-2j8">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1y-sZ-2j8">
                                         <rect key="frame" x="0.0" y="0.0" width="313" height="45"/>
                                         <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -89,7 +89,7 @@
                                             </segue>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHu-f3-Qd8">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHu-f3-Qd8">
                                         <rect key="frame" x="0.0" y="70" width="313" height="45"/>
                                         <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -115,7 +115,7 @@
                             <constraint firstItem="prQ-8s-0Cx" firstAttribute="trailing" secondItem="coF-Ns-FgS" secondAttribute="trailing" id="Li6-rF-1cS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="coF-Ns-FgS" secondAttribute="trailing" constant="15" id="ccg-QF-ggP"/>
                             <constraint firstItem="prQ-8s-0Cx" firstAttribute="height" secondItem="fC2-gI-0ct" secondAttribute="height" multiplier="0.75" id="dvx-1Z-0sl"/>
-                            <constraint firstAttribute="bottom" secondItem="coF-Ns-FgS" secondAttribute="bottom" constant="25" id="gCQ-Xg-tpI"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="coF-Ns-FgS" secondAttribute="bottom" constant="25" id="gCQ-Xg-tpI"/>
                             <constraint firstItem="prQ-8s-0Cx" firstAttribute="top" secondItem="fC2-gI-0ct" secondAttribute="topMargin" id="lka-Rb-239"/>
                             <constraint firstItem="coF-Ns-FgS" firstAttribute="leading" secondItem="fC2-gI-0ct" secondAttribute="leadingMargin" constant="15" id="piu-Ff-AOP"/>
                             <constraint firstItem="coF-Ns-FgS" firstAttribute="centerX" secondItem="fC2-gI-0ct" secondAttribute="centerX" id="xgZ-dh-wsb"/>
@@ -227,7 +227,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kql-6J-Gcj">
-                                <rect key="frame" x="31" y="25" width="313" height="372"/>
+                                <rect key="frame" x="31" y="0.0" width="313" height="500.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uKt-gj-eGo">
                                     <size key="itemSize" width="50" height="50"/>
@@ -267,7 +267,7 @@
                                 </cells>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="HTF-dn-UD6">
-                                <rect key="frame" x="31" y="472" width="313" height="115"/>
+                                <rect key="frame" x="31" y="525.5" width="313" height="115"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ovf-QC-SYF">
                                         <rect key="frame" x="0.0" y="0.0" width="313" height="45"/>
@@ -307,12 +307,13 @@
                         <constraints>
                             <constraint firstItem="HTF-dn-UD6" firstAttribute="leading" secondItem="lua-Qw-UqQ" secondAttribute="leadingMargin" constant="15" id="1Ee-Wg-NQT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kql-6J-Gcj" secondAttribute="trailing" constant="15" id="7nM-MO-jsK"/>
-                            <constraint firstItem="HTF-dn-UD6" firstAttribute="top" secondItem="kql-6J-Gcj" secondAttribute="bottom" constant="75" id="dZK-Py-0BZ"/>
-                            <constraint firstItem="kYu-CK-5sy" firstAttribute="top" secondItem="HTF-dn-UD6" secondAttribute="bottom" constant="80" id="fQz-Uq-19D"/>
+                            <constraint firstItem="kql-6J-Gcj" firstAttribute="top" secondItem="lua-Qw-UqQ" secondAttribute="topMargin" id="AFM-lC-IDF"/>
+                            <constraint firstItem="HTF-dn-UD6" firstAttribute="top" secondItem="kql-6J-Gcj" secondAttribute="bottom" constant="25" id="Lyg-rE-BwD"/>
+                            <constraint firstItem="kql-6J-Gcj" firstAttribute="height" secondItem="lua-Qw-UqQ" secondAttribute="height" multiplier="0.75" id="d1j-Jy-93g"/>
+                            <constraint firstItem="HTF-dn-UD6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kql-6J-Gcj" secondAttribute="bottom" constant="25" id="dZK-Py-0BZ"/>
+                            <constraint firstItem="kYu-CK-5sy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="HTF-dn-UD6" secondAttribute="bottom" constant="25" id="fQz-Uq-19D"/>
                             <constraint firstItem="kql-6J-Gcj" firstAttribute="leading" secondItem="lua-Qw-UqQ" secondAttribute="leadingMargin" constant="15" id="fve-Gh-oRZ"/>
-                            <constraint firstItem="kql-6J-Gcj" firstAttribute="top" secondItem="lua-Qw-UqQ" secondAttribute="topMargin" constant="25" id="hkm-rG-fdY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HTF-dn-UD6" secondAttribute="trailing" constant="15" id="qWC-FY-z1T"/>
-                            <constraint firstItem="kql-6J-Gcj" firstAttribute="top" secondItem="lua-Qw-UqQ" secondAttribute="topMargin" constant="25" id="tWQ-ia-dbe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Group" id="EeP-Ch-1xh"/>
