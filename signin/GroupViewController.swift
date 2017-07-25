@@ -52,7 +52,7 @@ class GroupViewController: UIViewController {
 
 extension GroupViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //print("There are \(GroupService.groups.count) groups")
+        print("There are \(events.count) plus one events")
         return events.count + 1
     }
     
