@@ -39,6 +39,7 @@ class HomeViewController: UIViewController {
         }
         
         user = user ?? User.current
+        self.title = User.current.username
         
         
         //logout and go to login screen
@@ -62,9 +63,17 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func unwindToProfileHome(segue:UIStoryboardSegue) { }
+    @IBAction func unwindToProfileHome(segue:UIStoryboardSegue) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Home"
+        navigationItem.backBarButtonItem = backItem
+    }
     @IBAction func unwindToCreateGroupHome(segue:UIStoryboardSegue) { self.groupCollectionView.reloadData()
-    self.groups = GroupService.groups }
+    self.groups = GroupService.groups
+        let backItem = UIBarButtonItem()
+        backItem.title = "Home"
+        navigationItem.backBarButtonItem = backItem
+    }
     
     @IBAction func signOutButtonPressed(_ sender: UIButton) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -113,7 +122,7 @@ extension HomeViewController: UICollectionViewDataSource {
         if indexPath.item < groups.count {
             let groupName = groups[indexPath.item].dictValue["group_name"]
             cell.groupLabel.text = groupName
-            cell.backgroundColor = RandomColor.chooseColor()
+            cell.backgroundColor = RandomColor.choosePrimaryColors()
             
             return cell
         }
@@ -159,7 +168,10 @@ extension HomeViewController: UICollectionViewDelegate {
         if indexPath.item < groups.count {
             let groupNumber = indexPath.item
             HomeViewController.groupSelected = GroupService.groups[groupNumber]
-            //performSegue(withIdentifier: "showGroupSegue", sender: self)
+            performSegue(withIdentifier: "showGroupSegue", sender: self)
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
         }
         else {
             if indexPath.item == groups.count {

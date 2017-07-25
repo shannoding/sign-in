@@ -6,7 +6,7 @@
 //  Copyright © 2017 Shannon Ding. All rights reserved.
 //
 
-/*import UIKit
+import UIKit
 import FirebaseAuth
 import FirebaseAuthUI
 import FirebaseDatabase
@@ -15,6 +15,7 @@ import FirebaseDatabase
 class GroupViewController: UIViewController {
     
     var user: User!
+    static var eventSelected: Event? = nil
     
     @IBOutlet weak var eventCollectionView: UICollectionView!
     
@@ -23,13 +24,22 @@ class GroupViewController: UIViewController {
     
     var authHandle: AuthStateDidChangeListenerHandle?
     
-    static var groupSelected: Group? = nil
+    
+    var events: [Event] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        EventService.fillEvents(groupKey: HomeViewController.groupSelected!.key) { (eventList) in
+            self.events = eventList
+            self.eventCollectionView.reloadData()
+        }
+        user = user ?? User.current
+        self.title = HomeViewController.groupSelected!.name
+        
         
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -42,31 +52,27 @@ class GroupViewController: UIViewController {
 
 extension GroupViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("There are \(GroupService.groups.count) groups")
-        return GroupService.groups.count + 2
+        //print("There are \(GroupService.groups.count) groups")
+        return events.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = eventCollectionView.dequeueReusableCell(withReuseIdentifier: "GroupImageCell", for: indexPath) as! GroupImageCell
+        let cell = eventCollectionView.dequeueReusableCell(withReuseIdentifier: "EventCollectionViewCell", for: indexPath) as! EventCollectionViewCell
         
         
-        cell.layer.cornerRadius = 7
+        cell.layer.cornerRadius = 15
         cell.layer.masksToBounds = true
         
-        if indexPath.item < GroupService.groups.count {
-            let groupName = GroupService.groups[indexPath.item].dictValue["group_name"]
-            cell.groupLabel.text = groupName
-            cell.backgroundColor = UIColor(red:1.00, green:0.18, blue:0.33, alpha:1.0)
+        if indexPath.item < events.count {
+            let eventName = events[indexPath.item].dictValue["event_name"]
+            cell.eventLabel.text = eventName
+            cell.backgroundColor = RandomColor.choosePrimaryColors()
             
             return cell
         }
-        let cellCount = indexPath.item
-        if cellCount == GroupService.groups.count + 1 {
-            cell.groupLabel.text = "Join Group"
-            return cell
-        }
         else {
-            cell.groupLabel.text = "Create Group"
+            cell.eventLabel.text = "Create Event"
+            cell.backgroundColor = UIColor(red:0.56, green:0.56, blue:0.58, alpha:1.0)
             return cell
         }
     }
@@ -80,7 +86,6 @@ extension GroupViewController: UICollectionViewDelegateFlowLayout {
         
         let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
         let itemSize = CGSize(width: itemWidth, height: itemWidth)
-        
         
         return itemSize
     }
@@ -98,19 +103,20 @@ extension GroupViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("LOOKS LIKE YOU TOUCHED GROUP NUMBER \(indexPath.item) MY FRIEND")
-        if indexPath.item < GroupService.groups.count {
-            let groupNumber = indexPath.item
-            //groupSelected = GroupService.groups[groupNumber]
+        if indexPath.item < events.count {
+            let eventNumber = indexPath.item
+            //EventViewController.eventSelected = EventService.events[eventNumber]
+            //performSegue(withIdentifier: "showGroupSegue", sender: self)
         }
         else {
-            if indexPath.item == GroupService.groups.count {
-                GroupService.create(groupName: "ANOTHERGROUP", uid: User.current.uid)
-            }
+            //performSegue(withIdentifier: "showCreateGroupSegue", sender: self)
+            print("Create Event Tapped")
             DispatchQueue.main.async {
                 self.eventCollectionView.reloadData()
             }
-            print("RELOADED PEW PEW")
+            print("HERE ARE ALL THE EVENTS \(events)")
+            print("RELOADED")
         }
         
     }
-}*/
+}

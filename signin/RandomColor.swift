@@ -23,8 +23,31 @@ struct RandomColor {
         static let purple = UIColor(red:0.35, green:0.34, blue:0.84, alpha:1.0)
     
     
-    static func chooseColor() -> UIColor {
+    static func chooseAllColors() -> UIColor {
         RandomColor.colors = [self.pink, self.red, self.orange, self.yellow, self.green, self.lightBlue, self.blue, self.darkBlue, self.purple]
+        let randomIndex = Int(arc4random_uniform(UInt32(RandomColor.colors.count)))
+        return RandomColor.colors[randomIndex]
+    }
+    static func chooseLightColors() -> UIColor {
+        RandomColor.colors = [self.red, self.yellow, self.green, self.lightBlue]
+        let randomIndex = Int(arc4random_uniform(UInt32(RandomColor.colors.count)))
+        return RandomColor.colors[randomIndex]
+    }
+    
+    static func chooseCoolColors() -> UIColor {
+        RandomColor.colors = [self.lightBlue, self.blue, self.darkBlue, self.purple]
+        let randomIndex = Int(arc4random_uniform(UInt32(RandomColor.colors.count)))
+        return RandomColor.colors[randomIndex]
+    }
+    
+    static func chooseWarmColors() -> UIColor {
+        RandomColor.colors = [self.pink, self.red, self.orange, self.yellow, self.green]
+        let randomIndex = Int(arc4random_uniform(UInt32(RandomColor.colors.count)))
+        return RandomColor.colors[randomIndex]
+    }
+    
+    static func choosePrimaryColors() -> UIColor {
+        RandomColor.colors = [self.red, self.yellow, self.green, self.blue]
         let randomIndex = Int(arc4random_uniform(UInt32(RandomColor.colors.count)))
         return RandomColor.colors[randomIndex]
     }

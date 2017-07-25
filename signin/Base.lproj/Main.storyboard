@@ -222,7 +222,7 @@
         <!--Group-->
         <scene sceneID="g82-xQ-fsM">
             <objects>
-                <viewController id="aHG-El-ar3" customClass="GroupViewController" sceneMemberID="viewController">
+                <viewController id="aHG-El-ar3" customClass="GroupViewController" customModule="signin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DP8-Jc-SMd"/>
                         <viewControllerLayoutGuide type="bottom" id="kYu-CK-5sy"/>
@@ -241,7 +241,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="N0V-er-tcg">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="N0V-er-tcg" customClass="EventCollectionViewCell" customModule="signin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -265,6 +265,9 @@
                                             <constraint firstItem="srg-OV-Nig" firstAttribute="centerY" secondItem="N0V-er-tcg" secondAttribute="centerY" id="vOV-oL-heE"/>
                                         </constraints>
                                         <size key="customSize" width="150" height="150"/>
+                                        <connections>
+                                            <outlet property="eventLabel" destination="srg-OV-Nig" id="sF5-49-pYp"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

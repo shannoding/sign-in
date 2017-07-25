@@ -64,24 +64,5 @@ struct GroupService {
         
         
     }
-   /*
-    static func observeUserGroups(for user: User, completion: @escaping (DatabaseReference, User?, [Group]) -> Void) -> DatabaseHandle {
-        // 1
-        let userRef = Database.database().reference().child("groups_joined").child(user.uid)
-        
-        // 2
-        return userRef.observe(.value, with: { snapshot in
-            // 3
-            guard let user = User(snapshot: snapshot) else {
-                return completion(userRef, nil, [])
-            }
-            
-            // 4
-            UserService.groups(for: user, completion: { groups in
-                // 5
-                completion(userRef, user, groups)
-            })
-        })
-    }*/
     
 }
