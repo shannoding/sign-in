@@ -206,7 +206,7 @@
                     <navigationItem key="navigationItem" title="Create Group" id="myc-Vx-0TU"/>
                     <connections>
                         <outlet property="createGroupTextField" destination="q3F-wD-8IK" id="ooA-gI-reU"/>
-                        <segue destination="hen-k1-k51" kind="unwind" unwindAction="unwindToCreateGroupHomeWithSegue:" id="DDs-NU-qOW"/>
+                        <segue destination="hen-k1-k51" kind="unwind" identifier="unwindToCreateGroupHomeSegue" unwindAction="unwindToCreateGroupHomeWithSegue:" id="Iho-lg-nuJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ae-cf-Gc1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -329,6 +329,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D1U-8E-iKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4319" y="999"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="frx-zq-E8U">
+            <objects>
+                <viewController id="ORM-qH-cVT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6KG-dm-2Bb"/>
+                        <viewControllerLayoutGuide type="bottom" id="LlC-nr-2xQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pNi-e4-8vb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CiP-Rh-n7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5396" y="1280"/>
         </scene>
         <!--Create Event-->
         <scene sceneID="ZPI-bN-X1j">
@@ -567,7 +585,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fyv-P7-NXc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4XQ-VO-LfO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4XQ-VO-LfO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -39,8 +39,10 @@ class CreateGroupViewController: UIViewController {
                 self.present(alertController, animated: true, completion: nil)
                 return
             }
-
+        print("About to create the group, \(groupName)")
         GroupService.create(groupName: groupName, uid: User.current.uid)
+        print("About to segue back to home from Create Group")
         performSegue(withIdentifier: "unwindToCreateGroupHomeSegue", sender: self)
+        print("Did unwindToCreateGroupHomeSegue")
     }
 }

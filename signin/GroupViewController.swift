@@ -52,6 +52,11 @@ class GroupViewController: UIViewController {
         let backItem = UIBarButtonItem()
         backItem.title = "Group"
         navigationItem.backBarButtonItem = backItem
+        events = []
+        EventService.fillEvents(groupKey: HomeViewController.groupSelected!.key) { (eventList) in
+            self.events = eventList
+            self.eventCollectionView.reloadData()
+        }
     }
     
 }
