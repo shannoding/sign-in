@@ -75,6 +75,7 @@ class HomeViewController: UIViewController {
         navigationItem.backBarButtonItem = backItem
     }
     
+    
     @IBAction func signOutButtonPressed(_ sender: UIButton) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -122,7 +123,7 @@ extension HomeViewController: UICollectionViewDataSource {
         if indexPath.item < groups.count {
             let groupName = groups[indexPath.item].dictValue["group_name"]
             cell.groupLabel.text = groupName
-            cell.backgroundColor = RandomColor.choosePrimaryColors()
+            cell.backgroundColor = RandomColor.chooseWarmColors()
             
             return cell
         }

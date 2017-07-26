@@ -46,7 +46,13 @@ class GroupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    @IBAction func unwindToCreateEventHome(segue: UIStoryboardSegue) {
+        self.eventCollectionView.reloadData()
+        self.events = EventService.events
+        let backItem = UIBarButtonItem()
+        backItem.title = "Group"
+        navigationItem.backBarButtonItem = backItem
+    }
     
 }
 
@@ -66,7 +72,7 @@ extension GroupViewController: UICollectionViewDataSource {
         if indexPath.item < events.count {
             let eventName = events[indexPath.item].dictValue["event_name"]
             cell.eventLabel.text = eventName
-            cell.backgroundColor = RandomColor.choosePrimaryColors()
+            cell.backgroundColor = RandomColor.chooseCoolColors()
             
             return cell
         }
@@ -109,7 +115,7 @@ extension GroupViewController: UICollectionViewDelegate {
             //performSegue(withIdentifier: "showGroupSegue", sender: self)
         }
         else {
-            //performSegue(withIdentifier: "showCreateGroupSegue", sender: self)
+            performSegue(withIdentifier: "showCreateEventSegue", sender: self)
             print("Create Event Tapped")
             DispatchQueue.main.async {
                 self.eventCollectionView.reloadData()

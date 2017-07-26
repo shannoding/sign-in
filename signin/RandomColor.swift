@@ -41,7 +41,7 @@ struct RandomColor {
     }
     
     static func chooseWarmColors() -> UIColor {
-        RandomColor.colors = [self.pink, self.red, self.orange, self.yellow, self.green]
+        RandomColor.colors = [self.pink, self.red, self.orange, self.yellow]
         let randomIndex = Int(arc4random_uniform(UInt32(RandomColor.colors.count)))
         return RandomColor.colors[randomIndex]
     }
