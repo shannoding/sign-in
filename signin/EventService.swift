@@ -36,6 +36,7 @@ struct EventService {
     }
     
     static func fillEvents(groupKey: String, completion: @escaping ([Event]) -> ()) {
+        events = []
         let ref = Database.database().reference().child("group_events").child(groupKey)
         ref.observeSingleEvent(of: .value, with: { snapshot in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {

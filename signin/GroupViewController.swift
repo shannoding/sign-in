@@ -29,7 +29,7 @@ class GroupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        events = []
         EventService.fillEvents(groupKey: HomeViewController.groupSelected!.key) { (eventList) in
             self.events = eventList
             self.eventCollectionView.reloadData()
@@ -47,16 +47,12 @@ class GroupViewController: UIViewController {
     }
     
     @IBAction func unwindToCreateEventHome(segue: UIStoryboardSegue) {
+        let events = EventService.events
         self.eventCollectionView.reloadData()
         self.events = EventService.events
         let backItem = UIBarButtonItem()
         backItem.title = "Group"
         navigationItem.backBarButtonItem = backItem
-        events = []
-        EventService.fillEvents(groupKey: HomeViewController.groupSelected!.key) { (eventList) in
-            self.events = eventList
-            self.eventCollectionView.reloadData()
-        }
     }
     
 }

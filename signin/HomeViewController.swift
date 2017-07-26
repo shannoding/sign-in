@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
             self.groups = groupList
             self.groupCollectionView.reloadData()
         }
-        
+        EventService.events = []
         user = user ?? User.current
         self.title = User.current.username
         
