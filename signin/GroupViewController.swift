@@ -30,7 +30,7 @@ class GroupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         events = []
-        EventService.fillEvents(groupKey: HomeViewController.groupSelected!.key) { (eventList) in
+        EventService.fillEvents(uid: User.current.uid, groupKey: HomeViewController.groupSelected!.key) { (eventList) in
             self.events = eventList
             self.eventCollectionView.reloadData()
         }

@@ -22,20 +22,26 @@ struct EventService {
         
         let key = ref.key
         let event = Event(key: key, name: eventName, groupOf: groupKey, date: eventTime, attended: false)
-        let dict = event.dictValue
-        
-        ref.updateChildValues(dict)
+        var dict = event.dictValue
         
         let baseRef = Database.database().reference()
         baseRef.child("user_events").child(uid).child(key).updateChildValues(dict)
         let groupKey = HomeViewController.groupSelected!.key
+        
+        dict["event_attended"] = nil
         baseRef.child("group_events").child(groupKey).child(key).updateChildValues(dict)
+        //let dictMutable = dict["event_attended"] = nil
+        
+        
+        ref.updateChildValues(dict)
+        
+    
         
         self.events.append(event)
         
     }
     
-    static func fillEvents(groupKey: String, completion: @escaping ([Event]) -> ()) {
+    static func fillEvents(uid: String, groupKey: String, completion: @escaping ([Event]) -> ()) {
         events = []
         let ref = Database.database().reference().child("group_events").child(groupKey)
         ref.observeSingleEvent(of: .value, with: { snapshot in
@@ -50,6 +56,18 @@ struct EventService {
                     let attended = dict["event_attended"] as? Bool
                     else { return }
                 let key = snip.key
+                
+                
+                let userRef = Database.database().reference().child("user_events").child(uid).child(key)
+                userRef.observeSingleEvent(of: .value, with: { snapshot in
+                    guard let userDict = snapshot.value as? [String: Any],
+                    let attended = userDict["event_attended"] as? Bool
+                        else { return }
+                    print("Attended: \(attended)")
+                    
+                    })
+                
+                
                 let event = Event(key: key, name: name, groupOf: groupKey, date: date, attended: attended)
                 print(event)
                 events.append(event)
