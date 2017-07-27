@@ -21,13 +21,13 @@ struct EventService {
         let ref = Database.database().reference().child("events_about").childByAutoId()
         
         let key = ref.key
-        let event = Event(key: key, name: eventName, groupOf: groupKey, date: eventTime)
+        let event = Event(key: key, name: eventName, groupOf: groupKey, date: eventTime, attended: false)
         let dict = event.dictValue
         
         ref.updateChildValues(dict)
         
         let baseRef = Database.database().reference()
-        baseRef.child("events_attended").child(uid).child(key).updateChildValues(dict)
+        baseRef.child("user_events").child(uid).child(key).updateChildValues(dict)
         let groupKey = HomeViewController.groupSelected!.key
         baseRef.child("group_events").child(groupKey).child(key).updateChildValues(dict)
         
@@ -46,10 +46,11 @@ struct EventService {
             for snip in snapshot {
                 guard let dict = snip.value as? [String : Any],
                     let name = dict["event_name"] as? String,
-                    let date = dict["event_date"] as? String
+                    let date = dict["event_date"] as? String,
+                    let attended = dict["event_attended"] as? Bool
                     else { return }
                 let key = snip.key
-                let event = Event(key: key, name: name, groupOf: groupKey, date: date)
+                let event = Event(key: key, name: name, groupOf: groupKey, date: date, attended: attended)
                 print(event)
                 events.append(event)
                 completion(events)
@@ -58,5 +59,10 @@ struct EventService {
             
         })
 
+    }
+    static func attendEvent(eventKey: String, uid: String, completion: @escaping (Event) -> ()) {
+        let ref = Database.database().reference().child("events_attended/\(uid)/\(eventKey)")
+        ref.updateChildValues(["event_attended": "true"])
+        
     }
 }

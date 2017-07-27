@@ -47,9 +47,16 @@ class GroupViewController: UIViewController {
     }
     
     @IBAction func unwindToCreateEventHome(segue: UIStoryboardSegue) {
-        let events = EventService.events
-        self.eventCollectionView.reloadData()
         self.events = EventService.events
+        self.eventCollectionView.reloadData()
+        let backItem = UIBarButtonItem()
+        backItem.title = "Group"
+        navigationItem.backBarButtonItem = backItem
+    }
+    
+    @IBAction func unwindToSignInHome(segue: UIStoryboardSegue) {
+        self.events = EventService.events
+        self.eventCollectionView.reloadData()
         let backItem = UIBarButtonItem()
         backItem.title = "Group"
         navigationItem.backBarButtonItem = backItem
@@ -72,8 +79,14 @@ extension GroupViewController: UICollectionViewDataSource {
         
         if indexPath.item < events.count {
             let eventName = events[indexPath.item].dictValue["event_name"]
-            cell.eventLabel.text = eventName
-            cell.backgroundColor = RandomColor.chooseCoolColors()
+            cell.eventLabel.text = eventName as! String
+            let eventAttended = events[indexPath.item].dictValue["event_attended"] as! Bool
+            if eventAttended {
+                cell.backgroundColor = RandomColor.green
+            }
+            else {
+                cell.backgroundColor = RandomColor.chooseCoolColors()
+            }
             
             return cell
         }
@@ -112,8 +125,8 @@ extension GroupViewController: UICollectionViewDelegate {
         print("LOOKS LIKE YOU TOUCHED GROUP NUMBER \(indexPath.item) MY FRIEND")
         if indexPath.item < events.count {
             let eventNumber = indexPath.item
-            //EventViewController.eventSelected = EventService.events[eventNumber]
-            //performSegue(withIdentifier: "showGroupSegue", sender: self)
+            GroupViewController.eventSelected = EventService.events[eventNumber]
+            performSegue(withIdentifier: "showSignInSegue", sender: self)
         }
         else {
             performSegue(withIdentifier: "showCreateEventSegue", sender: self)

@@ -26,6 +26,7 @@
 		FB4BEE631F265E37006B09A1 /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BEE621F265E37006B09A1 /* CreateGroupViewController.swift */; };
 		FB4BEE651F26B882006B09A1 /* RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BEE641F26B882006B09A1 /* RandomColor.swift */; };
 		FB4BEE671F280900006B09A1 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BEE661F280900006B09A1 /* CreateEventViewController.swift */; };
+		FB4BEE691F292BA3006B09A1 /* EventSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BEE681F292BA3006B09A1 /* EventSignInViewController.swift */; };
 		FB6664401F0E9A5D005CD110 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66643F1F0E9A5D005CD110 /* AppDelegate.swift */; };
 		FB6664421F0E9A5D005CD110 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6664411F0E9A5D005CD110 /* ViewController.swift */; };
 		FB6664451F0E9A5D005CD110 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6664431F0E9A5D005CD110 /* Login.storyboard */; };
@@ -54,6 +55,7 @@
 		FB4BEE621F265E37006B09A1 /* CreateGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
 		FB4BEE641F26B882006B09A1 /* RandomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomColor.swift; sourceTree = "<group>"; };
 		FB4BEE661F280900006B09A1 /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
+		FB4BEE681F292BA3006B09A1 /* EventSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSignInViewController.swift; sourceTree = "<group>"; };
 		FB66643C1F0E9A5D005CD110 /* signin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = signin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB66643F1F0E9A5D005CD110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB6664411F0E9A5D005CD110 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				FB4BEE5E1F22D260006B09A1 /* GroupViewController.swift */,
 				FB4BEE621F265E37006B09A1 /* CreateGroupViewController.swift */,
 				FB4BEE661F280900006B09A1 /* CreateEventViewController.swift */,
+				FB4BEE681F292BA3006B09A1 /* EventSignInViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB1B52251F17F42500E35D4A /* UserService.swift in Sources */,
+				FB4BEE691F292BA3006B09A1 /* EventSignInViewController.swift in Sources */,
 				FB4BEE611F22D3A5006B09A1 /* EventCollectionViewCell.swift in Sources */,
 				FB1B52311F1FC77200E35D4A /* Event.swift in Sources */,
 				FB2F5E1A1F157AE200194673 /* ProfileViewController.swift in Sources */,
