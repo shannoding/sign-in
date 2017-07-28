@@ -27,6 +27,9 @@
 		FB4BEE651F26B882006B09A1 /* RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BEE641F26B882006B09A1 /* RandomColor.swift */; };
 		FB4BEE671F280900006B09A1 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BEE661F280900006B09A1 /* CreateEventViewController.swift */; };
 		FB4BEE691F292BA3006B09A1 /* EventSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4BEE681F292BA3006B09A1 /* EventSignInViewController.swift */; };
+		FB4FFEA31F2BB787003A9C86 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB4FFEA11F2BB787003A9C86 /* Group.storyboard */; };
+		FB4FFEA51F2BBEDC003A9C86 /* GroupSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FFEA41F2BBEDC003A9C86 /* GroupSearchTableViewCell.swift */; };
+		FB4FFEA71F2BC13B003A9C86 /* GroupSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FFEA61F2BC13B003A9C86 /* GroupSearchViewController.swift */; };
 		FB6664401F0E9A5D005CD110 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66643F1F0E9A5D005CD110 /* AppDelegate.swift */; };
 		FB6664421F0E9A5D005CD110 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6664411F0E9A5D005CD110 /* ViewController.swift */; };
 		FB6664451F0E9A5D005CD110 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6664431F0E9A5D005CD110 /* Login.storyboard */; };
@@ -56,6 +59,9 @@
 		FB4BEE641F26B882006B09A1 /* RandomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomColor.swift; sourceTree = "<group>"; };
 		FB4BEE661F280900006B09A1 /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		FB4BEE681F292BA3006B09A1 /* EventSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSignInViewController.swift; sourceTree = "<group>"; };
+		FB4FFEA21F2BB787003A9C86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Group.storyboard; sourceTree = "<group>"; };
+		FB4FFEA41F2BBEDC003A9C86 /* GroupSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupSearchTableViewCell.swift; sourceTree = "<group>"; };
+		FB4FFEA61F2BC13B003A9C86 /* GroupSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupSearchViewController.swift; sourceTree = "<group>"; };
 		FB66643C1F0E9A5D005CD110 /* signin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = signin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB66643F1F0E9A5D005CD110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB6664411F0E9A5D005CD110 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +115,7 @@
 			children = (
 				FB6664431F0E9A5D005CD110 /* Login.storyboard */,
 				FB1B51F81F168EEE00E35D4A /* Main.storyboard */,
+				FB4FFEA11F2BB787003A9C86 /* Group.storyboard */,
 				FB6664481F0E9A5D005CD110 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
@@ -129,6 +136,7 @@
 			children = (
 				FB1B522B1F1E864800E35D4A /* GroupImageCell.swift */,
 				FB4BEE601F22D3A5006B09A1 /* EventCollectionViewCell.swift */,
+				FB4FFEA41F2BBEDC003A9C86 /* GroupSearchTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -154,6 +162,7 @@
 				FB4BEE621F265E37006B09A1 /* CreateGroupViewController.swift */,
 				FB4BEE661F280900006B09A1 /* CreateEventViewController.swift */,
 				FB4BEE681F292BA3006B09A1 /* EventSignInViewController.swift */,
+				FB4FFEA61F2BC13B003A9C86 /* GroupSearchViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -256,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB4FFEA31F2BB787003A9C86 /* Group.storyboard in Resources */,
 				FB66644A1F0E9A5D005CD110 /* LaunchScreen.storyboard in Resources */,
 				FB6664471F0E9A5D005CD110 /* Assets.xcassets in Resources */,
 				FB1B52031F169DE500E35D4A /* GoogleService-Info.plist in Resources */,
@@ -331,9 +341,11 @@
 				FB4BEE651F26B882006B09A1 /* RandomColor.swift in Sources */,
 				FB1B52051F16CFED00E35D4A /* User.swift in Sources */,
 				FB1B52341F1FC83300E35D4A /* GroupService.swift in Sources */,
+				FB4FFEA51F2BBEDC003A9C86 /* GroupSearchTableViewCell.swift in Sources */,
 				FB4BEE631F265E37006B09A1 /* CreateGroupViewController.swift in Sources */,
 				FB6664401F0E9A5D005CD110 /* AppDelegate.swift in Sources */,
 				FB1B522C1F1E864800E35D4A /* GroupImageCell.swift in Sources */,
+				FB4FFEA71F2BC13B003A9C86 /* GroupSearchViewController.swift in Sources */,
 				FB1B51FD1F168F9000E35D4A /* LoginViewController.swift in Sources */,
 				FB1B52361F1FC84000E35D4A /* EventService.swift in Sources */,
 				FB1B51F61F15910800E35D4A /* DatabaseReference+Location.swift in Sources */,
@@ -350,6 +362,14 @@
 				FB1B51F91F168EEE00E35D4A /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FB4FFEA11F2BB787003A9C86 /* Group.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB4FFEA21F2BB787003A9C86 /* Base */,
+			);
+			name = Group.storyboard;
 			sourceTree = "<group>";
 		};
 		FB6664431F0E9A5D005CD110 /* Login.storyboard */ = {

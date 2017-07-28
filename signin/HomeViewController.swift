@@ -74,6 +74,11 @@ class HomeViewController: UIViewController {
         backItem.title = "Home"
         navigationItem.backBarButtonItem = backItem
     }
+    @IBAction func unwindToGroupSearchHome(segue:UIStoryboardSegue) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Home"
+        navigationItem.backBarButtonItem = backItem
+    }
     
     
     @IBAction func signOutButtonPressed(_ sender: UIButton) {
@@ -179,6 +184,7 @@ extension HomeViewController: UICollectionViewDelegate {
                 performSegue(withIdentifier: "showCreateGroupSegue", sender: self)
             }
             else {
+                performSegue(withIdentifier: "showGroupSearchSegue", sender: self)
                 print("Join Group Tapped")
             }
             DispatchQueue.main.async {

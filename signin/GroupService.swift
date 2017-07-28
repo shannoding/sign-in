@@ -60,9 +60,26 @@ struct GroupService {
             //HomeViewController.refresh()
             
         })
-        
-        
-        
+    }
+    
+    static func searchGroupArray(completion: @escaping ([String]) -> ()) -> [String] {
+        var groupSearchData: [String] = []
+        let ref = Database.database().reference().child("groups_about")
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+                return
+            }
+            print(snapshot)
+            for snip in snapshot {
+                guard let dict = snip.value as? [String: String],
+                let groupName = dict["group_name"]
+                    else { return }
+                groupSearchData.append(groupName)
+            }
+            completion(groupSearchData)
+            print("The group search data is \(groupSearchData)")
+            })
+        return groupSearchData
     }
     
 }

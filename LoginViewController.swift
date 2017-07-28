@@ -14,10 +14,12 @@ import FirebaseDatabase
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var headerBackgroundView: UIView!
     @IBOutlet weak var enterButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        headerBackgroundView.backgroundColor = RandomColor.chooseAllColors()
     }
     
     override func didReceiveMemoryWarning() {
