@@ -52,8 +52,8 @@ struct EventService {
             for snip in snapshot {
                 guard let dict = snip.value as? [String : Any],
                     let name = dict["event_name"] as? String,
-                    let date = dict["event_date"] as? String,
-                    let attended = dict["event_attended"] as? Bool
+                    let date = dict["event_date"] as? String
+                    //let attended = dict["event_attended"] as? Bool
                     else { return }
                 let key = snip.key
                 
@@ -65,13 +65,19 @@ struct EventService {
                         else { return }
                     print("Attended: \(attended)")
                     
+                    
+                    let event = Event(key: key, name: name, groupOf: groupKey, date: date, attended: attended)
+                    print(event)
+                    events.append(event)
+                    completion(events)
+                    
                     })
                 
                 
-                let event = Event(key: key, name: name, groupOf: groupKey, date: date, attended: attended)
+                /*let event = Event(key: key, name: name, groupOf: groupKey, date: date, attended: attended)
                 print(event)
                 events.append(event)
-                completion(events)
+                completion(events)*/
             }
             print(events)
             
