@@ -88,10 +88,10 @@ struct EventService {
         let ref = Database.database().reference().child("user_events/\(uid)/\(eventKey)")
         let dict = ["event_attended": true]
         ref.setValue(dict)
-        let baseRef = Database.database().reference()
-        baseRef.child("user_events").child(uid).child("\(eventKey)/event_attended").setValue(true)
-        let groupKey = HomeViewController.groupSelected!.key
-        baseRef.child("group_events").child("\(groupKey)/\(eventKey)/event_attended").setValue(true)
+        //let baseRef = Database.database().reference()
+        //baseRef.child("user_events").child(uid).child("\(eventKey)/event_attended").setValue(true)
+        //let groupKey = HomeViewController.groupSelected!.key
+        //baseRef.child("group_events").child("\(groupKey)/\(eventKey)/event_attended").setValue(true)
         
     }
 }
