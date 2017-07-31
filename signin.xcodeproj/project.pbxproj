@@ -30,6 +30,8 @@
 		FB4FFEA31F2BB787003A9C86 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB4FFEA11F2BB787003A9C86 /* Group.storyboard */; };
 		FB4FFEA51F2BBEDC003A9C86 /* GroupSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FFEA41F2BBEDC003A9C86 /* GroupSearchTableViewCell.swift */; };
 		FB4FFEA71F2BC13B003A9C86 /* GroupSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FFEA61F2BC13B003A9C86 /* GroupSearchViewController.swift */; };
+		FB4FFEC71F2FD9DE003A9C86 /* GroupMemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FFEC61F2FD9DE003A9C86 /* GroupMemberListViewController.swift */; };
+		FB4FFECB1F2FDACD003A9C86 /* GroupMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FFECA1F2FDACD003A9C86 /* GroupMemberTableViewCell.swift */; };
 		FB6664401F0E9A5D005CD110 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66643F1F0E9A5D005CD110 /* AppDelegate.swift */; };
 		FB6664421F0E9A5D005CD110 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6664411F0E9A5D005CD110 /* ViewController.swift */; };
 		FB6664451F0E9A5D005CD110 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6664431F0E9A5D005CD110 /* Login.storyboard */; };
@@ -62,6 +64,8 @@
 		FB4FFEA21F2BB787003A9C86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Group.storyboard; sourceTree = "<group>"; };
 		FB4FFEA41F2BBEDC003A9C86 /* GroupSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupSearchTableViewCell.swift; sourceTree = "<group>"; };
 		FB4FFEA61F2BC13B003A9C86 /* GroupSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupSearchViewController.swift; sourceTree = "<group>"; };
+		FB4FFEC61F2FD9DE003A9C86 /* GroupMemberListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMemberListViewController.swift; sourceTree = "<group>"; };
+		FB4FFECA1F2FDACD003A9C86 /* GroupMemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMemberTableViewCell.swift; sourceTree = "<group>"; };
 		FB66643C1F0E9A5D005CD110 /* signin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = signin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB66643F1F0E9A5D005CD110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB6664411F0E9A5D005CD110 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 				FB1B522B1F1E864800E35D4A /* GroupImageCell.swift */,
 				FB4BEE601F22D3A5006B09A1 /* EventCollectionViewCell.swift */,
 				FB4FFEA41F2BBEDC003A9C86 /* GroupSearchTableViewCell.swift */,
+				FB4FFECA1F2FDACD003A9C86 /* GroupMemberTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -163,6 +168,7 @@
 				FB4BEE661F280900006B09A1 /* CreateEventViewController.swift */,
 				FB4BEE681F292BA3006B09A1 /* EventSignInViewController.swift */,
 				FB4FFEA61F2BC13B003A9C86 /* GroupSearchViewController.swift */,
+				FB4FFEC61F2FD9DE003A9C86 /* GroupMemberListViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -335,6 +341,7 @@
 				FB1B52311F1FC77200E35D4A /* Event.swift in Sources */,
 				FB2F5E1A1F157AE200194673 /* ProfileViewController.swift in Sources */,
 				FB6664421F0E9A5D005CD110 /* ViewController.swift in Sources */,
+				FB4FFECB1F2FDACD003A9C86 /* GroupMemberTableViewCell.swift in Sources */,
 				FB1B522F1F1FC75A00E35D4A /* Group.swift in Sources */,
 				FB1B52281F182D8700E35D4A /* HomeViewController.swift in Sources */,
 				FB4BEE5F1F22D260006B09A1 /* GroupViewController.swift in Sources */,
@@ -342,6 +349,7 @@
 				FB1B52051F16CFED00E35D4A /* User.swift in Sources */,
 				FB1B52341F1FC83300E35D4A /* GroupService.swift in Sources */,
 				FB4FFEA51F2BBEDC003A9C86 /* GroupSearchTableViewCell.swift in Sources */,
+				FB4FFEC71F2FD9DE003A9C86 /* GroupMemberListViewController.swift in Sources */,
 				FB4BEE631F265E37006B09A1 /* CreateGroupViewController.swift in Sources */,
 				FB6664401F0E9A5D005CD110 /* AppDelegate.swift in Sources */,
 				FB1B522C1F1E864800E35D4A /* GroupImageCell.swift in Sources */,

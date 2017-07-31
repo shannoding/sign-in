@@ -16,6 +16,8 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
     var searchActive : Bool = false
     var data: [String] = []
     var filtered:[String] = []
+
+    static var searchedGroup: Group? = nil
     
     override func viewDidLoad() {
         
@@ -59,9 +61,6 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
             else {
                 return false
             }
-            /*let tmp:NSString = text
-            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-            return range.location != NSNotFound*/
         })
         if(filtered.count == 0){
             searchActive = false;
@@ -98,5 +97,32 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
         }
         
         return cell;
+    }
+    
+    private func tableView(_ tableView: UITableView, didSelectItemAt indexPath: IndexPath) {
+        print("LOOKS LIKE YOU TOUCHED GROUP SEARCHED NUMBER \(indexPath.item) MY FRIEND")
+    
+        if(searchActive){
+            //GroupSearchViewController.searchedGroup = filtered[indexPath.row]
+        } else {
+            //GroupSearchViewController.searchedGroup = data[indexPath.row]
+        }
+        
+        
+//        if indexPath.item < events.count {
+//            let eventNumber = indexPath.item
+//            GroupViewController.eventSelected = EventService.events[eventNumber]
+//            performSegue(withIdentifier: "showSignInSegue", sender: self)
+//        }
+//        else {
+//            performSegue(withIdentifier: "showCreateEventSegue", sender: self)
+//            print("Create Event Tapped")
+//            DispatchQueue.main.async {
+//                self.eventCollectionView.reloadData()
+//            }
+//            print("HERE ARE ALL THE EVENTS \(events)")
+//            print("RELOADED")
+//        }
+        
     }
 }

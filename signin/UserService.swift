@@ -72,5 +72,19 @@ struct UserService {
             })
         })
     }
+    
+    static func joinGroup(uid: String, username: String, email: String, groupKey: String, groupName: String, completion: @escaping (Group) -> Void) {
+        let userAttrs = ["username": username, "email": email]
+        
+        let ref = Database.database().reference().child("group_members").child(groupKey).child(uid)
+        ref.setValue(userAttrs) { (error, ref) in
+            if let error = error {
+                assertionFailure(error.localizedDescription)
+                let groupJoined = Group(key: groupKey, name: groupName)
+                return completion(groupJoined)
+            }
+            
+        }
+    }
 
 }

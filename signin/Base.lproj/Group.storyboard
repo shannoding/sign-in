@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aHG-El-ar3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -16,7 +20,7 @@
                         <viewControllerLayoutGuide type="bottom" id="kYu-CK-5sy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lua-Qw-UqQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kql-6J-Gcj">
@@ -90,6 +94,9 @@
                                         <state key="normal" title="Member List">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="pCm-yc-IyT" kind="show" id="uTq-vK-OiT"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -109,7 +116,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Group" id="EeP-Ch-1xh"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4_7.fullscreen"/>
                     <connections>
                         <outlet property="eventCollectionView" destination="kql-6J-Gcj" id="42V-fb-faJ"/>
                         <segue destination="U7q-pJ-qlE" kind="show" identifier="showCreateEventSegue" id="8jn-6f-IbY"/>
@@ -119,6 +125,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D1U-8E-iKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4319" y="999"/>
+        </scene>
+        <!--Group Member List View Controller-->
+        <scene sceneID="MmQ-IC-NNh">
+            <objects>
+                <viewController id="pCm-yc-IyT" customClass="GroupMemberListViewController" customModule="signin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5cj-yy-ykv"/>
+                        <viewControllerLayoutGuide type="bottom" id="AUG-JX-HUz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lH5-GW-Kjj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XEm-CB-SFU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupMemberTableViewCell" id="EJD-AY-7O1" customClass="GroupMemberTableViewCell" customModule="signin" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EJD-AY-7O1" id="Fwk-xT-ZrE">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bso-kO-Cbx">
+                                                    <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="memberNameLabel" destination="Bso-kO-Cbx" id="aRZ-bv-LBc"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="pCm-yc-IyT" id="ZJx-vz-Vbj"/>
+                                    <outlet property="delegate" destination="pCm-yc-IyT" id="Cn2-Ii-OhH"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XEm-CB-SFU" secondAttribute="trailing" id="4Hx-J8-HdY"/>
+                            <constraint firstItem="XEm-CB-SFU" firstAttribute="top" secondItem="lH5-GW-Kjj" secondAttribute="top" id="Cuz-5e-Kkp"/>
+                            <constraint firstItem="XEm-CB-SFU" firstAttribute="leading" secondItem="lH5-GW-Kjj" secondAttribute="leading" id="INz-If-uG7"/>
+                            <constraint firstItem="AUG-JX-HUz" firstAttribute="top" secondItem="XEm-CB-SFU" secondAttribute="bottom" id="KdS-OG-fbR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="groupMemberTableView" destination="XEm-CB-SFU" id="76I-8m-QC1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DW7-Gz-2y4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4255.1999999999998" y="1653.8230884557722"/>
         </scene>
         <!--Sign In To-->
         <scene sceneID="frx-zq-E8U">
