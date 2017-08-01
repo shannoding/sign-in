@@ -52,7 +52,7 @@ struct GroupService {
                     else { return }
                 
                 let group = Group(key: snip.key, name: name)
-                print(group)
+                print("Fill groups groups are: \(group)")
                 groups.append(group)
                 completion(groups)
             }

@@ -56,13 +56,27 @@ class HomeViewController: UIViewController {
             Auth.auth().removeStateDidChangeListener(authHandle)
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        GroupService.fillGroups(uid: User.current.uid) { (groupList) in
+            self.groups = groupList
+            self.groupCollectionView.reloadData()
+        }
+    }
 
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    @IBAction func unwindToGroupHome(segue:UIStoryboardSegue) {
+        self.groups = GroupService.groups
+        self.groupCollectionView.reloadData()
+        let backItem = UIBarButtonItem()
+        backItem.title = "Home"
+        navigationItem.backBarButtonItem = backItem
+    }
     @IBAction func unwindToProfileHome(segue:UIStoryboardSegue) {
         let backItem = UIBarButtonItem()
         backItem.title = "Home"
@@ -184,8 +198,12 @@ extension HomeViewController: UICollectionViewDelegate {
                 performSegue(withIdentifier: "showCreateGroupSegue", sender: self)
             }
             else {
-                performSegue(withIdentifier: "showGroupSearchSegue", sender: self)
-                print("Join Group Tapped")
+                UserService.joinGroup(uid: User.current.uid, username: User.current.username, email: User.current.email, groupKey: "-KqUgQy2sOe_rv-M8bC-") { (groupJoined) in
+                    HomeViewController.groupSelected = groupJoined
+                    print("Groups joined is \(groupJoined)")
+                    print("The group selected from joining is \(HomeViewController.groupSelected)")
+                    self.performSegue(withIdentifier: "showGroupSegue", sender: self)
+                }
             }
             DispatchQueue.main.async {
                 self.groupCollectionView.reloadData()

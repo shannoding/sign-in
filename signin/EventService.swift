@@ -58,26 +58,26 @@ struct EventService {
                 let key = snip.key
                 
                 
-                let userRef = Database.database().reference().child("user_events").child(uid).child(key)
-                userRef.observeSingleEvent(of: .value, with: { snapshot in
-                    guard let userDict = snapshot.value as? [String: Any],
-                    let attended = userDict["event_attended"] as? Bool
-                        else { return }
-                    print("Attended: \(attended)")
-                    
-                    
-                    let event = Event(key: key, name: name, groupOf: groupKey, date: date, attended: attended)
-                    print(event)
-                    events.append(event)
-                    completion(events)
-                    
-                    })
+//                let userRef = Database.database().reference().child("user_events").child(uid).child(key)
+//                userRef.observeSingleEvent(of: .value, with: { snapshot in
+//                    guard let userDict = snapshot.value as? [String: Any],
+//                    let attended = userDict["event_attended"] as? Bool
+//                        else { return }
+//                    print("Attended: \(attended)")
+//                    
+//                    
+//                    let event = Event(key: key, name: name, groupOf: groupKey, date: date, attended: attended)
+//                    print(event)
+//                    events.append(event)
+//                    completion(events)
+//                    
+//                    })
                 
                 
-                /*let event = Event(key: key, name: name, groupOf: groupKey, date: date, attended: attended)
+                let event = Event(key: key, name: name, groupOf: groupKey, date: date, attended: false)
                 print(event)
                 events.append(event)
-                completion(events)*/
+                completion(events)
             }
             print(events)
             

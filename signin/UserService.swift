@@ -73,18 +73,31 @@ struct UserService {
         })
     }
     
-    static func joinGroup(uid: String, username: String, email: String, groupKey: String, groupName: String, completion: @escaping (Group) -> Void) {
+    static func joinGroup(uid: String, username: String, email: String, groupKey: String, completion: @escaping (Group) -> Void) {
         let userAttrs = ["username": username, "email": email]
         
-        let ref = Database.database().reference().child("group_members").child(groupKey).child(uid)
-        ref.setValue(userAttrs) { (error, ref) in
-            if let error = error {
-                assertionFailure(error.localizedDescription)
+        
+        let groupInfoRef = Database.database().reference().child("groups_about").child(groupKey)
+        groupInfoRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let groupDict = snapshot.value as? [String: String],
+                let groupName = groupDict["group_name"] as? String
+            else { return }
+            
+            let ref = Database.database().reference().child("group_members").child(groupKey).child(uid)
+            ref.setValue(userAttrs) { (error, ref) in
+                if let error = error {
+                    assertionFailure(error.localizedDescription)
+                }
                 let groupJoined = Group(key: groupKey, name: groupName)
+                let groupJoinedRef = Database.database().reference().child("groups_joined").child(uid).child(groupKey)
+                let dict = groupJoined.dictValue
+                groupJoinedRef.updateChildValues(dict)
                 return completion(groupJoined)
             }
             
-        }
+        })
+        
+        
     }
 
 }

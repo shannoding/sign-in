@@ -120,9 +120,11 @@
                         <outlet property="eventCollectionView" destination="kql-6J-Gcj" id="42V-fb-faJ"/>
                         <segue destination="U7q-pJ-qlE" kind="show" identifier="showCreateEventSegue" id="8jn-6f-IbY"/>
                         <segue destination="ORM-qH-cVT" kind="show" identifier="showSignInSegue" id="z4J-CL-hni"/>
+                        <segue destination="fxF-UO-0Ie" kind="unwind" identifier="unwindToGroupHome" unwindAction="unwindToGroupHomeWithSegue:" id="bIw-bk-yWk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D1U-8E-iKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="fxF-UO-0Ie" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4319" y="999"/>
         </scene>
@@ -149,14 +151,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bso-kO-Cbx">
-                                                    <rect key="frame" x="8" y="11" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bso-kO-Cbx">
+                                                    <rect key="frame" x="23" y="8" width="329" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Bso-kO-Cbx" firstAttribute="centerX" secondItem="Fwk-xT-ZrE" secondAttribute="centerX" id="EEb-wA-MS8"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Bso-kO-Cbx" secondAttribute="bottom" id="FQC-NJ-a6w"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Bso-kO-Cbx" secondAttribute="trailing" constant="15" id="Lr7-4g-buR"/>
+                                                <constraint firstItem="Bso-kO-Cbx" firstAttribute="leading" secondItem="Fwk-xT-ZrE" secondAttribute="leadingMargin" constant="15" id="NMp-Zu-JpQ"/>
+                                                <constraint firstItem="Bso-kO-Cbx" firstAttribute="top" secondItem="Fwk-xT-ZrE" secondAttribute="topMargin" id="jYF-AS-2cx"/>
+                                                <constraint firstItem="Bso-kO-Cbx" firstAttribute="centerY" secondItem="Fwk-xT-ZrE" secondAttribute="centerY" id="u2f-ir-y4L"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="memberNameLabel" destination="Bso-kO-Cbx" id="aRZ-bv-LBc"/>

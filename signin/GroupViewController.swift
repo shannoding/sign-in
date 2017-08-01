@@ -32,6 +32,7 @@ class GroupViewController: UIViewController {
         events = []
         EventService.fillEvents(uid: User.current.uid, groupKey: HomeViewController.groupSelected!.key) { (eventList) in
             self.events = eventList
+            print("The events are \(self.events)")
             self.eventCollectionView.reloadData()
         }
         user = user ?? User.current
