@@ -40,6 +40,7 @@ struct GroupService {
     }
     
     static func fillGroups(uid: String, completion: @escaping ([Group]) -> ()) {
+        GroupService.groups = []
         let ref = Database.database().reference().child("groups_joined").child(uid)
         ref.observeSingleEvent(of: .value, with: { snapshot in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {

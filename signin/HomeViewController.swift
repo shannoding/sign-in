@@ -33,10 +33,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        GroupService.fillGroups(uid: User.current.uid) { (groupList) in
-            self.groups = groupList
-            self.groupCollectionView.reloadData()
-        }
+//        GroupService.fillGroups(uid: User.current.uid) { (groupList) in
+//            self.groups = groupList
+//            self.groupCollectionView.reloadData()
+//        }
         EventService.events = []
         user = user ?? User.current
         self.title = User.current.username
