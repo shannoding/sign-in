@@ -198,7 +198,7 @@ extension HomeViewController: UICollectionViewDelegate {
                 performSegue(withIdentifier: "showCreateGroupSegue", sender: self)
             }
             else {
-                UserService.joinGroup(uid: User.current.uid, username: User.current.username, email: User.current.email, groupKey: "-KqUgQy2sOe_rv-M8bC-") { (groupJoined) in
+                UserService.joinGroup(uid: User.current.uid, username: User.current.username, email: User.current.email, groupKey: "-KqV2PFUzidjVcht62Fs") { (groupJoined) in
                     HomeViewController.groupSelected = groupJoined
                     print("Groups joined is \(groupJoined)")
                     print("The group selected from joining is \(HomeViewController.groupSelected)")

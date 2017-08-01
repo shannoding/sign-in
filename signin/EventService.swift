@@ -34,7 +34,8 @@ struct EventService {
         
         
         ref.updateChildValues(dict)
-        
+        let userRef = Database.database().reference().child("user_events").child(uid).child(key)
+        userRef.setValue(["event_attended": false])
     
         
         self.events.append(event)
@@ -57,27 +58,28 @@ struct EventService {
                     else { return }
                 let key = snip.key
                 
-                
-//                let userRef = Database.database().reference().child("user_events").child(uid).child(key)
-//                userRef.observeSingleEvent(of: .value, with: { snapshot in
-//                    guard let userDict = snapshot.value as? [String: Any],
-//                    let attended = userDict["event_attended"] as? Bool
-//                        else { return }
-//                    print("Attended: \(attended)")
-//                    
-//                    
-//                    let event = Event(key: key, name: name, groupOf: groupKey, date: date, attended: attended)
-//                    print(event)
-//                    events.append(event)
-//                    completion(events)
-//                    
-//                    })
-                
-                
-                let event = Event(key: key, name: name, groupOf: groupKey, date: date, attended: false)
+                var event = Event(key: key, name: name, groupOf: groupKey, date: date, attended: false)
                 print(event)
-                events.append(event)
-                completion(events)
+                
+                let userRef = Database.database().reference().child("user_events").child(uid).child(key)
+                userRef.observeSingleEvent(of: .value, with: { snapshot in
+                    guard let userDict = snapshot.value as? [String: Any],
+                    let attended = userDict["event_attended"] as? Bool
+                        else { return }
+                    print("Attended: \(attended)")
+                    event = Event(key: key, name: name, groupOf: groupKey, date: date, attended: attended)
+                    events.append(event)
+                    completion(events)
+                    
+                    })
+//                print("Event attended is: \(event.attended)")
+//                if event.attended {
+//                    return
+//                }
+//                else {
+//                events.append(event)
+//                completion(events)
+//                }
             }
             print(events)
             
