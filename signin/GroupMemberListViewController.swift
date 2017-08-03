@@ -15,11 +15,14 @@ class GroupMemberListViewController: UIViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         GroupService.showMembers(groupKey: HomeViewController.groupSelected!.key) { (memberList) in
             self.members = memberList
             self.groupMemberTableView.reloadData()
         }
-        
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

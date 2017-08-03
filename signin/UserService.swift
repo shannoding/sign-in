@@ -75,7 +75,8 @@ struct UserService {
     
     static func joinGroup(uid: String, username: String, email: String, groupKey: String, completion: @escaping (Group) -> Void) {
         let userAttrs = ["username": username, "email": email]
-        
+        let groupMemberRef = Database.database().reference().child("group_members").child(groupKey).child(uid)
+        groupMemberRef.setValue(userAttrs)
         
         let groupInfoRef = Database.database().reference().child("groups_about").child(groupKey)
         groupInfoRef.observeSingleEvent(of: .value, with: { (snapshot) in

@@ -23,8 +23,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="02D-wU-bhu">
+                                <rect key="frame" x="31" y="80" width="313" height="25.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Groups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnI-Ix-ndF">
+                                        <rect key="frame" x="0.0" y="0.0" width="313" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="prQ-8s-0Cx">
-                                <rect key="frame" x="31" y="0.0" width="313" height="500.5"/>
+                                <rect key="frame" x="31" y="120.5" width="313" height="333.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jzB-JK-zZj">
                                     <size key="itemSize" width="50" height="50"/>
@@ -110,14 +121,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="02D-wU-bhu" secondAttribute="trailing" constant="15" id="4V5-Vp-UFI"/>
                             <constraint firstItem="prQ-8s-0Cx" firstAttribute="leading" secondItem="coF-Ns-FgS" secondAttribute="leading" id="D4C-6B-zHl"/>
+                            <constraint firstItem="02D-wU-bhu" firstAttribute="leading" secondItem="fC2-gI-0ct" secondAttribute="leadingMargin" constant="15" id="IT4-ac-SUd"/>
                             <constraint firstItem="coF-Ns-FgS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="prQ-8s-0Cx" secondAttribute="bottom" constant="25" id="KZP-hO-X8q"/>
                             <constraint firstItem="prQ-8s-0Cx" firstAttribute="trailing" secondItem="coF-Ns-FgS" secondAttribute="trailing" id="Li6-rF-1cS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="coF-Ns-FgS" secondAttribute="trailing" constant="15" id="ccg-QF-ggP"/>
-                            <constraint firstItem="prQ-8s-0Cx" firstAttribute="height" secondItem="fC2-gI-0ct" secondAttribute="height" multiplier="0.75" id="dvx-1Z-0sl"/>
+                            <constraint firstItem="prQ-8s-0Cx" firstAttribute="height" secondItem="fC2-gI-0ct" secondAttribute="height" multiplier="0.5" id="dvx-1Z-0sl"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="coF-Ns-FgS" secondAttribute="bottom" constant="25" id="gCQ-Xg-tpI"/>
-                            <constraint firstItem="prQ-8s-0Cx" firstAttribute="top" secondItem="fC2-gI-0ct" secondAttribute="topMargin" id="lka-Rb-239"/>
+                            <constraint firstItem="02D-wU-bhu" firstAttribute="top" secondItem="fC2-gI-0ct" secondAttribute="topMargin" constant="80" id="oYp-e9-pQX"/>
                             <constraint firstItem="coF-Ns-FgS" firstAttribute="leading" secondItem="fC2-gI-0ct" secondAttribute="leadingMargin" constant="15" id="piu-Ff-AOP"/>
+                            <constraint firstItem="prQ-8s-0Cx" firstAttribute="top" secondItem="02D-wU-bhu" secondAttribute="bottom" constant="15" id="wWv-Mv-hUj"/>
                             <constraint firstItem="coF-Ns-FgS" firstAttribute="centerX" secondItem="fC2-gI-0ct" secondAttribute="centerX" id="xgZ-dh-wsb"/>
                         </constraints>
                     </view>

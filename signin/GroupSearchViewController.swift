@@ -26,6 +26,12 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
             
         }
         
+//        UserService.joinGroup(uid: User.current.uid, username: User.current.username, email: User.current.email, groupKey: "-KqV2PFUzidjVcht62Fs") { (groupJoined) in
+//            HomeViewController.groupSelected = groupJoined
+//            print("Groups joined is \(groupJoined)")
+//            print("The group selected from joining is \(HomeViewController.groupSelected)")
+//            self.performSegue(withIdentifier: "showGroupSegue", sender: self)
+        
         groupSearchTableView.delegate = self
         groupSearchTableView.dataSource = self
         groupSearchBar.delegate = self
@@ -99,30 +105,9 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
         return cell;
     }
     
-    private func tableView(_ tableView: UITableView, didSelectItemAt indexPath: IndexPath) {
-        print("LOOKS LIKE YOU TOUCHED GROUP SEARCHED NUMBER \(indexPath.item) MY FRIEND")
     
-        if(searchActive){
-            //GroupSearchViewController.searchedGroup = filtered[indexPath.row]
-        } else {
-            //GroupSearchViewController.searchedGroup = data[indexPath.row]
-        }
-        
-        
-//        if indexPath.item < events.count {
-//            let eventNumber = indexPath.item
-//            GroupViewController.eventSelected = EventService.events[eventNumber]
-//            performSegue(withIdentifier: "showSignInSegue", sender: self)
-//        }
-//        else {
-//            performSegue(withIdentifier: "showCreateEventSegue", sender: self)
-//            print("Create Event Tapped")
-//            DispatchQueue.main.async {
-//                self.eventCollectionView.reloadData()
-//            }
-//            print("HERE ARE ALL THE EVENTS \(events)")
-//            print("RELOADED")
-//        }
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("section: \(indexPath.section)")
+        print("row: \(indexPath.row)")
     }
 }
