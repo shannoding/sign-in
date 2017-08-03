@@ -19,7 +19,7 @@ class CreateEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DatePickerView.datePickerMode = UIDatePickerMode.date
+        DatePickerView.datePickerMode = UIDatePickerMode.dateAndTime
         eventDateTextField.inputView = DatePickerView
         DatePickerView.addTarget(self, action: #selector(CreateEventViewController.handleDatePicker), for: UIControlEvents.valueChanged)
 
@@ -32,13 +32,11 @@ class CreateEventViewController: UIViewController {
     func handleDatePicker()
     {
         let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "MM-dd-yyyy hh:mm:ss"
+        dateFormatterGet.dateFormat = "MM-dd hh:mm"
         
         let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = "MMM dd, yyyy"
+        dateFormatterPrint.dateFormat = "MMM dd, hh:mm"
         
-//        let date: NSDate? = dateFormatterGet.date(from: "2016-02-29 12:24:26")
-//        print(dateFormatterPrint.stringFromDate(date!))
         
         eventDateTextField.text =  dateFormatterPrint.string(from: DatePickerView.date)
     }
