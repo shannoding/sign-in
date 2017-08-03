@@ -37,8 +37,14 @@ struct EventService {
         let userRef = Database.database().reference().child("user_events").child(uid).child(key)
         userRef.setValue(["event_attended": false])
     
-        
-        self.events.append(event)
+        EventService.populateAllUserEvents(groupKey: groupKey, eventKey: key) { complete in
+            if complete {
+                self.events.append(event)
+            }
+            else {
+                print("ERROR in populate all user events")
+            }
+        }
         
     }
     
@@ -58,36 +64,56 @@ struct EventService {
                     else { return }
                 let key = snip.key
                 
-                var event = Event(key: key, name: name, groupOf: groupKey, date: date, attended: false)
-                print(event)
-                
+                var attendedBool = false
+                var event = Event(key: key, name: name, groupOf: groupKey, date: date, attended: attendedBool)
                 let userRef = Database.database().reference().child("user_events").child(uid).child(key)
                 userRef.observeSingleEvent(of: .value, with: { snapshot in
                     guard let userDict = snapshot.value as? [String: Any],
                     let attended = userDict["event_attended"] as? Bool
-                        else { return }
+                        else {
+                            event = Event(key: key, name: name, groupOf: groupKey, date: date, attended: false)
+                            events.append(event)
+                            completion(events)
+                            
+                            return }
                     print("Attended: \(attended)")
+                    attendedBool = attended
+                    //events.remove(at: events.count - 1)
                     event = Event(key: key, name: name, groupOf: groupKey, date: date, attended: attended)
                     events.append(event)
                     completion(events)
                     
-                    })
-//                print("Event attended is: \(event.attended)")
-//                if event.attended {
-//                    return
-//                }
-//                else {
-//                events.append(event)
-//                completion(events)
-//                }
+                })
             }
             print(events)
             
         })
 
     }
+    static func populateAllUserEvents(groupKey:String, eventKey: String, completion: @escaping (Bool) -> ()) {
+        
+        let ref = Database.database().reference().child("group_members").child(groupKey)
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+                return
+            }
+            print("The group members snapshot is \(snapshot)")
+            for snip in snapshot {
+                guard let userKey = snip.key as? String
+                    else { return }
+                
+                let ref = Database.database().reference().child("user_events").child(userKey).child(eventKey)
+                let dict = ["event_attended": false]
+                ref.setValue(dict)
+            }
+            completion(true)
+        })
+        
+        
+    }
+
     static func attendEvent(eventKey: String, uid: String, completion: @escaping (Event) -> ()) {
-        let ref = Database.database().reference().child("user_events/\(uid)/\(eventKey)")
+        let ref = Database.database().reference().child("user_events").child(uid).child(eventKey)
         let dict = ["event_attended": true]
         ref.setValue(dict)
         //let baseRef = Database.database().reference()

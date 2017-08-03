@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.makeKeyAndVisible()
         }
         configureInitialRootViewController(for: window)
+        
 
         return true
     }

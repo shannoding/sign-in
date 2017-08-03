@@ -41,7 +41,9 @@ class HomeViewController: UIViewController {
         user = user ?? User.current
         self.title = User.current.username
         
-        
+        //EventService.populateUserEvents(uid: User.current.uid) { (ok) in
+//            print(ok)
+//        }
         //logout and go to login screen
         authHandle = Auth.auth().addStateDidChangeListener() { [unowned self] (auth, user) in
             guard user == nil else { return }

@@ -29,16 +29,19 @@ class GroupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        user = user ?? User.current
+        self.title = HomeViewController.groupSelected!.name
+        
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         events = []
         EventService.fillEvents(uid: User.current.uid, groupKey: HomeViewController.groupSelected!.key) { (eventList) in
             self.events = eventList
             print("The events are \(self.events)")
             self.eventCollectionView.reloadData()
         }
-        user = user ?? User.current
-        self.title = HomeViewController.groupSelected!.name
-        
-        
     }
     
     
