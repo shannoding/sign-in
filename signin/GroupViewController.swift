@@ -18,6 +18,7 @@ class GroupViewController: UIViewController {
     static var eventSelected: Event? = nil
     
     @IBOutlet weak var eventCollectionView: UICollectionView!
+    @IBOutlet weak var eventForLabel: UILabel!
     
     var eventHandle: DatabaseHandle = 0
     var eventRef: DatabaseReference?
@@ -32,7 +33,7 @@ class GroupViewController: UIViewController {
         user = user ?? User.current
         self.title = HomeViewController.groupSelected!.name
         
-        
+        self.eventForLabel.text = "Events for \(HomeViewController.groupSelected!.name)"
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

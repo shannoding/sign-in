@@ -16,6 +16,8 @@ class EventSignInViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     
+    @IBOutlet weak var eventDateLabel: UILabel!
+    @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var signInButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()

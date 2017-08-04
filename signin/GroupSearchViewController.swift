@@ -107,7 +107,13 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("section: \(indexPath.section)")
-        print("row: \(indexPath.row)")
+        if (searchActive) {
+        //HomeViewController.groupSelected = 
+            print("YOU SELECTED \(filtered[indexPath.row])")
+        }
+        else {
+          //HomeViewController.groupSelected = 
+            print("YOU SELECTED \(data[indexPath.row])")
+        }
     }
 }

@@ -90,6 +90,8 @@ struct EventService {
         })
 
     }
+    
+    //will overwrite all attends to false! this should only be used in the create function
     static func populateAllUserEvents(groupKey:String, eventKey: String, completion: @escaping (Bool) -> ()) {
         
         let ref = Database.database().reference().child("group_members").child(groupKey)
@@ -116,10 +118,20 @@ struct EventService {
         let ref = Database.database().reference().child("user_events").child(uid).child(eventKey)
         let dict = ["event_attended": true]
         ref.setValue(dict)
-        //let baseRef = Database.database().reference()
-        //baseRef.child("user_events").child(uid).child("\(eventKey)/event_attended").setValue(true)
-        //let groupKey = HomeViewController.groupSelected!.key
-        //baseRef.child("group_events").child("\(groupKey)/\(eventKey)/event_attended").setValue(true)
+        let baseRef = Database.database().reference().child("event_attendees").child(eventKey).child(uid)
+        
+        let userRef = Database.database().reference().child("users").child(uid)
+        userRef.observeSingleEvent(of: .value, with: { snapshot in
+            guard let userDict = snapshot.value as? [String: String],
+            let username = userDict["username"],
+            let email = userDict["email"]
+            else {
+                return
+            }
+            let userAbout = ["username": username, "email": email]
+            baseRef.setValue(userAbout)
+            
+        })
         
     }
 }
