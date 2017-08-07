@@ -73,8 +73,14 @@ struct UserService {
         })
     }
     
-    static func joinGroup(uid: String, username: String, email: String, groupKey: String, completion: @escaping (Group) -> Void) {
-        let userAttrs = ["username": username, "email": email]
+    static func joinGroup(uid: String, groupKey: String, completion: @escaping (Group) -> Void) {
+        let userInfoRef = Database.database().reference().child("users").child(uid)
+        userInfoRef.observeSingleEvent(of: .value, with: { snapshot in
+            guard let userDict = snapshot.value as? [String: String],
+            let username = userDict["username"],
+            let email = userDict["email"]
+                else { return }
+            let userAttrs = ["username": username, "email": email]
         let groupMemberRef = Database.database().reference().child("group_members").child(groupKey).child(uid)
         groupMemberRef.setValue(userAttrs)
         
@@ -127,7 +133,10 @@ struct UserService {
             
         })
         
+    })
         
     }
+    
+    //static func leaveGroup(groupKey: String, )
 
 }

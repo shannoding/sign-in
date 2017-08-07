@@ -45,9 +45,12 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="Qca-P0-kBr"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                        <state key="normal" title="Something">
+                                        <state key="normal" title="About Group">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="wSS-ZC-Grc" kind="show" id="hcq-T5-eyq"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zs1-zD-WLs">
                                         <rect key="frame" x="0.0" y="70" width="313" height="45"/>
@@ -142,6 +145,83 @@
             </objects>
             <point key="canvasLocation" x="4317.6000000000004" y="998.95052473763121"/>
         </scene>
+        <!--Group About View Controller-->
+        <scene sceneID="8en-dc-rbf">
+            <objects>
+                <viewController id="wSS-ZC-Grc" customClass="GroupAboutViewController" customModule="signin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="reZ-0m-OZu"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Or-2b-aY9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="m4M-GM-7uA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="4YN-dh-Hog">
+                                <rect key="frame" x="31" y="114" width="313" height="17"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="AdQ-xb-OME">
+                                        <rect key="frame" x="0.0" y="0.0" width="313" height="17"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiG-Je-5eK">
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEk-0z-YNs">
+                                                <rect key="frame" x="100" y="0.0" width="213" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="YiG-Je-5eK" firstAttribute="top" secondItem="AdQ-xb-OME" secondAttribute="top" id="51i-Iu-nSn"/>
+                                            <constraint firstAttribute="bottom" secondItem="YiG-Je-5eK" secondAttribute="bottom" id="aDC-rm-MOo"/>
+                                            <constraint firstItem="YiG-Je-5eK" firstAttribute="leading" secondItem="AdQ-xb-OME" secondAttribute="leading" id="lOZ-bM-WuP"/>
+                                            <constraint firstItem="cEk-0z-YNs" firstAttribute="leading" secondItem="AdQ-xb-OME" secondAttribute="leading" constant="100" id="sf9-sD-PYm"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12r-jp-PKl">
+                                <rect key="frame" x="31" y="206" width="313" height="45"/>
+                                <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="2iF-G2-GVc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <state key="normal" title="Leave Group">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="createEventButtonTapped:" destination="U7q-pJ-qlE" eventType="touchUpInside" id="Wlc-AW-LV9"/>
+                                    <action selector="leaveGroupButtonTapped:" destination="wSS-ZC-Grc" eventType="touchUpInside" id="yfu-WQ-ggS"/>
+                                    <action selector="signInButtonTapped:" destination="ORM-qH-cVT" eventType="touchUpInside" id="ZYa-Xm-WT2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4YN-dh-Hog" firstAttribute="top" secondItem="reZ-0m-OZu" secondAttribute="bottom" constant="50" id="DzJ-h8-8bB"/>
+                            <constraint firstItem="12r-jp-PKl" firstAttribute="leading" secondItem="m4M-GM-7uA" secondAttribute="leadingMargin" constant="15" id="MZW-6Q-Klo"/>
+                            <constraint firstItem="12r-jp-PKl" firstAttribute="top" secondItem="4YN-dh-Hog" secondAttribute="bottom" constant="75" id="N4V-Gq-Imz"/>
+                            <constraint firstItem="4YN-dh-Hog" firstAttribute="leading" secondItem="m4M-GM-7uA" secondAttribute="leadingMargin" constant="15" id="R0r-6w-uwH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4YN-dh-Hog" secondAttribute="trailing" constant="15" id="VDH-QG-EuX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="12r-jp-PKl" secondAttribute="trailing" constant="15" id="iT6-JN-PZO"/>
+                            <constraint firstItem="12r-jp-PKl" firstAttribute="top" secondItem="4YN-dh-Hog" secondAttribute="bottom" constant="75" id="qPt-6a-cgn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="groupNameLabel" destination="cEk-0z-YNs" id="rYp-7Z-JHU"/>
+                        <outlet property="leaveGroupButton" destination="12r-jp-PKl" id="b8M-RS-yfG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0iQ-qi-Wrz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3220" y="1766"/>
+        </scene>
         <!--Group Member List View Controller-->
         <scene sceneID="MmQ-IC-NNh">
             <objects>
@@ -206,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DW7-Gz-2y4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4271" y="1767"/>
+            <point key="canvasLocation" x="4263" y="1766"/>
         </scene>
         <!--Sign In To-->
         <scene sceneID="frx-zq-E8U">

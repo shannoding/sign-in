@@ -43,7 +43,7 @@ class CreateGroupViewController: UIViewController {
         print("About to create the group, \(groupName)")
         GroupService.create(groupName: groupName, uid: User.current.uid)
         let createdGroup = GroupService.groups[GroupService.groups.count - 1]
-        UserService.joinGroup(uid: User.current.uid, username: User.current.username, email: User.current.email, groupKey: createdGroup.key, completion: {(createdGroup) in
+        UserService.joinGroup(uid: User.current.uid, groupKey: createdGroup.key, completion: {(createdGroup) in
             print("About to segue back to home from Create Group")
             self.createGroupButton.setTitle("Created Group!", for: .normal)
             self.createGroupButton.backgroundColor = RandomColor.green

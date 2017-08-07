@@ -98,7 +98,7 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if groupSearchController.isActive && groupSearchBar.text != "" {
             let groupSearched = filtered[indexPath.row]
-            UserService.joinGroup(uid: User.current.uid, username: User.current.username, email: User.current.email, groupKey: groupSearched.key) { (groupJoined) in
+            UserService.joinGroup(uid: User.current.uid, groupKey: groupSearched.key) { (groupJoined) in
                 HomeViewController.groupSelected = groupJoined
                 print("Groups joined is \(groupJoined)")
                 print("The group selected from joining is \(HomeViewController.groupSelected)")
@@ -108,7 +108,7 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
         else {
             let groupSearched = data[indexPath.row]
             
-            UserService.joinGroup(uid: User.current.uid, username: User.current.username, email: User.current.email, groupKey: groupSearched.key) { (groupJoined) in
+            UserService.joinGroup(uid: User.current.uid, groupKey: groupSearched.key) { (groupJoined) in
                 HomeViewController.groupSelected = groupJoined
                 print("Groups joined is \(groupJoined)")
                 print("The group selected from joining is \(HomeViewController.groupSelected)")
