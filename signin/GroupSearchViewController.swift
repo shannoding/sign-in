@@ -87,8 +87,8 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filtered = data.filter { group in
-            return group.name.lowercased().range(of: searchText.lowercased()) != nil
+        self.filtered = data.filter { group in
+            return group.name.lowercased().contains(searchText.lowercased()) //range(of: searchText.lowercased()) != nil
         }
         
         groupSearchTableView.reloadData()
@@ -123,6 +123,8 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
 
 extension GroupSearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
+        print("updating")
         filterContentForSearchText(searchText: searchController.searchBar.text!)
+        groupSearchTableView.reloadData()
     }
 }
