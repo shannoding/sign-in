@@ -78,12 +78,14 @@ struct UserService {
         let groupMemberRef = Database.database().reference().child("group_members").child(groupKey).child(uid)
         groupMemberRef.setValue(userAttrs)
         
+        // get group key and name
         let groupInfoRef = Database.database().reference().child("groups_about").child(groupKey)
         groupInfoRef.observeSingleEvent(of: .value, with: { (snapshot) in
             guard let groupDict = snapshot.value as? [String: String],
                 let groupName = groupDict["group_name"] as? String
             else { return }
             
+            // add user as a member of the group
             let ref = Database.database().reference().child("group_members").child(groupKey).child(uid)
             ref.setValue(userAttrs) { (error, ref) in
                 if let error = error {
@@ -91,9 +93,36 @@ struct UserService {
                 }
                 let groupJoined = Group(key: groupKey, name: groupName)
                 let groupJoinedRef = Database.database().reference().child("groups_joined").child(uid).child(groupKey)
-                let dict = groupJoined.dictValue
-                groupJoinedRef.updateChildValues(dict)
-                return completion(groupJoined)
+                
+                // check if the user already joined
+                groupJoinedRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                    guard let groupDict = snapshot.value as? [String: String],
+                        let groupName = groupDict["group_name"] as? String
+                        else {
+                            EventService.populateNewUserEvents(groupKey: groupKey, uid: uid) { complete in
+                                if complete {
+                                    let dict = groupJoined.dictValue
+                                    groupJoinedRef.updateChildValues(dict)
+                                    return completion(groupJoined)
+                                }
+                                else {
+                                    print("ERROR in populate all new user events")
+                                }
+                            }
+                            return completion(groupJoined)
+                        }
+                    print("the joined group group name is \(groupName)")
+                                    // user did not already join
+                                    let dict = groupJoined.dictValue
+                                    groupJoinedRef.updateChildValues(dict)
+                                    return completion(groupJoined)
+    
+                })
+                
+//                // user did not already join
+//                let dict = groupJoined.dictValue
+//                groupJoinedRef.updateChildValues(dict)
+//                return completion(groupJoined)
             }
             
         })

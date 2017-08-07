@@ -114,6 +114,27 @@ struct EventService {
         
         
     }
+    static func populateNewUserEvents(groupKey:String, uid: String, completion: @escaping (Bool) -> ()) {
+        
+        let ref = Database.database().reference().child("group_events").child(groupKey)
+        ref.observeSingleEvent(of: .value, with: { snapshot in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+                return
+            }
+            print("The group members snapshot is \(snapshot)")
+            for snip in snapshot {
+                guard let eventKey = snip.key as? String
+                    else { return }
+                
+                let ref = Database.database().reference().child("user_events").child(uid).child(eventKey)
+                let dict = ["event_attended": false]
+                ref.setValue(dict)
+            }
+            completion(true)
+        })
+        
+        
+    }
 
     static func attendEvent(eventKey: String, uid: String, completion: @escaping (Event) -> ()) {
         let ref = Database.database().reference().child("user_events").child(uid).child(eventKey)
