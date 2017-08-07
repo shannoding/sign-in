@@ -95,6 +95,10 @@ class HomeViewController: UIViewController {
         backItem.title = "Home"
         navigationItem.backBarButtonItem = backItem
     }
+    @IBAction func unwindToGroupAboutHome(segue:UIStoryboardSegue) {
+        self.groups = GroupService.groups
+        self.groupCollectionView.reloadData()
+    }
     
     
     @IBAction func signOutButtonPressed(_ sender: UIButton) {

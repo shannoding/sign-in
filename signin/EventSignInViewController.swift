@@ -43,6 +43,21 @@ class EventSignInViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func signInButtonTapped(_ sender: UIButton) {
+        
+        guard let username = nameTextField.text,
+            let email = emailTextField.text,
+            !username.isEmpty,
+            !email.isEmpty
+            else {
+                
+                let alertController = UIAlertController(title: "Incomplete Fields", message:
+                    "Please do not leave the fields blank.", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+                return
+        }
+        
         GroupViewController.eventSelected!.attended = true
         EventService.attendEvent(eventKey: GroupViewController.eventSelected!.key, uid: User.current.uid) { (event) in
             

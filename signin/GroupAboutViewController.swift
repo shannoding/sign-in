@@ -20,6 +20,10 @@ class GroupAboutViewController: UIViewController {
     }
     
     @IBAction func leaveGroupButtonTapped(_ sender: UIButton) {
+        
+        UserService.leaveGroup(uid: User.current.uid, groupKey: HomeViewController.groupSelected!.key)
+        HomeViewController.groupSelected = nil
+        performSegue(withIdentifier: "unwindToGroupAboutHome", sender: self)
     }
     
 }

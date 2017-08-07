@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import FirebaseAuth.FIRUser
 import FirebaseDatabase
 
@@ -125,10 +126,6 @@ struct UserService {
     
                 })
                 
-//                // user did not already join
-//                let dict = groupJoined.dictValue
-//                groupJoinedRef.updateChildValues(dict)
-//                return completion(groupJoined)
             }
             
         })
@@ -137,6 +134,11 @@ struct UserService {
         
     }
     
-    //static func leaveGroup(groupKey: String, )
+    static func leaveGroup(uid: String, groupKey: String) {
+        let groupMemberRef = Database.database().reference().child("group_members").child(groupKey).child(uid)
+        groupMemberRef.setValue(nil)
+        let groupJoinedRef = Database.database().reference().child("groups_joined").child(uid).child(groupKey)
+        groupJoinedRef.setValue(nil)
+    }
 
 }

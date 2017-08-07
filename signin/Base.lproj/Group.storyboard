@@ -216,9 +216,11 @@
                     <connections>
                         <outlet property="groupNameLabel" destination="cEk-0z-YNs" id="rYp-7Z-JHU"/>
                         <outlet property="leaveGroupButton" destination="12r-jp-PKl" id="b8M-RS-yfG"/>
+                        <segue destination="jaM-wE-bIp" kind="unwind" identifier="unwindToGroupAboutHome" unwindAction="unwindToGroupAboutHomeWithSegue:" id="r64-ah-33B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0iQ-qi-Wrz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="jaM-wE-bIp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3220" y="1766"/>
         </scene>
