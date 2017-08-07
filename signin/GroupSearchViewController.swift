@@ -13,107 +13,115 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var groupSearchBar: UISearchBar!
     @IBOutlet weak var groupSearchTableView: UITableView!
     
+    
+    let groupSearchController = UISearchController(searchResultsController: nil)
+    
     var searchActive : Bool = false
-    var data: [String] = []
-    var filtered:[String] = []
+    var data = [Group]()
+    var filtered = [Group]()
+//    var data: [String] = []
+//    var filtered:[String] = []
 
-    static var searchedGroup: Group? = nil
     
     override func viewDidLoad() {
         
-        GroupService.searchGroupArray() { groupArray in
-            self.data = groupArray
-            
-        }
-        
-//        UserService.joinGroup(uid: User.current.uid, username: User.current.username, email: User.current.email, groupKey: "-KqV2PFUzidjVcht62Fs") { (groupJoined) in
-//            HomeViewController.groupSelected = groupJoined
-//            print("Groups joined is \(groupJoined)")
-//            print("The group selected from joining is \(HomeViewController.groupSelected)")
-//            self.performSegue(withIdentifier: "showGroupSegue", sender: self)
+//        GroupService.searchGroupArray() { groupArray in
+//            self.data = groupArray
+//            
+//        }
+    
         
         groupSearchTableView.delegate = self
         groupSearchTableView.dataSource = self
         groupSearchBar.delegate = self
+        
+        
+        groupSearchController.searchResultsUpdater = self
+        groupSearchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        //groupSearchTableView.tableHeaderView = searchController.searchBar
+        
         super.viewDidLoad()
     
     }
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true;
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        filtered = data.filter({ (text) -> Bool in
-            
-            let tmp = text.lowercased()
-            let range = tmp.range(of: searchText.lowercased())
-            if let range = range {
-                return true
-
-            }
-            else {
-                return false
-            }
-        })
-        if(filtered.count == 0){
-            searchActive = false;
-        } else {
-            searchActive = true;
+    override func viewWillAppear(_ animated: Bool) {
+        GroupService.searchGroup() { (groupList) in
+            self.data = groupList
+            self.groupSearchTableView.reloadData()
         }
-        self.groupSearchTableView.reloadData()
+            super.viewWillAppear(animated)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    // MARK: - Table View
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(searchActive) {
+        if groupSearchController.isActive && groupSearchBar.text != "" {
             return filtered.count
         }
-        return data.count;
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = groupSearchTableView.dequeueReusableCell(withIdentifier: "groupSearchTableViewCell", for: indexPath) as! GroupSearchTableViewCell
         
-        let cell = groupSearchTableView.dequeueReusableCell(withIdentifier: "groupSearchTableViewCell", for: indexPath) as! GroupSearchTableViewCell;
-        if(searchActive){
-            cell.textLabel?.text = filtered[indexPath.row]
-        } else {
-            cell.textLabel?.text = data[indexPath.row];
+        let groupSearched: Group
+        
+        if groupSearchController.isActive && groupSearchBar.text != "" {
+            groupSearched = filtered[indexPath.row]
         }
-        
-        return cell;
+        else {
+            groupSearched = data[indexPath.row]
+        }
+        cell.groupNameLabel.text = groupSearched.name
+        return cell
     }
     
     
+    
+    // MARK: - Search functions
+
+    
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filtered = data.filter { group in
+            return group.name.lowercased().range(of: searchText.lowercased()) != nil
+        }
+        
+        groupSearchTableView.reloadData()
+    }
+
+    
+    // MARK: - Segues
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (searchActive) {
-        //HomeViewController.groupSelected = 
-            print("YOU SELECTED \(filtered[indexPath.row])")
+        if groupSearchController.isActive && groupSearchBar.text != "" {
+            let groupSearched = filtered[indexPath.row]
+            UserService.joinGroup(uid: User.current.uid, username: User.current.username, email: User.current.email, groupKey: groupSearched.key) { (groupJoined) in
+                HomeViewController.groupSelected = groupJoined
+                print("Groups joined is \(groupJoined)")
+                print("The group selected from joining is \(HomeViewController.groupSelected)")
+                self.performSegue(withIdentifier: "showGroupSegue", sender: self)
+            }
         }
         else {
-          //HomeViewController.groupSelected = 
-            print("YOU SELECTED \(data[indexPath.row])")
+            let groupSearched = data[indexPath.row]
+            
+            UserService.joinGroup(uid: User.current.uid, username: User.current.username, email: User.current.email, groupKey: groupSearched.key) { (groupJoined) in
+                HomeViewController.groupSelected = groupJoined
+                print("Groups joined is \(groupJoined)")
+                print("The group selected from joining is \(HomeViewController.groupSelected)")
+                self.performSegue(withIdentifier: "showGroupFromSearchSegue", sender: self)
+            }
+
         }
+    }
+
+}
+
+extension GroupSearchViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
 }

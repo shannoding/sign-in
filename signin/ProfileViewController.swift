@@ -55,11 +55,15 @@ class ProfileViewController: UIViewController {
             print("Updated username to \(User.current.username) and email to \(User.current.email)")
             //User.setCurrent(user)
         })
+        self.saveProfileButton.setTitle("Saved Profile!", for: .normal)
+        self.saveProfileButton.backgroundColor = RandomColor.green
+        performSegue(withIdentifier: "unwindToProfileHome", sender: self)
+
     }
     
-    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "unwindToProfileHome", sender: self)
-    }
+//    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+//        performSegue(withIdentifier: "unwindToProfileHome", sender: self)
+//    }
     
     
 }

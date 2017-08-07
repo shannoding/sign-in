@@ -219,6 +219,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create Group" id="myc-Vx-0TU"/>
                     <connections>
+                        <outlet property="createGroupButton" destination="IMH-8f-J00" id="NfC-Lf-cWx"/>
                         <outlet property="createGroupTextField" destination="q3F-wD-8IK" id="ooA-gI-reU"/>
                         <segue destination="hen-k1-k51" kind="unwind" identifier="unwindToCreateGroupHomeSegue" unwindAction="unwindToCreateGroupHomeWithSegue:" id="Iho-lg-nuJ"/>
                     </connections>
@@ -355,7 +356,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fyv-P7-NXc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4XQ-VO-LfO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4XQ-VO-LfO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -402,8 +403,25 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ah9-eS-Uuj" id="UCC-wm-41G">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Is-Dn-2Jc">
+                                                    <rect key="frame" x="23" y="8" width="344" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1Is-Dn-2Jc" firstAttribute="top" secondItem="UCC-wm-41G" secondAttribute="topMargin" id="28O-4O-0KA"/>
+                                                <constraint firstItem="1Is-Dn-2Jc" firstAttribute="leading" secondItem="UCC-wm-41G" secondAttribute="leadingMargin" constant="15" id="KXF-rm-fpA"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="1Is-Dn-2Jc" secondAttribute="trailing" id="gbz-tX-KmT"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="1Is-Dn-2Jc" secondAttribute="bottom" id="vFy-Ns-MZu"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="groupNameLabel" destination="1Is-Dn-2Jc" id="hhh-PI-bKc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -431,6 +449,7 @@
                         <outlet property="groupSearchBar" destination="ut1-1D-NCQ" id="zhU-EZ-bc1"/>
                         <outlet property="groupSearchTableView" destination="DTZ-Cl-nWH" id="51j-nE-ea2"/>
                         <segue destination="xUS-Tf-Wd6" kind="unwind" unwindAction="unwindToGroupSearchHomeWithSegue:" id="rnl-2S-pbH"/>
+                        <segue destination="5og-6a-v0a" kind="show" identifier="showGroupFromSearchSegue" id="MTX-Lb-7yu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFN-7u-ckH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -439,4 +458,7 @@
             <point key="canvasLocation" x="4781.6000000000004" y="761.46926536731644"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="MTX-Lb-7yu"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -32,6 +32,8 @@
 		FB4FFEA71F2BC13B003A9C86 /* GroupSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FFEA61F2BC13B003A9C86 /* GroupSearchViewController.swift */; };
 		FB4FFEC71F2FD9DE003A9C86 /* GroupMemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FFEC61F2FD9DE003A9C86 /* GroupMemberListViewController.swift */; };
 		FB4FFECB1F2FDACD003A9C86 /* GroupMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FFECA1F2FDACD003A9C86 /* GroupMemberTableViewCell.swift */; };
+		FB4FFECD1F34F4C1003A9C86 /* EventAttendeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FFECC1F34F4C1003A9C86 /* EventAttendeeTableViewCell.swift */; };
+		FB4FFECF1F34F577003A9C86 /* EventAttendeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FFECE1F34F577003A9C86 /* EventAttendeeViewController.swift */; };
 		FB6664401F0E9A5D005CD110 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66643F1F0E9A5D005CD110 /* AppDelegate.swift */; };
 		FB6664421F0E9A5D005CD110 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6664411F0E9A5D005CD110 /* ViewController.swift */; };
 		FB6664451F0E9A5D005CD110 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6664431F0E9A5D005CD110 /* Login.storyboard */; };
@@ -66,6 +68,8 @@
 		FB4FFEA61F2BC13B003A9C86 /* GroupSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupSearchViewController.swift; sourceTree = "<group>"; };
 		FB4FFEC61F2FD9DE003A9C86 /* GroupMemberListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMemberListViewController.swift; sourceTree = "<group>"; };
 		FB4FFECA1F2FDACD003A9C86 /* GroupMemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMemberTableViewCell.swift; sourceTree = "<group>"; };
+		FB4FFECC1F34F4C1003A9C86 /* EventAttendeeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAttendeeTableViewCell.swift; sourceTree = "<group>"; };
+		FB4FFECE1F34F577003A9C86 /* EventAttendeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAttendeeViewController.swift; sourceTree = "<group>"; };
 		FB66643C1F0E9A5D005CD110 /* signin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = signin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB66643F1F0E9A5D005CD110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB6664411F0E9A5D005CD110 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 				FB4BEE601F22D3A5006B09A1 /* EventCollectionViewCell.swift */,
 				FB4FFEA41F2BBEDC003A9C86 /* GroupSearchTableViewCell.swift */,
 				FB4FFECA1F2FDACD003A9C86 /* GroupMemberTableViewCell.swift */,
+				FB4FFECC1F34F4C1003A9C86 /* EventAttendeeTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 				FB4BEE681F292BA3006B09A1 /* EventSignInViewController.swift */,
 				FB4FFEA61F2BC13B003A9C86 /* GroupSearchViewController.swift */,
 				FB4FFEC61F2FD9DE003A9C86 /* GroupMemberListViewController.swift */,
+				FB4FFECE1F34F577003A9C86 /* EventAttendeeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -355,6 +361,8 @@
 				FB1B522C1F1E864800E35D4A /* GroupImageCell.swift in Sources */,
 				FB4FFEA71F2BC13B003A9C86 /* GroupSearchViewController.swift in Sources */,
 				FB1B51FD1F168F9000E35D4A /* LoginViewController.swift in Sources */,
+				FB4FFECF1F34F577003A9C86 /* EventAttendeeViewController.swift in Sources */,
+				FB4FFECD1F34F4C1003A9C86 /* EventAttendeeTableViewCell.swift in Sources */,
 				FB1B52361F1FC84000E35D4A /* EventService.swift in Sources */,
 				FB1B51F61F15910800E35D4A /* DatabaseReference+Location.swift in Sources */,
 				FB4BEE671F280900006B09A1 /* CreateEventViewController.swift in Sources */,

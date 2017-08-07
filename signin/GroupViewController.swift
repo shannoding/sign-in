@@ -52,6 +52,7 @@ class GroupViewController: UIViewController {
     }
     
     @IBAction func unwindToCreateEventHome(segue: UIStoryboardSegue) {
+        self.events = []
         self.events = EventService.events
         self.eventCollectionView.reloadData()
         let backItem = UIBarButtonItem()

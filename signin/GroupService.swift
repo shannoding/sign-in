@@ -102,18 +102,23 @@ struct GroupService {
         })
     }
     
-    static func searchGroupArrayKeys(completion: @escaping ([String]) -> ()) -> [String] {
-        var groupSearchData: [String] = []
+    static func searchGroup(completion: @escaping ([Group]) -> ()) {
+        var groupSearchData: [Group] = []
         let ref = Database.database().reference().child("groups_about")
         ref.observeSingleEvent(of: .value, with: { snapshot in
-            guard let snapshot = snapshot.value as? [String] else {
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
                 return
             }
-            print(snapshot)
+            for snip in snapshot {
+                guard let dict = snip.value as? [String: String],
+                    let groupName = dict["group_name"]
+                    else { return }
+                let groupKey = snip.key
+                let group = Group(key: groupKey, name: groupName)
+                groupSearchData.append(group)
+            }
             completion(groupSearchData)
-            print("The group search key data is \(groupSearchData)")
         })
-        return groupSearchData
     }
     
 }

@@ -15,6 +15,8 @@ class CreateEventViewController: UIViewController {
     
     @IBOutlet weak var eventNameTextField: UITextField!
     @IBOutlet weak var eventDateTextField: UITextField!
+    
+    @IBOutlet weak var createEventButton: UIButton!
     var DatePickerView  : UIDatePicker = UIDatePicker()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +58,8 @@ class CreateEventViewController: UIViewController {
         }
         
         EventService.create(eventName: eventName, groupKey: HomeViewController.groupSelected!.key, uid: User.current.uid, eventTime: eventDate)
+        self.createEventButton.setTitle("Created Event!", for: .normal)
+        self.createEventButton.backgroundColor = RandomColor.green
         performSegue(withIdentifier: "unwindToCreateEventHomeSegue", sender: self)
     }
     

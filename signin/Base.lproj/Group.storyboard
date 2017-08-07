@@ -206,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DW7-Gz-2y4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4255.1999999999998" y="1653.8230884557722"/>
+            <point key="canvasLocation" x="4271" y="1767"/>
         </scene>
         <!--Sign In To-->
         <scene sceneID="frx-zq-E8U">
@@ -344,6 +344,20 @@
                                     <action selector="signInButtonTapped:" destination="ORM-qH-cVT" eventType="touchUpInside" id="RQF-9d-Np4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gU-MK-Mhi">
+                                <rect key="frame" x="31" y="468" width="313" height="45"/>
+                                <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Ms7-ey-U3K"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <state key="normal" title="Attendee List">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="cOU-pD-aVb" kind="show" id="J2R-TM-PJY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -352,13 +366,16 @@
                             <constraint firstAttribute="trailingMargin" secondItem="q4f-Ze-Hhu" secondAttribute="trailing" constant="15" id="9q8-jN-nUp"/>
                             <constraint firstItem="Lsz-Bs-7oW" firstAttribute="top" secondItem="q4f-Ze-Hhu" secondAttribute="bottom" constant="50" id="DsR-di-M5e"/>
                             <constraint firstItem="l0i-We-Ty7" firstAttribute="top" secondItem="Lsz-Bs-7oW" secondAttribute="bottom" constant="75" id="JAb-gc-cmM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8gU-MK-Mhi" secondAttribute="trailing" constant="15" id="JWP-bU-cJO"/>
                             <constraint firstItem="q4f-Ze-Hhu" firstAttribute="top" secondItem="6KG-dm-2Bb" secondAttribute="bottom" constant="50" id="M6w-J7-t09"/>
                             <constraint firstItem="Lsz-Bs-7oW" firstAttribute="leading" secondItem="pNi-e4-8vb" secondAttribute="leadingMargin" constant="15" id="T0W-G9-VGe"/>
+                            <constraint firstItem="8gU-MK-Mhi" firstAttribute="leading" secondItem="pNi-e4-8vb" secondAttribute="leadingMargin" constant="15" id="TUG-Gy-wT4"/>
                             <constraint firstItem="q4f-Ze-Hhu" firstAttribute="leading" secondItem="pNi-e4-8vb" secondAttribute="leadingMargin" constant="15" id="Y7U-2k-mBT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="l0i-We-Ty7" secondAttribute="trailing" constant="15" id="bQe-tY-abK"/>
                             <constraint firstItem="l0i-We-Ty7" firstAttribute="top" secondItem="Lsz-Bs-7oW" secondAttribute="bottom" constant="75" id="bSn-jq-Q8m"/>
                             <constraint firstItem="l0i-We-Ty7" firstAttribute="leading" secondItem="pNi-e4-8vb" secondAttribute="leadingMargin" constant="15" id="dgR-Ta-XSs"/>
                             <constraint firstItem="q4f-Ze-Hhu" firstAttribute="leading" secondItem="pNi-e4-8vb" secondAttribute="leadingMargin" constant="15" id="hj6-UB-ih1"/>
+                            <constraint firstItem="8gU-MK-Mhi" firstAttribute="top" secondItem="l0i-We-Ty7" secondAttribute="bottom" constant="30" id="q2U-KR-R4d"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sign In To" id="XU9-Vu-8US"/>
@@ -375,6 +392,70 @@
                 <exit id="H6g-kG-T5M" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5396" y="1280"/>
+        </scene>
+        <!--Attendee List-->
+        <scene sceneID="pEm-kc-FBP">
+            <objects>
+                <viewController id="cOU-pD-aVb" customClass="EventAttendeeViewController" customModule="signin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L8F-fs-X4X"/>
+                        <viewControllerLayoutGuide type="bottom" id="0bp-cA-teV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hEO-qW-v7y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VDj-hB-tIv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventAttendeeTableViewCell" id="nN8-hu-pJL" customClass="EventAttendeeTableViewCell" customModule="signin" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nN8-hu-pJL" id="Nbz-Q4-ymH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfc-b4-vAb">
+                                                    <rect key="frame" x="23" y="8" width="45" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Lfc-b4-vAb" firstAttribute="top" secondItem="Nbz-Q4-ymH" secondAttribute="topMargin" id="GqH-pq-HZK"/>
+                                                <constraint firstItem="Lfc-b4-vAb" firstAttribute="leading" secondItem="Nbz-Q4-ymH" secondAttribute="leadingMargin" constant="15" id="cTH-B5-QVl"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Lfc-b4-vAb" secondAttribute="bottom" id="tTz-Ac-haG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="attendeeNameLabel" destination="Lfc-b4-vAb" id="YAS-AD-498"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="cOU-pD-aVb" id="6TH-qc-fgW"/>
+                                    <outlet property="delegate" destination="cOU-pD-aVb" id="dVS-T2-pjM"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VDj-hB-tIv" firstAttribute="top" secondItem="hEO-qW-v7y" secondAttribute="top" id="6Xp-H7-0p1"/>
+                            <constraint firstAttribute="trailing" secondItem="VDj-hB-tIv" secondAttribute="trailing" id="OLd-tb-AKt"/>
+                            <constraint firstItem="0bp-cA-teV" firstAttribute="top" secondItem="VDj-hB-tIv" secondAttribute="bottom" id="Od2-Xa-oOF"/>
+                            <constraint firstItem="VDj-hB-tIv" firstAttribute="leading" secondItem="hEO-qW-v7y" secondAttribute="leading" id="fV2-Bl-ZNJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Attendee List" id="uLo-X5-Yde"/>
+                    <connections>
+                        <outlet property="eventAttendeeTableView" destination="VDj-hB-tIv" id="2NN-re-sDv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wnm-VH-6RO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6106" y="1737"/>
         </scene>
         <!--Create Event-->
         <scene sceneID="ZPI-bN-X1j">
@@ -474,6 +555,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Create Event" id="5go-5f-V8F"/>
                     <connections>
+                        <outlet property="createEventButton" destination="yqs-zP-5EO" id="lhC-Oy-Kce"/>
                         <outlet property="eventDateTextField" destination="tDa-Cj-p2l" id="Bz5-rA-sMh"/>
                         <outlet property="eventNameTextField" destination="eTb-bW-es2" id="49K-ou-kIQ"/>
                         <segue destination="OjY-Jf-Hxj" kind="unwind" identifier="unwindToCreateEventHomeSegue" unwindAction="unwindToCreateEventHomeWithSegue:" id="2Te-qg-ptw"/>

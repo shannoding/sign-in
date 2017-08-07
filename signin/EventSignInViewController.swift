@@ -24,11 +24,15 @@ class EventSignInViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         nameTextField.text = User.current.username
         emailTextField.text = User.current.email
+        eventDateLabel.text = GroupViewController.eventSelected!.date
+            eventNameLabel.text = GroupViewController.eventSelected!.name
         
         if GroupViewController.eventSelected!.attended {
             self.signInButton.setTitle("Signed In!", for: .normal)
             self.signInButton.backgroundColor = RandomColor.green
         }
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,9 +42,10 @@ class EventSignInViewController: UIViewController {
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         GroupViewController.eventSelected!.attended = true
         EventService.attendEvent(eventKey: GroupViewController.eventSelected!.key, uid: User.current.uid) { (event) in
-            self.signInButton.setTitle("Signed In!", for: .normal)
-            self.signInButton.backgroundColor = RandomColor.green
+            
         }
+        self.signInButton.setTitle("Signed In!", for: .normal)
+        self.signInButton.backgroundColor = RandomColor.green
         performSegue(withIdentifier: "unwindToSignInHomeSegue", sender: self)
     
     }

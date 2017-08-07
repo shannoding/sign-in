@@ -81,7 +81,8 @@ extension LoginViewController: FUIAuthDelegate {
                 print("Welcome back, \(user.username).")
                 User.setCurrent(user, writeToUserDefaults: true)
                 print("Welcome back pt. 2, \(User.current.username)")
-                self.enterButton.setTitle("ENTER", for: .normal)
+                //self.enterButton.setTitle("ENTER", for: .normal)
+                self.performSegue(withIdentifier: "showHomeSegue", sender: self)
             } else {
                 print("New user!")
                 
@@ -90,13 +91,12 @@ extension LoginViewController: FUIAuthDelegate {
                     let email = firUser.email,
                     !username.isEmpty || !email.isEmpty else { return }
                 
-                self.enterButton.setTitle("ENTER", for: .normal)
-                // 4
-                UserService.createUser(firUser, username: username, email: email) { (user) in
+                    UserService.createUser(firUser, username: username, email: email) { (user) in
                     guard let user = user else { return }
                     print("Created new user, \(user.username)")
                     User.setCurrent(user, writeToUserDefaults: true)
                     print("Created new user pt. 2, \(User.current.username)")
+                    self.performSegue(withIdentifier: "showHomeSegue", sender: self)
                 }
             }
         })
