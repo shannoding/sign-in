@@ -72,6 +72,8 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // Segue your heart out
     @IBAction func unwindToGroupHome(segue:UIStoryboardSegue) {
         self.groups = GroupService.groups
         self.groupCollectionView.reloadData()
@@ -100,12 +102,13 @@ class HomeViewController: UIViewController {
         self.groupCollectionView.reloadData()
     }
     
-    
+    // press that sign out button
     @IBAction func signOutButtonPressed(_ sender: UIButton) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let signOutAction = UIAlertAction(title: "Sign Out", style: .default) { _ in
             do {
+                // firebase sign out and clear groups and user
                 try Auth.auth().signOut()
                 GroupService.groups = []
                 print("The user class should not be an actual user and is \(User.current)")
@@ -141,7 +144,7 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = groupCollectionView.dequeueReusableCell(withReuseIdentifier: "GroupImageCell", for: indexPath) as! GroupImageCell
         
-        
+        // collection cell border radius and shadow
         cell.layer.cornerRadius = 15
         cell.layer.masksToBounds = true
         cell.layer.shadowColor = UIColor.lightGray.cgColor

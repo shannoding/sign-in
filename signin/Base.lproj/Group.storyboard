@@ -74,39 +74,45 @@
                                 <rect key="frame" x="31" y="140.5" width="313" height="333.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uKt-gj-eGo">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="117" height="119"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventCollectionViewCell" id="N0V-er-tcg" customClass="EventCollectionViewCell" customModule="signin" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="117" height="119"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="117" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srg-OV-Nig">
-                                                    <rect key="frame" x="23" y="23" width="104" height="104"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ua1-iW-PWW">
+                                                    <rect key="frame" x="-5" y="20" width="127" height="84"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Event Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyw-cL-MHH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="117" height="102"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Event Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsH-Ic-pEB">
+                                                            <rect key="frame" x="0.0" y="102" width="117" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="srg-OV-Nig" firstAttribute="top" secondItem="N0V-er-tcg" secondAttribute="topMargin" constant="15" id="53i-3e-A4Z"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="srg-OV-Nig" secondAttribute="bottom" constant="15" id="7Rn-2V-lGZ"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="srg-OV-Nig" secondAttribute="trailing" constant="15" id="JxW-bV-K1t"/>
-                                            <constraint firstItem="srg-OV-Nig" firstAttribute="leading" secondItem="N0V-er-tcg" secondAttribute="leadingMargin" constant="15" id="WYE-hz-Agm"/>
-                                            <constraint firstItem="srg-OV-Nig" firstAttribute="centerX" secondItem="N0V-er-tcg" secondAttribute="centerX" id="ePM-Zu-KVY"/>
-                                            <constraint firstItem="srg-OV-Nig" firstAttribute="centerY" secondItem="N0V-er-tcg" secondAttribute="centerY" id="vOV-oL-heE"/>
+                                            <constraint firstAttribute="bottom" secondItem="ua1-iW-PWW" secondAttribute="bottom" id="6g3-Ss-0d8"/>
+                                            <constraint firstItem="ua1-iW-PWW" firstAttribute="leading" secondItem="N0V-er-tcg" secondAttribute="leading" id="OcU-2k-rAb"/>
+                                            <constraint firstAttribute="trailing" secondItem="ua1-iW-PWW" secondAttribute="trailing" id="UDF-Wt-nmB"/>
+                                            <constraint firstItem="ua1-iW-PWW" firstAttribute="top" secondItem="N0V-er-tcg" secondAttribute="top" id="sbV-3O-hSD"/>
                                         </constraints>
-                                        <size key="customSize" width="150" height="150"/>
-                                        <connections>
-                                            <outlet property="eventLabel" destination="srg-OV-Nig" id="sF5-49-pYp"/>
-                                        </connections>
+                                        <size key="customSize" width="117" height="119"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

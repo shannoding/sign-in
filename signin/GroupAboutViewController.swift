@@ -16,14 +16,26 @@ class GroupAboutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        groupNameLabel.text = HomeViewController.groupSelected!.name
         self.leaveGroupButton.backgroundColor = RandomColor.red
     }
     
     @IBAction func leaveGroupButtonTapped(_ sender: UIButton) {
+        let refreshAlert = UIAlertController(title: "Leave group?", message: "Group will be removed from Home.", preferredStyle: UIAlertControllerStyle.alert)
         
-        UserService.leaveGroup(uid: User.current.uid, groupKey: HomeViewController.groupSelected!.key)
-        HomeViewController.groupSelected = nil
-        performSegue(withIdentifier: "unwindToGroupAboutHome", sender: self)
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            UserService.leaveGroup(uid: User.current.uid, groupKey: HomeViewController.groupSelected!.key)
+            HomeViewController.groupSelected = nil
+            self.performSegue(withIdentifier: "unwindToGroupAboutHome", sender: self)
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+        
+        
     }
     
 }

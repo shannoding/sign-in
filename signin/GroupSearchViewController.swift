@@ -58,6 +58,7 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(groupSearchController.isActive)
         if groupSearchController.isActive && groupSearchBar.text != "" {
             return filtered.count
         }

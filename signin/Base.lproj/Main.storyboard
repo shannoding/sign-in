@@ -331,19 +331,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="qQ4-lM-MPs" secondAttribute="trailing" constant="15" id="rWP-XO-och"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="mGZ-xy-pTe">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="yNr-zv-f7o">
-                            <connections>
-                                <action selector="backButtonPressed:" destination="vSl-od-BF5" id="rAU-VS-8QN"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Profile" id="mGZ-xy-pTe"/>
                     <connections>
-                        <outlet property="backButton" destination="yNr-zv-f7o" id="AlO-oh-IQo"/>
                         <outlet property="emailTextField" destination="5k4-Ou-IVv" id="sjE-lF-a0z"/>
                         <outlet property="nameTextField" destination="BMH-0o-s5M" id="BdA-db-fVd"/>
                         <outlet property="saveProfileButton" destination="8ui-ZH-BsX" id="M0I-LZ-e6p"/>
                         <segue destination="4yr-38-sdG" kind="unwind" identifier="unwindToProfileHome" unwindAction="unwindToProfileHomeWithSegue:" id="spy-yL-e9J"/>
+                        <segue destination="4yr-38-sdG" kind="unwind" unwindAction="unwindToProfileHomeWithSegue:" id="LIe-FE-dY8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O77-Fl-6Yk" userLabel="First Responder" sceneMemberID="firstResponder"/>

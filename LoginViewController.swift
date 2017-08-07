@@ -34,13 +34,8 @@ class LoginViewController: UIViewController {
             print("\(user)")
             let storyboard = UIStoryboard(name: "Main", bundle: .main)
             
-            //if let initialViewController = storyboard.instantiateInitialViewController() {
-              //  self.view.window?.rootViewController = initialViewController
-                //self.view.window?.makeKeyAndVisible()
-            
                 
                 self.performSegue(withIdentifier: "showHomeSegue", sender: self)
-            //}
         }
             
             else {
