@@ -39,7 +39,7 @@ struct EventService {
     
         EventService.populateAllUserEvents(groupKey: groupKey, eventKey: key) { complete in
             if complete {
-                EventService.events.append(event)
+                //EventService.events.append(event)
             }
             else {
                 print("ERROR in populate all user events")
