@@ -144,6 +144,11 @@ extension HomeViewController: UICollectionViewDataSource {
         
         cell.layer.cornerRadius = 15
         cell.layer.masksToBounds = true
+        cell.layer.shadowColor = UIColor.lightGray.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cell.layer.shadowRadius = 1.0
+        cell.layer.shadowOpacity = 1.0
+        cell.layer.masksToBounds = false
         
         if indexPath.item < groups.count {
             let groupName = groups[indexPath.item].dictValue["group_name"]
@@ -169,7 +174,7 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let columns: CGFloat = 2
-        let spacing: CGFloat = 3
+        let spacing: CGFloat = 6
         let totalHorizontalSpacing = (columns - 1) * spacing
         
         let itemWidth = (collectionView.bounds.width - totalHorizontalSpacing) / columns
@@ -179,11 +184,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 3
+        return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 3
+        return 6
     }
 }
 
