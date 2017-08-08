@@ -91,6 +91,8 @@ extension GroupViewController: UICollectionViewDataSource {
         if indexPath.item < events.count {
             let eventName = events[indexPath.item].dictValue["event_name"]
             cell.eventLabel.text = eventName as! String
+            let eventDate = events[indexPath.item].dictValue["event_date"]
+            cell.eventDateLabel.text = eventDate as! String
             let eventAttended = events[indexPath.item].dictValue["event_attended"] as! Bool
             if eventAttended {
                 cell.backgroundColor = RandomColor.green
@@ -102,7 +104,30 @@ extension GroupViewController: UICollectionViewDataSource {
             return cell
         }
         else {
+//            let label = UILabel()
+//            label.text = "Create Event"
+//            label.textAlignment = .center
+//            label.textColor = UIColor.white
+//            label.translatesAutoresizingMaskIntoConstraints = false
+//            self.eventCollectionView.addSubview(label)
+//            
+//            let widthConstraint = NSLayoutConstraint(item: label, attribute: .width, relatedBy: .equal,
+//                                                     toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 250)
+//            
+//            let heightConstraint = NSLayoutConstraint(item: label, attribute: .height, relatedBy: .equal,
+//                                                      toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100)
+//            
+//            let xConstraint = NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: self.eventCollectionView, attribute: .centerX, multiplier: 1, constant: 0)
+//            
+//            let yConstraint = NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: self.eventCollectionView, attribute: .centerY, multiplier: 1, constant: 0)
+//            
+//            NSLayoutConstraint.activate([widthConstraint, heightConstraint, xConstraint, yConstraint])
+//            
+//            cell.eventLabel.text = nil
+            cell.eventDateLabel.text = nil
             cell.eventLabel.text = "Create Event"
+            //cell.eventLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            //cell.eventLabel.centerYAnchor.constraint(equalTo: eventCollectionView.centerYAnchor).isActive = true
             cell.backgroundColor = UIColor(red:0.56, green:0.56, blue:0.58, alpha:1.0)
             return cell
         }

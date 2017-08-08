@@ -51,5 +51,11 @@ struct RandomColor {
         let randomIndex = Int(arc4random_uniform(UInt32(RandomColor.colors.count)))
         return RandomColor.colors[randomIndex]
     }
+//    static func warmColorsArray() -> UIColor {
+//        
+//        for i in i..< GroupService.groups.count {
+//            
+//        }
+//    }
     
 }

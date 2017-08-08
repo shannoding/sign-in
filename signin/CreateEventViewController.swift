@@ -34,10 +34,16 @@ class CreateEventViewController: UIViewController {
     func handleDatePicker()
     {
         let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "MM-dd hh:mm"
+        dateFormatterGet.dateFormat = "MM-dd hh:mm a"
+        
+        dateFormatterGet.amSymbol = "AM"
+        dateFormatterGet.pmSymbol = "PM"
         
         let dateFormatterPrint = DateFormatter()
-        dateFormatterPrint.dateFormat = "MMM dd, hh:mm"
+        dateFormatterPrint.dateFormat = "MMM dd, hh:mm a"
+        dateFormatterPrint.amSymbol = "AM"
+        dateFormatterPrint.pmSymbol = "PM"
+        
         
         
         eventDateTextField.text =  dateFormatterPrint.string(from: DatePickerView.date)

@@ -123,18 +123,9 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
 
         }
     }
-
-}
-
-extension GroupSearchViewController: UISearchResultsUpdating {
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filterContentForSearchText(searchText: searchBar.text!)
     }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        print("updating")
-        filterContentForSearchText(searchText: searchController.searchBar.text!)
-        groupSearchTableView.reloadData()
-    }
+
+
 }

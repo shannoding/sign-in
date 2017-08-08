@@ -32,7 +32,7 @@ class EventSignInViewController: UIViewController {
             self.signInButton.backgroundColor = RandomColor.green
         }
         else {
-            self.signInButton.backgroundColor = RandomColor.red
+            self.signInButton.backgroundColor = RandomColor.green
         }
         
         
