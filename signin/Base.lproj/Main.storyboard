@@ -57,6 +57,19 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKh-sU-NEh">
+                                                    <rect key="frame" x="122" y="5" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="Euc-mg-hYA"/>
+                                                        <constraint firstAttribute="width" constant="28" id="U0x-dr-Wqo"/>
+                                                    </constraints>
+                                                    <state key="normal" image="whitedotto">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="groupOptionsButtonTapped:" destination="lBw-nx-uu1" eventType="touchUpInside" id="qhH-Qu-sKL"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.3529411764705882" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
@@ -65,12 +78,16 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="bAd-18-1vO" secondAttribute="trailing" constant="15" id="LJe-lw-m5F"/>
                                             <constraint firstItem="bAd-18-1vO" firstAttribute="centerY" secondItem="lBw-nx-uu1" secondAttribute="centerY" id="MkE-iE-GTg"/>
                                             <constraint firstItem="bAd-18-1vO" firstAttribute="centerX" secondItem="lBw-nx-uu1" secondAttribute="centerX" id="P4z-rR-0X2"/>
+                                            <constraint firstItem="eKh-sU-NEh" firstAttribute="top" secondItem="lBw-nx-uu1" secondAttribute="top" constant="5" id="PaF-VJ-wyT"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="bAd-18-1vO" secondAttribute="bottom" constant="15" id="UfX-V4-QXi"/>
                                             <constraint firstItem="bAd-18-1vO" firstAttribute="leading" secondItem="lBw-nx-uu1" secondAttribute="leadingMargin" constant="15" id="bCe-5N-VRz"/>
+                                            <constraint firstAttribute="trailing" secondItem="eKh-sU-NEh" secondAttribute="trailing" id="gFc-Ip-foh"/>
+                                            <constraint firstAttribute="trailing" secondItem="eKh-sU-NEh" secondAttribute="trailing" id="rnx-vF-ywH"/>
                                         </constraints>
                                         <size key="customSize" width="150" height="150"/>
                                         <connections>
                                             <outlet property="groupLabel" destination="bAd-18-1vO" id="PdY-Ii-4zg"/>
+                                            <outlet property="groupOptionsButton" destination="eKh-sU-NEh" id="CpK-aN-5zU"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -350,7 +367,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fyv-P7-NXc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4XQ-VO-LfO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4XQ-VO-LfO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -369,7 +386,7 @@
                 <viewControllerPlaceholder storyboardName="Group" id="5og-6a-v0a" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oKy-jj-y6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3390" y="806"/>
+            <point key="canvasLocation" x="3687" y="984"/>
         </scene>
         <!--Group Search View Controller-->
         <scene sceneID="FV0-sU-1jT">
@@ -449,9 +466,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFN-7u-ckH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="xUS-Tf-Wd6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4781.6000000000004" y="761.46926536731644"/>
+            <point key="canvasLocation" x="4742" y="881"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="whitedotto" width="66" height="66"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fSV-Kg-QXr"/>
     </inferredMetricsTieBreakers>

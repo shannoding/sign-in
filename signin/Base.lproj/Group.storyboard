@@ -99,21 +99,39 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEf-Ny-rAf">
+                                                    <rect key="frame" x="89" y="5" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="3dM-Qy-Wae"/>
+                                                        <constraint firstAttribute="width" constant="28" id="K50-q8-ojP"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <state key="normal" image="whitedotto"/>
+                                                    <connections>
+                                                        <action selector="eventsOptionButtonTapped:" destination="N0V-er-tcg" eventType="touchUpInside" id="lT4-EZ-2Cu"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="trailingMargin" secondItem="Kbr-JU-AeJ" secondAttribute="trailing" constant="15" id="B3F-QD-bBT"/>
+                                            <constraint firstAttribute="trailing" secondItem="FEf-Ny-rAf" secondAttribute="trailing" id="DRm-kM-UhS"/>
                                             <constraint firstItem="5hC-zb-ia3" firstAttribute="centerX" secondItem="N0V-er-tcg" secondAttribute="centerX" id="H2a-I3-W84"/>
                                             <constraint firstItem="Kbr-JU-AeJ" firstAttribute="top" secondItem="5hC-zb-ia3" secondAttribute="bottom" constant="5" id="PV6-fR-3ip"/>
+                                            <constraint firstAttribute="trailing" secondItem="FEf-Ny-rAf" secondAttribute="trailing" id="RVd-i6-4Hi"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="5hC-zb-ia3" secondAttribute="trailing" constant="15" id="WBh-Oz-BW7"/>
+                                            <constraint firstItem="FEf-Ny-rAf" firstAttribute="top" secondItem="N0V-er-tcg" secondAttribute="top" constant="5" id="bIq-IY-EW0"/>
                                             <constraint firstItem="Kbr-JU-AeJ" firstAttribute="leading" secondItem="N0V-er-tcg" secondAttribute="leadingMargin" constant="15" id="dvv-39-La2"/>
                                             <constraint firstItem="5hC-zb-ia3" firstAttribute="centerY" secondItem="N0V-er-tcg" secondAttribute="centerY" multiplier="0.9" id="gyo-e3-xgT"/>
+                                            <constraint firstAttribute="trailing" secondItem="FEf-Ny-rAf" secondAttribute="trailing" id="ho0-qb-GZL"/>
+                                            <constraint firstAttribute="trailing" secondItem="FEf-Ny-rAf" secondAttribute="trailing" id="qi4-NN-Wp8"/>
                                             <constraint firstItem="5hC-zb-ia3" firstAttribute="leading" secondItem="N0V-er-tcg" secondAttribute="leadingMargin" constant="15" id="yhh-BT-zEc"/>
                                         </constraints>
                                         <size key="customSize" width="117" height="119"/>
                                         <connections>
                                             <outlet property="eventDateLabel" destination="Kbr-JU-AeJ" id="BZZ-dh-z7Y"/>
                                             <outlet property="eventLabel" destination="5hC-zb-ia3" id="Xl5-Sc-y5J"/>
+                                            <outlet property="eventOptionsButton" destination="FEf-Ny-rAf" id="lOH-l4-gim"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -657,4 +675,7 @@
             <point key="canvasLocation" x="5095" y="397"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="whitedotto" width="66" height="66"/>
+    </resources>
 </document>

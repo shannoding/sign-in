@@ -174,4 +174,31 @@ struct EventService {
             print("The attendee data is \(attendeeArray)")
         })
     }
+    static func flagEvent(_ event: Event) {
+        // 1
+        let eventKey = event.key
+        
+        // 2
+        let flaggedEventRef = Database.database().reference().child("flagged_events").child(eventKey)
+        
+        
+        let groupName = event.name
+        let flaggedDict = ["event_name": groupName,
+                           "admins": ["this", "doesn't", "exist", "yet"],
+                           "reporter_uid": User.current.uid] as [String : Any]
+        
+        // 4
+        flaggedEventRef.updateChildValues(flaggedDict)
+        
+        // 5
+        let flagCountRef = flaggedEventRef.child("flag_count")
+        flagCountRef.runTransactionBlock({ (mutableData) -> TransactionResult in
+            let currentCount = mutableData.value as? Int ?? 0
+            
+            mutableData.value = currentCount + 1
+            
+            return TransactionResult.success(withValue: mutableData)
+        })
+    }
+
 }

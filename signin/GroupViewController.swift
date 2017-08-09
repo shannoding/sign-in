@@ -68,6 +68,40 @@ class GroupViewController: UIViewController {
         navigationItem.backBarButtonItem = backItem
     }
     
+    func handleEventOptionsButtonTap(from cell: EventCollectionViewCell) {
+        // 1
+        guard let indexPath = eventCollectionView.indexPath(for: cell) else { return }
+        
+        // 2
+        let event = events[indexPath.item]
+        
+        //let admins = groups.admin
+        // ^doesn't exist yet
+        
+        // 3
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        // 4
+        //if poster.uid != User.current.uid {
+        let flagAction = UIAlertAction(title: "Report as Inappropriate", style: .default) { _ in
+            EventService.flagEvent(event)
+            
+            let okAlert = UIAlertController(title: nil, message: "The event has been flagged.", preferredStyle: .alert)
+            okAlert.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.present(okAlert, animated: true)
+            
+        }
+        
+        alertController.addAction(flagAction)
+        //}
+        
+        // 5
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        // 6
+        present(alertController, animated: true, completion: nil)    }
+    
 }
 
 extension GroupViewController: UICollectionViewDataSource {
@@ -89,11 +123,14 @@ extension GroupViewController: UICollectionViewDataSource {
         cell.layer.masksToBounds = false
         
         if indexPath.item < events.count {
+            cell.eventOptionsButton.isHidden = false
+
             let eventName = events[indexPath.item].dictValue["event_name"]
             cell.eventLabel.text = eventName as! String
             let eventDate = events[indexPath.item].dictValue["event_date"]
             cell.eventDateLabel.text = eventDate as! String
             let eventAttended = events[indexPath.item].dictValue["event_attended"] as! Bool
+            cell.didTapOptionsButtonForCell = handleEventOptionsButtonTap(from:)
             if eventAttended {
                 cell.backgroundColor = RandomColor.green
             }
@@ -104,26 +141,7 @@ extension GroupViewController: UICollectionViewDataSource {
             return cell
         }
         else {
-//            let label = UILabel()
-//            label.text = "Create Event"
-//            label.textAlignment = .center
-//            label.textColor = UIColor.white
-//            label.translatesAutoresizingMaskIntoConstraints = false
-//            self.eventCollectionView.addSubview(label)
-//            
-//            let widthConstraint = NSLayoutConstraint(item: label, attribute: .width, relatedBy: .equal,
-//                                                     toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 250)
-//            
-//            let heightConstraint = NSLayoutConstraint(item: label, attribute: .height, relatedBy: .equal,
-//                                                      toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 100)
-//            
-//            let xConstraint = NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: self.eventCollectionView, attribute: .centerX, multiplier: 1, constant: 0)
-//            
-//            let yConstraint = NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: self.eventCollectionView, attribute: .centerY, multiplier: 1, constant: 0)
-//            
-//            NSLayoutConstraint.activate([widthConstraint, heightConstraint, xConstraint, yConstraint])
-//            
-//            cell.eventLabel.text = nil
+            cell.eventOptionsButton.isHidden = true
             cell.eventDateLabel.text = nil
             cell.eventLabel.text = "Create Event"
             //cell.eventLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

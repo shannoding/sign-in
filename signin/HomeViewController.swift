@@ -131,7 +131,39 @@ class HomeViewController: UIViewController {
 //        GroupService.create(groupName: "group2")
     }
     
-    
+    func handleGroupOptionsButtonTap(from cell: GroupImageCell) {
+        // 1
+        guard let indexPath = groupCollectionView.indexPath(for: cell) else { return }
+        
+        // 2
+        let group = groups[indexPath.item]
+        
+        //let admins = groups.admin
+        // ^doesn't exist yet
+        
+        // 3
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        // 4
+        //if poster.uid != User.current.uid {
+            let flagAction = UIAlertAction(title: "Report as Inappropriate", style: .default) { _ in
+                    GroupService.flagGroup(group)
+                    
+                    let okAlert = UIAlertController(title: nil, message: "The group has been flagged.", preferredStyle: .alert)
+                    okAlert.addAction(UIAlertAction(title: "Ok", style: .default))
+                    self.present(okAlert, animated: true)
+
+            }
+            
+            alertController.addAction(flagAction)
+        //}
+        
+        // 5
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        // 6
+        present(alertController, animated: true, completion: nil)    }
     
 }
 
@@ -154,20 +186,24 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.layer.masksToBounds = false
         
         if indexPath.item < groups.count {
+            cell.groupOptionsButton.isHidden = false
             let groupName = groups[indexPath.item].dictValue["group_name"]
             cell.groupLabel.text = groupName
             cell.backgroundColor = RandomColor.chooseWarmColors()
+            cell.didTapOptionsButtonForCell = handleGroupOptionsButtonTap(from:)
             
             return cell
         }
         let cellCount = indexPath.item
         if cellCount == groups.count + 1 {
+            cell.groupOptionsButton.isHidden = true
             cell.groupLabel.text = "Join Group"
             cell.backgroundColor = UIColor(red:0.56, green:0.56, blue:0.58, alpha:1.0)
             return cell
         }
         else {
             cell.groupLabel.text = "Create Group"
+            cell.groupOptionsButton.isHidden = true
             cell.backgroundColor = UIColor(red:0.56, green:0.56, blue:0.58, alpha:1.0)
             return cell
         }

@@ -11,5 +11,10 @@ import UIKit
 class GroupImageCell: UICollectionViewCell {
     
     @IBOutlet weak var groupLabel: UILabel!
+    @IBOutlet weak var groupOptionsButton: UIButton!
     
+    @IBAction func groupOptionsButtonTapped(_ sender: UIButton) {
+        didTapOptionsButtonForCell?(self)
+    }
+    var didTapOptionsButtonForCell: ((GroupImageCell) -> Void)?
 }

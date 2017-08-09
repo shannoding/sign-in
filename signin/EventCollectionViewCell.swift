@@ -12,5 +12,11 @@ class EventCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var eventLabel: UILabel!
     @IBOutlet weak var eventDateLabel: UILabel!
+    @IBOutlet weak var eventOptionsButton: UIButton!
     
+    @IBAction func eventsOptionButtonTapped(_ sender: UIButton) {
+        didTapOptionsButtonForCell?(self)
+    }
+    
+    var didTapOptionsButtonForCell: ((EventCollectionViewCell) -> Void)?
 }

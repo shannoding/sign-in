@@ -121,4 +121,31 @@ struct GroupService {
         })
     }
     
+    static func flagGroup(_ group: Group) {
+        // 1
+        let groupKey = group.key
+        
+        // 2
+        let flaggedGroupRef = Database.database().reference().child("flagged_groups").child(groupKey)
+        
+        
+        let groupName = group.name
+        let flaggedDict = ["group_name": groupName,
+                           "admins": ["this", "doesn't", "exist", "yet"],
+                           "reporter_uid": User.current.uid] as [String : Any]
+        
+        // 4
+        flaggedGroupRef.updateChildValues(flaggedDict)
+        
+        // 5
+        let flagCountRef = flaggedGroupRef.child("flag_count")
+        flagCountRef.runTransactionBlock({ (mutableData) -> TransactionResult in
+            let currentCount = mutableData.value as? Int ?? 0
+            
+            mutableData.value = currentCount + 1
+            
+            return TransactionResult.success(withValue: mutableData)
+        })
+    }
+    
 }
