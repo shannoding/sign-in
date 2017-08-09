@@ -17,13 +17,21 @@ class CreateGroupViewController: UIViewController {
     @IBOutlet weak var createGroupTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        createGroupTextField.addTarget(self, action: #selector(checkMaxLength(_ :)), for: .editingChanged)
+
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    
+    func checkMaxLength(_ textField: UITextField!) {
+        if (textField.text!.characters.count > 50) {
+            textField.deleteBackward()
+        }
     }
 
     

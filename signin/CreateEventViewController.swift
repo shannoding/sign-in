@@ -24,6 +24,7 @@ class CreateEventViewController: UIViewController {
         DatePickerView.datePickerMode = UIDatePickerMode.dateAndTime
         eventDateTextField.inputView = DatePickerView
         DatePickerView.addTarget(self, action: #selector(CreateEventViewController.handleDatePicker), for: UIControlEvents.valueChanged)
+        eventNameTextField.addTarget(self, action: #selector(checkNameMaxLength(_ :)), for: .editingChanged)
 
     }
     
@@ -31,6 +32,13 @@ class CreateEventViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func checkNameMaxLength(_ textField: UITextField!) {
+        if (textField.text!.characters.count > 50) {
+            textField.deleteBackward()
+        }
+    }
+    
     func handleDatePicker()
     {
         let dateFormatterGet = DateFormatter()

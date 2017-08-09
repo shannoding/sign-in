@@ -25,11 +25,25 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
             nameTextField.text = User.current.username
             emailTextField.text = User.current.email
+        emailTextField.addTarget(self, action: #selector(checkEmailMaxLength(_ :)), for: .editingChanged)
+        nameTextField.addTarget(self, action: #selector(checkNameMaxLength(_ :)), for: .editingChanged)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func checkEmailMaxLength(_ textField: UITextField!) {
+        if (textField.text!.characters.count > 260) {
+            textField.deleteBackward()
+        }
+    }
+    
+    func checkNameMaxLength(_ textField: UITextField!) {
+        if (textField.text!.characters.count > 50) {
+            textField.deleteBackward()
+        }
     }
     
     @IBAction func saveProfileButtonPressed(_ sender: UIButton) {
