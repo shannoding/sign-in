@@ -124,6 +124,7 @@ extension GroupViewController: UICollectionViewDataSource {
         
         if indexPath.item < events.count {
             cell.eventOptionsButton.isHidden = false
+            cell.eventDateLabel.isHidden = false
 
             let eventName = events[indexPath.item].dictValue["event_name"]
             cell.eventLabel.text = eventName as! String
@@ -142,7 +143,7 @@ extension GroupViewController: UICollectionViewDataSource {
         }
         else {
             cell.eventOptionsButton.isHidden = true
-            cell.eventDateLabel.text = nil
+            cell.eventDateLabel.isHidden = true
             cell.eventLabel.text = "Create Event"
             //cell.eventLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             //cell.eventLabel.centerYAnchor.constraint(equalTo: eventCollectionView.centerYAnchor).isActive = true
