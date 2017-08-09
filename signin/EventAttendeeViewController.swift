@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class EventAttendeeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -25,6 +26,10 @@ class EventAttendeeViewController: UIViewController, UITableViewDataSource, UITa
             self.eventAttendeeTableView.reloadData()
         }
     }
+    @IBAction func emailListButton(_ sender: UIBarButtonItem) {
+        sendEmail()
+        
+    }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -40,4 +45,40 @@ class EventAttendeeViewController: UIViewController, UITableViewDataSource, UITa
         return cell
     }
     
+    
+    
+    
+}
+
+
+// email sending stuff
+extension EventAttendeeViewController: MFMailComposeViewControllerDelegate {
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let alertController = UIAlertController(title: "Feature Doesn't Exist", message:
+                "Email doesn't work yet :(", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            return
+
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["shannonding2@gmail.com"])
+            mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+            
+            present(mail, animated: true)
+        } else {
+            let alertController = UIAlertController(title: "Email Not Supported", message:
+                "Cannot email message on your device.", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
 }

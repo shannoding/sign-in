@@ -114,9 +114,10 @@ struct UserService {
                                 }
                                 else {
                                     print("ERROR in populate all new user events")
+                                    return
                                 }
                             }
-                            return completion(groupJoined)
+                            return
                         }
                     print("the joined group group name is \(groupName)")
                                     // user did not already join

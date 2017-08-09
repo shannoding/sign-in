@@ -36,6 +36,7 @@
 		FB4FFECF1F34F577003A9C86 /* EventAttendeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FFECE1F34F577003A9C86 /* EventAttendeeViewController.swift */; };
 		FB4FFED11F38DFBD003A9C86 /* GroupAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FFED01F38DFBD003A9C86 /* GroupAboutViewController.swift */; };
 		FB4FFED31F3AD939003A9C86 /* SignInLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB4FFED21F3AD939003A9C86 /* SignInLaunchScreen.storyboard */; };
+		FB4FFED51F3AF2DF003A9C86 /* EmailAttendeeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FFED41F3AF2DF003A9C86 /* EmailAttendeeListViewController.swift */; };
 		FB6664401F0E9A5D005CD110 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB66643F1F0E9A5D005CD110 /* AppDelegate.swift */; };
 		FB6664421F0E9A5D005CD110 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6664411F0E9A5D005CD110 /* ViewController.swift */; };
 		FB6664451F0E9A5D005CD110 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6664431F0E9A5D005CD110 /* Login.storyboard */; };
@@ -73,6 +74,7 @@
 		FB4FFECE1F34F577003A9C86 /* EventAttendeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAttendeeViewController.swift; sourceTree = "<group>"; };
 		FB4FFED01F38DFBD003A9C86 /* GroupAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupAboutViewController.swift; sourceTree = "<group>"; };
 		FB4FFED21F3AD939003A9C86 /* SignInLaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignInLaunchScreen.storyboard; sourceTree = "<group>"; };
+		FB4FFED41F3AF2DF003A9C86 /* EmailAttendeeListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailAttendeeListViewController.swift; sourceTree = "<group>"; };
 		FB66643C1F0E9A5D005CD110 /* signin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = signin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB66643F1F0E9A5D005CD110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB6664411F0E9A5D005CD110 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				FB4FFEC61F2FD9DE003A9C86 /* GroupMemberListViewController.swift */,
 				FB4FFECE1F34F577003A9C86 /* EventAttendeeViewController.swift */,
 				FB4FFED01F38DFBD003A9C86 /* GroupAboutViewController.swift */,
+				FB4FFED41F3AF2DF003A9C86 /* EmailAttendeeListViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				FB1B522C1F1E864800E35D4A /* GroupImageCell.swift in Sources */,
 				FB4FFEA71F2BC13B003A9C86 /* GroupSearchViewController.swift in Sources */,
 				FB1B51FD1F168F9000E35D4A /* LoginViewController.swift in Sources */,
+				FB4FFED51F3AF2DF003A9C86 /* EmailAttendeeListViewController.swift in Sources */,
 				FB4FFECF1F34F577003A9C86 /* EventAttendeeViewController.swift in Sources */,
 				FB4FFECD1F34F4C1003A9C86 /* EventAttendeeTableViewCell.swift in Sources */,
 				FB1B52361F1FC84000E35D4A /* EventService.swift in Sources */,

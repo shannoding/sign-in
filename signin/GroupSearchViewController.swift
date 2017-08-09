@@ -36,10 +36,7 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
         groupSearchBar.delegate = self
         
         
-        //groupSearchController.searchResultsUpdater = self
-        //groupSearchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
-        //groupSearchTableView.tableHeaderView = searchController.searchBar
         
         super.viewDidLoad()
     
@@ -58,8 +55,6 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //print(groupSearchController.isActive)
-        //if groupSearchController.isActive && 
         if groupSearchBar.text != "" {
             return filtered.count
         }
@@ -71,7 +66,6 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
         
         let groupSearched: Group
         
-        //if groupSearchController.isActive && 
         if groupSearchBar.text != "" {
             groupSearched = filtered[indexPath.row]
         }
@@ -90,7 +84,7 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         self.filtered = data.filter { group in
-            return group.name.lowercased().contains(searchText.lowercased()) //range(of: searchText.lowercased()) != nil
+            return group.name.lowercased().contains(searchText.lowercased())
         }
         groupSearchTableView.reloadData()
 
@@ -99,7 +93,7 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
     
     // MARK: - Segues
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //if groupSearchController.isActive && 
+        
         if groupSearchBar.text != "" {
             let groupSearched = filtered[indexPath.row]
             UserService.joinGroup(uid: User.current.uid, groupKey: groupSearched.key) { (groupJoined) in
@@ -119,7 +113,7 @@ class GroupSearchViewController: UIViewController, UITableViewDataSource, UITabl
                 print("The group selected from joining is \(HomeViewController.groupSelected)")
                 self.view.endEditing(true)
                 self.performSegue(withIdentifier: "showGroupFromSearchSegue", sender: self)
-            }
+                }
 
         }
     }
