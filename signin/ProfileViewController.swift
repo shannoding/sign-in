@@ -79,5 +79,8 @@ class ProfileViewController: UIViewController {
 //        performSegue(withIdentifier: "unwindToProfileHome", sender: self)
 //    }
     
+    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+         self.view.endEditing(true)
+    }
     
 }

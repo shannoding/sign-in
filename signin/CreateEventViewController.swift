@@ -76,5 +76,8 @@ class CreateEventViewController: UIViewController {
         self.createEventButton.backgroundColor = RandomColor.green
         performSegue(withIdentifier: "unwindToCreateEventHomeSegue", sender: self)
     }
+    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+         self.view.endEditing(true)
+    }
     
 }

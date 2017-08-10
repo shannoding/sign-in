@@ -24,10 +24,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="02D-wU-bhu">
-                                <rect key="frame" x="35" y="90" width="344" height="25.333333333333329"/>
+                                <rect key="frame" x="35" y="90" width="344" height="26"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Groups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnI-Ix-ndF">
-                                        <rect key="frame" x="0.0" y="0.0" width="344" height="25.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="26"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -35,7 +35,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="prQ-8s-0Cx">
-                                <rect key="frame" x="35" y="140.33333333333337" width="344" height="368"/>
+                                <rect key="frame" x="35" y="141" width="344" height="368"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jzB-JK-zZj">
                                     <size key="itemSize" width="50" height="50"/>
@@ -226,6 +226,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="fIq-po-Jqx" firstAttribute="top" secondItem="QKI-RZ-Ksr" secondAttribute="bottom" constant="50" id="07f-11-7Ck"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fIq-po-Jqx" secondAttribute="trailing" constant="15" id="3YG-yp-jjY"/>
@@ -234,6 +235,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="IMH-8f-J00" secondAttribute="trailing" constant="15" id="Xe7-tu-QB8"/>
                             <constraint firstItem="IMH-8f-J00" firstAttribute="leading" secondItem="4Qo-y6-Kv0" secondAttribute="leadingMargin" constant="15" id="o9o-8h-zUL"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="0Mo-56-GxM" appends="YES" id="n1c-3s-GH7"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Create Group" id="myc-Vx-0TU"/>
                     <connections>
@@ -244,6 +248,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ae-cf-Gc1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hen-k1-k51" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="0Mo-56-GxM">
+                    <connections>
+                        <action selector="tapGesture:" destination="7hr-QP-Cgl" id="mqX-9Z-eTQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3635" y="2"/>
         </scene>
@@ -339,6 +348,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="8ui-ZH-BsX" firstAttribute="top" secondItem="qQ4-lM-MPs" secondAttribute="bottom" constant="75" id="3BR-YD-pA5"/>
                             <constraint firstItem="8ui-ZH-BsX" firstAttribute="leading" secondItem="U3a-7i-0kc" secondAttribute="leadingMargin" constant="15" id="DiF-U3-tat"/>
@@ -348,6 +358,9 @@
                             <constraint firstItem="qQ4-lM-MPs" firstAttribute="top" secondItem="ZK8-j5-vjp" secondAttribute="bottom" constant="50" id="fsg-Sb-CAb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qQ4-lM-MPs" secondAttribute="trailing" constant="15" id="rWP-XO-och"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="hy2-ec-K5Y" appends="YES" id="DdM-K8-jzc"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="mGZ-xy-pTe"/>
                     <connections>
@@ -360,6 +373,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O77-Fl-6Yk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4yr-38-sdG" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="hy2-ec-K5Y">
+                    <connections>
+                        <action selector="tapGesture:" destination="vSl-od-BF5" id="mjG-f3-wNS"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2593" y="882"/>
         </scene>
@@ -368,7 +386,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fyv-P7-NXc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4XQ-VO-LfO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4XQ-VO-LfO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -413,11 +431,11 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ah9-eS-Uuj" id="UCC-wm-41G">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Is-Dn-2Jc">
-                                                    <rect key="frame" x="23" y="8" width="383" height="27.666666666666664"/>
+                                                    <rect key="frame" x="23" y="8" width="383" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

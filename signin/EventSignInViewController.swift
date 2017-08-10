@@ -69,4 +69,9 @@ class EventSignInViewController: UIViewController {
         performSegue(withIdentifier: "unwindToSignInHomeSegue", sender: self)
     
     }
+    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
+    
 }

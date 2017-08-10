@@ -24,10 +24,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rb4-eH-4Aa">
-                                <rect key="frame" x="35" y="90" width="344" height="25.333333333333329"/>
+                                <rect key="frame" x="35" y="90" width="344" height="26"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Events for" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zx6-Ii-0Nn">
-                                        <rect key="frame" x="0.0" y="0.0" width="344" height="25.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="26"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -35,7 +35,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kql-6J-Gcj">
-                                <rect key="frame" x="35" y="140.33333333333337" width="344" height="368"/>
+                                <rect key="frame" x="35" y="141" width="344" height="368"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uKt-gj-eGo">
                                     <size key="itemSize" width="117" height="119"/>
@@ -58,7 +58,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbr-JU-AeJ">
-                                                    <rect key="frame" x="23" y="67" width="71" height="14.666666666666671"/>
+                                                    <rect key="frame" x="23" y="67" width="71" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -229,6 +229,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="4YN-dh-Hog" firstAttribute="top" secondItem="reZ-0m-OZu" secondAttribute="bottom" constant="50" id="DzJ-h8-8bB"/>
                             <constraint firstItem="12r-jp-PKl" firstAttribute="leading" secondItem="m4M-GM-7uA" secondAttribute="leadingMargin" constant="15" id="MZW-6Q-Klo"/>
@@ -238,6 +239,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="12r-jp-PKl" secondAttribute="trailing" constant="15" id="iT6-JN-PZO"/>
                             <constraint firstItem="12r-jp-PKl" firstAttribute="top" secondItem="4YN-dh-Hog" secondAttribute="bottom" constant="75" id="qPt-6a-cgn"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="u73-Wq-UPk" appends="YES" id="6k9-B5-dn2"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="groupNameLabel" destination="cEk-0z-YNs" id="rYp-7Z-JHU"/>
@@ -247,6 +251,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0iQ-qi-Wrz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="jaM-wE-bIp" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="u73-Wq-UPk">
+                    <connections>
+                        <action selector="tapGesture:" destination="wSS-ZC-Grc" id="SIE-po-Fd3"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3220" y="1766"/>
         </scene>
@@ -270,11 +279,11 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EJD-AY-7O1" id="Fwk-xT-ZrE">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bso-kO-Cbx">
-                                                    <rect key="frame" x="23" y="8" width="368" height="27.666666666666664"/>
+                                                    <rect key="frame" x="23" y="8" width="368" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -468,6 +477,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Lsz-Bs-7oW" secondAttribute="trailing" constant="15" id="4K8-Kk-6vb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="q4f-Ze-Hhu" secondAttribute="trailing" constant="15" id="54B-lP-n2z"/>
@@ -485,6 +495,9 @@
                             <constraint firstItem="q4f-Ze-Hhu" firstAttribute="leading" secondItem="pNi-e4-8vb" secondAttribute="leadingMargin" constant="15" id="hj6-UB-ih1"/>
                             <constraint firstItem="8gU-MK-Mhi" firstAttribute="top" secondItem="l0i-We-Ty7" secondAttribute="bottom" constant="30" id="q2U-KR-R4d"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="P3p-ir-JoO" appends="YES" id="Vbi-xe-zRh"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Sign In To" id="XU9-Vu-8US"/>
                     <connections>
@@ -498,6 +511,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CiP-Rh-n7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="H6g-kG-T5M" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="P3p-ir-JoO">
+                    <connections>
+                        <action selector="tapGesture:" destination="ORM-qH-cVT" id="eDm-Jz-sHh"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5396" y="1280"/>
         </scene>
@@ -521,11 +539,11 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nN8-hu-pJL" id="Nbz-Q4-ymH">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfc-b4-vAb">
-                                                    <rect key="frame" x="23" y="8" width="45" height="27.666666666666664"/>
+                                                    <rect key="frame" x="23" y="8" width="45" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -765,6 +783,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="yqs-zP-5EO" firstAttribute="top" secondItem="Go0-c5-MTY" secondAttribute="bottom" constant="75" id="AzL-t6-f1d"/>
                             <constraint firstItem="yqs-zP-5EO" firstAttribute="leading" secondItem="ILs-Ue-3Sa" secondAttribute="leadingMargin" constant="15" id="NVK-EV-05b"/>
@@ -773,6 +792,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Go0-c5-MTY" secondAttribute="trailing" constant="15" id="ulx-3U-AnE"/>
                             <constraint firstItem="Go0-c5-MTY" firstAttribute="top" secondItem="t88-Lc-uqd" secondAttribute="bottom" constant="50" id="vWN-N8-Llo"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="RCm-3L-CdC" appends="YES" id="unQ-7a-bsK"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Create Event" id="5go-5f-V8F"/>
                     <connections>
@@ -784,6 +806,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X2M-1F-Ypb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="OjY-Jf-Hxj" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="RCm-3L-CdC">
+                    <connections>
+                        <action selector="tapGesture:" destination="U7q-pJ-qlE" id="StI-Ag-97b"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5095" y="397"/>
         </scene>

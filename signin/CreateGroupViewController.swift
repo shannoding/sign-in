@@ -60,5 +60,8 @@ class CreateGroupViewController: UIViewController {
         }
         )
     }
+    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+         self.view.endEditing(true)
+    }
 
 }
