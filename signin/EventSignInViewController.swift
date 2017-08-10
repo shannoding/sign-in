@@ -42,6 +42,8 @@ class EventSignInViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         
         guard let username = nameTextField.text,

@@ -37,6 +37,7 @@ class GroupViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        EventService.autoEventDelete(uid: User.current.uid, groupKey: HomeViewController.groupSelected!.key)
         events = []
         EventService.fillEvents(uid: User.current.uid, groupKey: HomeViewController.groupSelected!.key) { (eventList) in
             self.events = eventList

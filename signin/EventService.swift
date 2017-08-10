@@ -200,5 +200,85 @@ struct EventService {
             return TransactionResult.success(withValue: mutableData)
         })
     }
+    static func dateDiff(dateStr:String) -> Int {
+
+        let start = dateStr.index(dateStr.startIndex, offsetBy: 4)
+        let end = dateStr.index(dateStr.endIndex, offsetBy: -10)
+        let range = start..<end
+        
+        var eventDay = Int(dateStr.substring(with: range))
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let currentDay = calendar.component(.day, from: date)
+        guard let eDay = eventDay
+            else { return -1 }
+        if eDay < currentDay {
+            return currentDay - eDay
+        }
+        else {
+            return eDay - currentDay + 30
+        }
+
+//        var f:DateFormatter = DateFormatter()
+//        f.timeZone = NSTimeZone.local
+//        f.dateFormat = "MMM dd, hh:mm a"
+//        
+//        var now = f.string(from: NSDate() as Date)
+//        var startDate = f.date(from: dateStr)
+//        var endDate = f.date(from: now)
+//        var calendar: NSCalendar = NSCalendar.current as NSCalendar
+//        
+//        let calendarUnits = NSCalendar.Unit.hour
+//        let dateComponents = calendar.components(calendarUnits, fromDate: startDate!, toDate: endDate!, options: nil)
+//        
+//        let hours = abs(dateComponents.hour)
+//        
+//        var hoursAgo = 0
+//        
+//        if(hours >= 0){
+//            hoursAgo = hours
+//            
+//        }
+//        print("hoursAgo is ===> \(hoursAgo)")
+//        return hoursAgo
+    }
+    
+    static func autoEventDelete(uid: String, groupKey: String) {
+        
+        let groupEventsRef = Database.database().reference().child("group_events").child(groupKey)
+        groupEventsRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot]
+                else { return }
+            // gets event key for each event in group
+            for snip in snapshot {
+                let eventKey = snip.key
+                // uses event key to get date
+                let eventDateRef = Database.database().reference().child("events_about").child(eventKey).child("event_date")
+                eventDateRef.observeSingleEvent(of: .value, with: { (snipshot) in
+                    guard let eventDate = snipshot.value as? String
+                        else { return }
+                    // gets the time passed
+                    let eventDateDiff = EventService.dateDiff(dateStr: eventDate)
+                    // auto deletes the event if it's over a week old
+                    if eventDateDiff > 168 {
+                        // deletes the event from everywhere
+                        let eventRef = Database.database().reference().child("events_about").child(eventKey)
+                        eventRef.setValue(nil)
+                        let eventAttendeeRef = Database.database().reference().child("event_attendees").child(eventKey)
+                        eventAttendeeRef.setValue(nil)
+                        let eventFlaggedRef = Database.database().reference().child("flagged_events").child(eventKey)
+                        eventFlaggedRef.setValue(nil)
+                        let groupEventsRef = Database.database().reference().child("group_events").child(groupKey).child(eventKey)
+                        groupEventsRef.setValue(nil)
+                        let userEventsRef = Database.database().reference().child("user_events").child(uid).child(eventKey)
+                        userEventsRef.setValue(nil)
+                    }
+                })
+                
+        }
+            
+        })
+    }
 
 }
