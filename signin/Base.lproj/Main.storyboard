@@ -368,7 +368,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fyv-P7-NXc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4XQ-VO-LfO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4XQ-VO-LfO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -389,7 +389,7 @@
             </objects>
             <point key="canvasLocation" x="3687" y="984"/>
         </scene>
-        <!--Group Search View Controller-->
+        <!--Search for Groups-->
         <scene sceneID="FV0-sU-1jT">
             <objects>
                 <viewController id="ooj-wj-dOE" customClass="GroupSearchViewController" customModule="signin" customModuleProvider="target" sceneMemberID="viewController">
@@ -413,7 +413,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ah9-eS-Uuj" id="UCC-wm-41G">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Is-Dn-2Jc">
@@ -457,6 +457,7 @@
                             <constraint firstItem="DTZ-Cl-nWH" firstAttribute="leading" secondItem="APV-1X-Adz" secondAttribute="leading" id="sgo-M8-Wmf"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Search for Groups" id="XQA-Vh-tuP"/>
                     <connections>
                         <outlet property="groupSearchBar" destination="ut1-1D-NCQ" id="zhU-EZ-bc1"/>
                         <outlet property="groupSearchTableView" destination="DTZ-Cl-nWH" id="51j-nE-ea2"/>
@@ -474,6 +475,6 @@
         <image name="whitedotto" width="66" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fSV-Kg-QXr"/>
+        <segue reference="MTX-Lb-7yu"/>
     </inferredMetricsTieBreakers>
 </document>

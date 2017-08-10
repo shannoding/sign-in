@@ -556,13 +556,7 @@
                             <constraint firstItem="VDj-hB-tIv" firstAttribute="leading" secondItem="hEO-qW-v7y" secondAttribute="leading" id="fV2-Bl-ZNJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Attendee List" id="uLo-X5-Yde">
-                        <barButtonItem key="rightBarButtonItem" title="Email List" id="Wx6-nL-ntb">
-                            <connections>
-                                <action selector="emailListButton:" destination="cOU-pD-aVb" id="rFP-tu-8Ax"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Attendee List" id="uLo-X5-Yde"/>
                     <connections>
                         <outlet property="eventAttendeeTableView" destination="VDj-hB-tIv" id="2NN-re-sDv"/>
                         <segue destination="xOr-d9-rNk" kind="show" id="EMI-9U-2JU"/>
