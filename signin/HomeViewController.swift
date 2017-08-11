@@ -98,8 +98,8 @@ class HomeViewController: UIViewController {
         navigationItem.backBarButtonItem = backItem
     }
     @IBAction func unwindToGroupAboutHome(segue:UIStoryboardSegue) {
-        self.groups = GroupService.groups
-        self.groupCollectionView.reloadData()
+//        self.groups = GroupService.groups
+//        self.groupCollectionView.reloadData()
     }
     
     // press that sign out button

@@ -57,8 +57,7 @@ class CreateGroupViewController: UIViewController {
             self.createGroupButton.backgroundColor = RandomColor.green
             self.performSegue(withIdentifier: "unwindToCreateGroupHomeSegue", sender: self)
             print("Did unwindToCreateGroupHomeSegue")
-        }
-        )
+        })
     }
     @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
          self.view.endEditing(true)

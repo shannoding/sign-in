@@ -12,7 +12,11 @@ import UIKit
 class GroupMemberTableViewCell: UITableViewCell {
     
     @IBOutlet weak var memberNameLabel: UILabel!
-    override func awakeFromNib() {
+    
+    
+    
+    override func awakeFromNib()
+    {
         super.awakeFromNib()
         // Initialization code
     }
