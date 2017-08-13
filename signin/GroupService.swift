@@ -56,8 +56,9 @@ struct GroupService {
                 print("Fill groups groups are: \(group)")
                 groups.append(group)
                 completion(groups)
+                return
             }
-            print(groups)
+            completion([])
             //HomeViewController.refresh()
             
         })
